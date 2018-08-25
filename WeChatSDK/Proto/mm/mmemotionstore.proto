@@ -1,0 +1,202 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+import "mmemotion.proto";
+
+message JumpEmotionDetailRequest 
+{
+	required BaseRequest BaseRequest = 1;
+	required string Url = 2;
+}
+
+message JumpEmotionDetailResponse 
+{
+	required BaseResponse BaseResponse = 1;
+	optional string ProductID = 2;
+}
+
+message BatchEmojiBackupRequest
+{
+	repeated string Md5List = 1; //Not More Than 100
+}
+
+message BatchEmojiBackupResponse
+{
+	required BaseResponse BaseResponse = 1;
+	repeated string NeedUploadMd5List = 2;
+}
+
+message BatchEmojiDownLoadRequest
+{
+	required uint32 Index = 1;
+}
+
+message EmojiInfo
+{
+	required string Md5 = 1;
+	optional string Url = 2;
+}
+
+message BatchEmojiDownLoadResponse
+{
+	required BaseResponse BaseResponse = 1;
+	required uint32 Index = 2;
+	repeated string Md5List = 3;
+	required uint32 EndFlag = 4;
+	repeated EmojiInfo EmojiList = 5;
+}
+
+message BackupEmojiOperateRequest
+{
+	repeated string Md5List = 1;
+	required uint32 Opcode = 2;
+}
+
+message BackupEmojiOperateResponse
+{
+	required BaseResponse BaseResponse = 1;
+	repeated string NeedUploadMd5List = 2;
+}
+
+message UploadEmojiInfoReq {
+	optional string MD5 = 1;
+	required int32 StartPos = 2;
+	required int32 TotalLen = 3;
+	required bytes EmojiBuffer = 4;
+}
+
+message EmojiUploadRequest {
+	repeated UploadEmojiInfoReq EmojiItem = 1;
+	optional uint32 ReqTime = 2;
+}
+
+message UploadEmojiInfoResp {
+	required int32 Ret = 1;
+	required int32 StartPos = 2;
+	required int32 TotalLen = 3;
+	optional string MD5 = 4;
+}
+
+message EmojiUploadResponse {
+	required BaseResponse BaseResponse = 1;
+	repeated UploadEmojiInfoResp EmojiItem = 2;
+}
+
+message UploadMyPanelListRequest{
+	required uint32 OpCode = 1;
+	repeated string ProductIDList = 2;
+}
+
+message UploadMyPanelListResponse{
+	required BaseResponse BaseResponse = 1;
+}
+
+message GetPersonalDesignerRequest
+{
+	required uint32 DesignerUin = 1;
+	required SKBuiltinBuffer_t ReqBuf = 2; 
+}
+
+message GetPersonalDesignerResponse
+{
+	required BaseResponse BaseResponse = 1;
+	required string BannerUrl = 2;
+	required string Name = 3;
+	required string Desc = 4;
+	required string HeadUrl = 5;
+	required string BizName = 6;
+	repeated EmotionSummary EmotionList = 7;
+
+	required SKBuiltinBuffer_t ReqBuf = 8;
+}
+
+message GetEmotionRewardRequest
+{
+	required string ProductID =  1;
+	required uint32 OpCode = 2;
+}
+
+message EmotionPrice
+{
+	required string Label = 1;
+	required string Number = 2;
+	required string Type = 3;
+}
+
+message EmotionDonor
+{
+	required string HeadUrl = 1;
+}
+
+message EmotionReward
+{
+	required string BegWord = 1;
+	required string BegPicUrl = 2;
+	required string ThanksPicUrl = 3;
+	optional string MagicUrl = 4;
+	optional string MagicWord = 5;
+	optional uint32 MagicExpire = 6;
+	optional uint32 MagicLimit = 7;
+	optional string MagicMd5 = 8;
+}
+
+message GetEmotionRewardResponse
+{
+	required BaseResponse BaseResponse = 1;
+	repeated EmotionPrice Price = 2;
+	optional uint32 DonorNum = 3;
+	repeated EmotionDonor Donors = 4;
+	optional EmotionReward Reward = 5;
+}
+
+message GetEmotionDonorListRequest
+{
+	required string ProductID =  1;
+	required SKBuiltinBuffer_t ReqBuf = 2; 
+}
+
+message GetEmotionDonorListResponse
+{
+	required BaseResponse BaseResponse = 1;
+	required uint32 DonorNum = 2;
+	repeated EmotionDonor Donors = 3;
+
+	optional SKBuiltinBuffer_t RespBuf = 4; 
+}
+
+message AskForRewardRequest 
+{
+	required string ProductID =  1;
+	required EmotionPrice Price = 2;
+}
+
+message AskForRewardResponse
+{
+	required BaseResponse BaseResponse = 1;
+	required string ReqKey = 2;
+	required string AppID = 3;
+}
+
+message GetRewardMagicListRequest
+{
+	required uint32 Scene = 1;
+}
+
+message RewardMagic
+{
+	required string MagicWord = 1;
+	required string MagicUrl = 2;
+	optional uint32 MagicExpire = 3;
+	optional uint32 MagicLimit = 4;
+	required string ProductID = 5;
+	optional string Md5 = 6;
+}
+
+message GetRewardMagicListResponse
+{
+	required BaseResponse BaseResponse = 1;
+	repeated RewardMagic Magic = 2;
+}

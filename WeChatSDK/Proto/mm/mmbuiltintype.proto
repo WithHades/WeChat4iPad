@@ -1,0 +1,78 @@
+package micromsg;
+
+//===============================================
+
+message BaseRequest {
+	required bytes SessionKey = 1;
+	required uint32 Uin = 2;
+	required bytes DeviceID = 3;
+	required int32 ClientVersion = 4;
+	required bytes DeviceType = 5;
+	optional uint32 Scene = 6;
+}
+
+message BaseResponse {
+	required int32 Ret = 1;
+	required SKBuiltinString_t ErrMsg = 2;
+}
+
+//===============================================
+
+message SKBuiltinInt32_t {
+    required uint32 iVal = 1;
+}
+
+message SKBuiltinUint32_t {
+    required uint32 uiVal = 1;
+}
+
+message SKBuiltinChar_t {
+    required int32  iVal = 1;
+}
+
+message SKBuiltinUchar_t {
+    required uint32 uiVal = 1;
+}
+
+message SKBuiltinInt8_t {
+    required int32 iVal = 1;
+}
+
+message SKBuiltinUint8_t {
+    required uint32 uiVal = 1;
+}
+
+message SKBuiltinInt16_t {
+    required int32 iVal = 1;
+}
+
+message SKBuiltinUint16_t {
+    required uint32 uiVal = 1;
+}
+
+message SKBuiltinInt64_t {
+    required int64 llVal = 1;
+}
+
+message SKBuiltinUint64_t {
+    required uint64 ullVal = 1;
+}
+
+message SKBuiltinFloat32_t {
+    required float fVal = 1;
+}
+
+message SKBuiltinDouble64_t {
+    required double dVal = 1;
+}
+
+message SKBuiltinBuffer_t {
+    required uint32 iLen = 1;
+    optional bytes Buffer = 2;
+}
+
+message SKBuiltinString_t {
+    optional string String = 1;
+}
+
+

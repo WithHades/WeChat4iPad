@@ -1,0 +1,213 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message AddFavItem {
+	required int32 FavId = 1;
+	required int32 Type = 2;
+	required uint32 Flag = 3;
+	required uint32 UpdateTime = 4;
+	required uint32 UpdateSeq = 5;
+}
+
+message CheckFavItemRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 SourceType = 2;
+	optional string SourceId = 3;
+}
+
+message FavVideoInfo {
+	optional string FileId = 1;
+	optional string AesKey = 2;
+	optional string VideoId = 3;
+}
+
+message ShareFavKey {
+	required uint32 FromUin = 1;
+	optional string ToUser = 2;
+	required uint32 ShareTime = 3;
+	required uint32 Scene = 4;
+	required uint32 FavId = 5;
+	optional string ParamCheck = 6;
+	optional string FavItemCheck = 7;
+}
+
+message CheckFavItemResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message ModFavIndex {
+	required uint32 ModField = 1;
+	required uint32 ModValue = 2;
+}
+
+message ModFavObject {
+	optional string TagName = 1;
+	optional string AttrName = 2;
+	optional string Value = 3;
+	optional uint32 Type = 4;
+}
+
+message ModFavItemRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 FavId = 2;
+	required uint32 IndexCount = 3;
+	repeated ModFavIndex IndexList = 4;
+	required uint32 ObjectCount = 5;
+	repeated ModFavObject ObjectList = 6;
+}
+
+message ModFavItemResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message ShareFavRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ToUser = 2;
+	required uint32 Scene = 3;
+	required uint32 Count = 4;
+	repeated uint32 FavIdList = 5[packed=true];
+}
+
+message ShareFavResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 UrlCount = 2;
+	repeated SKBuiltinString_t UrlList = 3;
+}
+
+message AddFavItemRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ClientId = 2;
+	required uint32 Type = 3;
+	required uint32 SourceType = 4;
+	optional string SourceId = 5;
+	optional string Object = 6;
+}
+
+message AddFavItemResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 FavId = 2;
+	required uint32 UpdateSeq = 3;
+	optional uint64 UsedSize = 4;
+}
+
+message DelFavItemRsp {
+	required int32 Ret = 1;
+	required uint32 FavId = 2;
+}
+
+message BatchDelFavItemRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated uint32 FavIdList = 3[packed=true];
+}
+
+message BatchDelFavItemResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated DelFavItemRsp List = 3;
+}
+
+message FavObject {
+	required uint32 FavId = 1;
+	required int32 Status = 2;
+	optional string Object = 3;
+	required uint32 Flag = 4;
+	required uint32 UpdateTime = 5;
+	required uint32 UpdateSeq = 6;
+}
+
+message BatchGetFavItemRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated uint32 FavIdList = 3[packed=true];
+}
+
+message BatchGetFavItemResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated FavObject ObjectList = 3;
+}
+
+message CheckCDN {
+	optional string DataId = 1;
+	optional string FullMd5 = 2;
+	optional string Head256Md5 = 3;
+	required uint32 FullSize = 4;
+	required uint32 DataSourceType = 5;
+	optional string DataSourceId = 6;
+	required uint32 IsThumb = 7;
+}
+
+message FavCDNItem {
+	optional string DataId = 1;
+	optional string FullMd5 = 2;
+	optional string Head256Md5 = 3;
+	required uint32 FullSize = 4;
+	optional string CDNURL = 5;
+	optional string AESKey = 6;
+	required int32 EncryVer = 7;
+	optional string VideoId = 8;
+	required int32 Status = 9;
+	required int32 DataStatus = 10;
+}
+
+message GetFavInfoRequest {
+	required BaseRequest BaseRequest = 1;
+}
+
+message GetFavInfoResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint64 UsedSize = 2;
+	required uint64 TotalSize = 3;
+	required uint32 MxFavFileSize = 4;
+	required uint32 MxAutoUploadSize = 5;
+	required uint32 MxAutoDownloadSize = 6;
+}
+
+message CheckCDNRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated CheckCDN List = 3;
+}
+
+message CheckCDNResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated FavCDNItem List = 3;
+}
+
+message FavSyncRequest {
+	required uint32 Selector = 1;
+	required SKBuiltinBuffer_t KeyBuf = 3;
+}
+
+message FavSyncResponse {
+	required int32 Ret = 1;
+	required CmdList CmdList = 2;
+	required SKBuiltinBuffer_t KeyBuf = 3;
+	required uint32 ContinueFlag = 4;
+}
+
+message TransCDNItem {
+	required uint32 ClientId = 1;
+	optional string FileId = 2;
+	optional string AesKey = 3;
+	required uint32 FavDataType = 4;
+	required uint64 Size = 5;
+}
+
+message BatchTransCDNRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated TransCDNItem List = 3;
+}
+
+message BatchTransCDNResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated TransCDNItem List = 3;
+}
+

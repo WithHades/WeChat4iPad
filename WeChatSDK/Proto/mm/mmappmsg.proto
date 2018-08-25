@@ -1,0 +1,136 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message AppMsg {
+	optional string FromUserName = 1;
+	optional string AppId = 2;
+	required uint32 SdkVersion = 3;
+	optional string ToUserName = 4;
+	required uint32 Type = 5;
+	optional string Content = 6;
+	required uint32 CreateTime = 7;
+	optional string ClientMsgId = 8;
+	optional SKBuiltinBuffer_t Thumb = 9;
+	optional int32 Source = 10;
+	optional int32 RemindId = 11;
+	optional string MsgSource = 12;
+	optional string ShareUrlOriginal = 13;
+	optional string ShareUrlOpen = 14;
+	optional string JsAppId = 15;
+}
+
+message SendAppMsgRequest {
+	required BaseRequest BaseRequest = 1;
+	required AppMsg Msg = 2;
+	optional string CommentUrl = 3;
+	optional uint32 ReqTime = 4;
+	optional string Md5 = 5;
+	optional uint32 FileType = 6;
+	optional string Signature = 7;
+	optional string FromSence = 8;
+	optional uint32 HitMd5 = 9;
+	optional uint32 CRC32 = 10;
+	optional uint32 MsgForwardType = 11;
+}
+
+message SendAppMsgResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string AppId = 2;
+	optional string FromUserName = 3;
+	optional string ToUserName = 4;
+	required uint32 MsgId = 5;
+	optional string ClientMsgId = 6;
+	required uint32 CreateTime = 7;
+	optional uint32 Type = 8;
+	optional uint64 NewMsgId = 9;
+	optional string AESKey = 10;
+}
+
+message DownloadAppAttachRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string AppId = 2;
+	required uint32 SdkVersion = 3;
+	optional string MediaId = 4;
+	optional string UserName = 5;
+	required uint32 TotalLen = 6;
+	required uint32 StartPos = 7;
+	required uint32 DataLen = 8;
+	optional string OutFmt = 9;
+	optional int32 Rotation = 10;
+	optional uint32 Type = 11;
+	optional uint32 CDNType = 12;
+}
+
+message DownloadAppAttachResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string AppId = 2;
+	optional string MediaId = 3;
+	optional string UserName = 4;
+	required uint32 TotalLen = 5;
+	required uint32 StartPos = 6;
+	required uint32 DataLen = 7;
+	required SKBuiltinBuffer_t Data = 8;
+}
+
+message OpenAppInfo {
+	optional string AppID = 1;
+	optional string AppName = 2;
+	optional string AppDescription = 3;
+	optional string AppIconUrl = 4;
+	optional string AppStoreUrl = 5;
+	required uint32 AppVersion = 6;
+	optional string AppWatermarkUrl = 7;
+	optional string AndroidPackageName = 8;
+	optional string AndroidSignature = 9;
+	optional string AppName4EnUS = 10;
+	optional string AppDescription4EnUS = 11;
+	optional string AppName4ZhTW = 12;
+	optional string AppDescription4ZhTW = 13;
+	optional uint32 AppInfoFlag = 14;
+}
+
+message GetAppInfoRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+	required uint32 IconType = 3;
+}
+
+message GetAppInfoResponse {
+	required BaseResponse BaseResponse = 1;
+	required OpenAppInfo AppInfo = 2;
+	optional uint32 NoUse = 3;
+	optional string DevInfo = 4;
+	optional string AppType  = 5;
+}
+
+message GetRecommendAppListRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Start = 2;
+	required uint32 Count = 3;
+	optional string InstalledList = 4;
+	required uint32 IconType = 5;
+}
+
+message GetRecommendAppListResponse {
+	required uint32 Total = 1;
+	required BaseResponse BaseResponse = 2;
+	required uint32 Count = 3;
+	repeated OpenAppInfo AppList = 4;
+}
+
+message CheckPCWechatFileRequest{
+optional string FileName = 1;
+optional string MD5 = 2;
+optional string FileId = 3;
+optional string AesKey = 4;
+optional string FromUsername = 5;
+optional string ToUsername= 6;
+}
+
+message CheckPCWechatFileResponse{
+required BaseResponse BaseResponse = 1;
+optional int32 BlockStatus = 2;
+}

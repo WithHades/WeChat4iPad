@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="adler32.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\WeChatSDK\include\common\zlib\crc32.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\WeChatSDK\include\common\zlib\deflate.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\WeChatSDK\include\common\zlib\gzguts.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\WeChatSDK\include\common\zlib\inffast.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\WeChatSDK\include\common\zlib\inffixed.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\WeChatSDK\include\common\zlib\inflate.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\WeChatSDK\include\common\zlib\inftrees.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\WeChatSDK\include\common\zlib\trees.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\WeChatSDK\include\common\zlib\zconf.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\WeChatSDK\include\common\zlib\zlib.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\WeChatSDK\include\common\zlib\zutil.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="adler32.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WeChatSDK\include\common\zlib\compress.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WeChatSDK\include\common\zlib\crc32.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WeChatSDK\include\common\zlib\deflate.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WeChatSDK\include\common\zlib\gzclose.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WeChatSDK\include\common\zlib\gzlib.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WeChatSDK\include\common\zlib\gzread.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WeChatSDK\include\common\zlib\gzwrite.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WeChatSDK\include\common\zlib\infback.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WeChatSDK\include\common\zlib\inffast.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WeChatSDK\include\common\zlib\inflate.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WeChatSDK\include\common\zlib\inftrees.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WeChatSDK\include\common\zlib\trees.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WeChatSDK\include\common\zlib\uncompr.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WeChatSDK\include\common\zlib\zutil.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="adler32.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="adler32.def">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
+</Project>

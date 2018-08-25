@@ -1,0 +1,239 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message EmotionCDNUrl {
+	optional string Url = 1;
+	optional string AesKey = 2;
+	required uint32 FileSize = 3;
+}
+
+message EmotionSummary {
+	optional string ProductID = 1;
+	optional string IconUrl = 2;
+	optional string PackName = 3;
+	optional string PackDesc = 4;
+	optional string PackAuthInfo = 5;
+	optional string PackPrice = 6;
+	required uint32 PackType = 7;
+	required uint32 PackFlag = 8;
+	optional string CoverUrl = 9;
+	required uint32 PackExpire = 10;
+	optional string PackCopyright = 11;
+	optional uint32 Timestamp = 12;
+	optional string PanelUrl = 13;
+	optional string PriceNum = 14;
+	optional string PriceType = 15;
+	optional string SendInfo = 16;
+	optional string TimeLimitStr = 17;
+	optional string Introduce = 18;
+	optional string TagUri = 19;
+}
+
+message PackThumbExt {
+	optional string PreviewUrl = 1;
+	optional string Desc = 2;
+}
+
+message EmotionDetail {
+	optional string ProductID = 1;
+	optional string IconUrl = 2;
+	optional string PackName = 3;
+	optional string PackDesc = 4;
+	optional string PackAuthInfo = 5;
+	optional string PackPrice = 6;
+	required uint32 PackType = 7;
+	required uint32 PackFlag = 8;
+	required uint32 PackThumbCnt = 9;
+	repeated SKBuiltinString_t PackThumbList = 10;
+	optional string CoverUrl = 11;
+	required uint32 PackExpire = 12;
+	optional string PackCopyright = 13;
+	optional string PriceNum = 14;
+	optional string PriceType = 15;
+	optional string PanelUrl = 16;
+	optional string ConsumeProductID = 17;
+	optional uint32 ThumbExtCount = 18;
+	repeated PackThumbExt ThumbExtList = 19;
+	optional int32 Version = 20;
+	optional string TimeLimitStr = 21;
+	optional string ShareDesc = 22;
+	optional string OldRedirectUrl = 23;
+}
+
+message EmotionBannerImg {
+	optional string ImgUrl = 1;
+	required uint32 Width = 2;
+	required uint32 Height = 3;
+	optional string StripUrl = 4;
+}
+
+message EmotionBanner {
+	required EmotionSummary BannerSummary = 1;
+	required EmotionBannerImg BannerImg = 2;
+}
+
+message EmotionCell {
+	optional string CellTitle = 1;
+	required uint32 ReqType = 2;
+	required uint32 Position = 3;
+	optional string IconUrl = 4;
+	optional string TagUrl = 5;
+}
+
+message GetEmotionListRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinBuffer_t ReqBuf = 2;
+	required uint32 ReqType = 3;
+	optional uint32 Scene = 4;
+}
+
+message GetEmotionListResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t ReqBuf = 2;
+	required uint32 EmotionCount = 3;
+	repeated EmotionSummary EmotionList = 4;
+	optional EmotionBanner Banner = 5;
+	optional uint32 NewBannerCount = 6;
+	repeated EmotionBanner NewBannerList = 7;
+	optional uint32 CellCount = 8;
+	repeated EmotionCell CellList = 9;
+}
+
+message GetEmotionDetailRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ProductID = 2;
+	optional uint32 Scene = 3;
+	optional int32 Version = 4;
+}
+
+message GetEmotionDetailResponse {
+	required BaseResponse BaseResponse = 1;
+	required EmotionDetail EmotionDetail = 2;
+}
+
+message VerifyPurchaseRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinBuffer_t Receipt = 2;
+	optional string ProductID = 3;
+	required uint32 VerifyType = 4;
+	required uint32 PayType = 5;
+	optional string Price = 6;
+	optional string CurrencyType = 7;
+	optional string BillNo = 8;
+	required uint32 PayTime = 9;
+	optional string ReceiptSig = 10;
+	optional uint32 Quantity = 11;
+}
+
+message VerifyPurchaseResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string SeriesID = 2;
+	required uint32 BizType = 3;
+}
+
+message ModEmotionPackRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ProductID = 2;
+	required uint32 OpCode = 3;
+}
+
+message ModEmotionPackResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message PreparePurchaseRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ProductID = 2;
+	optional string Price = 3;
+	optional string CurrencyType = 4;
+	required uint32 PayType = 5;
+	optional string ExtInfo = 7;
+	optional uint32 Quantity = 8;
+}
+
+message PreparePurchaseResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string BillNo = 2;
+	optional string TradeToken4TenPay = 3;
+	optional string Partner4TenPay = 4;
+	optional string Sign4TenPay = 5;
+}
+
+message ExchangeEmotionPackRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ProductID = 2;
+	optional string SeriesID = 3;
+}
+
+message ExchangeEmotionPackResponse {
+	required BaseResponse BaseResponse = 1;
+	required EmotionCDNUrl DownloadInfo = 2;
+}
+
+message CancelPurchaseRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ProductID = 2;
+	required uint32 VerifyType = 3;
+	required uint32 PayType = 4;
+	optional string Price = 5;
+	optional string CurrencyType = 6;
+	optional string BillNo = 7;
+	required uint32 PayTime = 8;
+	required int32 ErrorCode = 9;
+	optional string ErrorDescription = 10;
+}
+
+message CancelPurchaseResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message EmotionMember {
+	optional string UserName = 1;
+}
+
+message MemberStatus {
+	optional string UserName = 1;
+	required int32 Status = 2;
+}
+
+message VerifyEmotionPresentationRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ProductID = 2;
+	required uint32 MemberCount = 3;
+	repeated EmotionMember MemberList = 4;
+}
+
+message VerifyEmotionPresentationResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 MemberCount = 2;
+	repeated MemberStatus StatusList = 3;
+}
+
+message LangDesc {
+	optional string Lang = 1;
+	optional string Desc = 2;
+}
+
+message EmotionDesc {
+	optional string Md5 = 1;
+	required uint32 Count = 2;
+	repeated LangDesc List = 3;
+}
+
+message GetEmotionDescRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ProductID = 2;
+}
+
+message GetEmotionDescResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated EmotionDesc List = 3;
+	required uint32 ClickFlag = 4;
+	optional string ButtonDesc = 5;
+	optional uint32 DownLoadFlag = 6;
+}
+

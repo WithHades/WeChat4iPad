@@ -1,0 +1,363 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message RcptInfoNode {
+	optional uint32 id = 1;
+	optional SKBuiltinString_t country = 2;
+	required SKBuiltinString_t province = 3;
+	required SKBuiltinString_t city = 4;
+	required SKBuiltinString_t district = 5;
+	required SKBuiltinString_t zipcode = 6;
+	required SKBuiltinString_t detail = 7;
+	required SKBuiltinString_t name = 8;
+	required SKBuiltinString_t phone = 9;
+	optional SKBuiltinString_t nationalcode_gbt2260 = 10;
+}
+
+message RcptInfoList {
+	required uint32 count = 1;
+	repeated RcptInfoNode rcptinfolist = 2;
+	required uint32 timestamp = 3;
+}
+
+message RcptInfoAddRequest {
+	required BaseRequest BaseRequest = 1;
+	required RcptInfoNode rcptinfo = 2;
+}
+
+message RcptInfoAddResponse {
+	required RcptInfoList rcptinfolist = 1;
+	required BaseResponse BaseResponse = 2;
+}
+
+message RcptInfoRemoveRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 id = 2;
+}
+
+message RcptInfoRemoveResponse {
+	required uint32 id = 1;
+	required RcptInfoList rcptinfolist = 2;
+	required BaseResponse BaseResponse = 3;
+}
+
+message RcptInfoQueryRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 timestamp = 2;
+	optional string webviewurl = 3;
+	optional string appid = 4;
+	optional uint32 scene = 5;
+}
+
+message RcptInfoQueryResponse {
+	required RcptInfoList rcptinfolist = 1;
+	required uint32 islatest = 2;
+	required BaseResponse BaseResponse = 3;
+	optional string appusername = 4;
+	optional uint32 isauthority = 5;
+	optional string appnickname = 6;
+}
+
+message RcptInfoUpdateRequest {
+	required BaseRequest BaseRequest = 1;
+	required RcptInfoNode rcptinfo = 2;
+}
+
+message RcptInfoUpdateResponse {
+	required RcptInfoList rcptinfolist = 1;
+	required BaseResponse BaseResponse = 2;
+}
+
+message RcptInfoTouchRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 id = 2;
+}
+
+message RcptInfoTouchResponse {
+	required RcptInfoList rcptinfolist = 1;
+	required BaseResponse BaseResponse = 2;
+}
+
+message RcptInfoImportYiXunRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 qq = 2;
+	optional SKBuiltinBuffer_t A2Key = 3;
+	optional SKBuiltinBuffer_t NewA2Key = 4;
+}
+
+message RcptInfoImportYiXunResponse {
+	required RcptInfoList rcptinfolist = 1;
+	required int32 rcptinfoimportstatus = 2;
+	required BaseResponse BaseResponse = 3;
+}
+
+message GenBizIapPrepayRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string AppId = 2;
+	optional string NonceStr = 3;
+	optional string TimeStamp = 4;
+	optional string Package = 5;
+	optional string PaySign = 6;
+	optional string SignType = 7;
+	optional string StepInUrl = 8;
+}
+
+message GenBizIapPrepayResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string ProductId = 2;
+	optional string ExtInfo = 4;
+}
+
+message GetBizIapPayResultRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string SerialId = 2;
+}
+
+message GetBizIapPayResultResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string DetailBuff = 2;
+}
+
+message GetBizIapDetailRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string SerialId = 3;
+}
+
+message GetBizIapDetailResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string DetailBuff = 2;
+}
+
+message GetProductDetailRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Pid = 2;
+	optional uint32 Version = 3;
+	optional string ScanCode = 4;
+}
+
+message GetProductDetailResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string ProductInfo = 2;
+	optional int32 RetCode = 3;
+	optional string RetMsg = 4;
+	optional string RecommendInfo = 5;
+}
+
+message LockStockRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Pid = 2;
+	optional string SkuId = 3;
+	optional uint32 Count = 4;
+	optional string Url = 5;
+}
+
+message LockStockResponse {
+	required BaseResponse BaseResponse = 1;
+	optional uint32 LockId = 2;
+}
+
+message UnlockStockRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Pid = 2;
+	optional string SkuId = 3;
+	optional uint32 Count = 4;
+	optional string Url = 5;
+}
+
+message UnlockStockResponse {
+	required BaseResponse BaseResponse = 1;
+	optional uint32 LockId = 2;
+}
+
+message KVItem {
+	optional string Key = 1;
+	optional string Value = 2;
+}
+
+message Express {
+	optional string Name = 1;
+	optional uint32 Price = 2;
+	optional string PriceType = 3;
+	optional uint32 Id = 4;
+}
+
+message Address {
+	optional string Country = 1;
+	optional string Province = 2;
+	optional string City = 3;
+	optional string Detail = 4;
+	optional string UserName = 5;
+	optional string Tel = 6;
+	optional string ZipCode = 7;
+}
+
+message Receipt {
+	required uint32 IsNeed = 1;
+	optional string Detail = 2;
+}
+
+message Discount {
+	optional string Title = 1;
+	required uint32 Price = 2;
+}
+
+message Production {
+	required uint32 SkuCount = 1;
+	repeated KVItem Skus = 2;
+	required uint32 Count = 3;
+	required uint32 RealPrice = 4;
+	optional string PriceType = 5;
+	optional string Pid = 6;
+	optional string SafeUrl = 7;
+	optional string SkuId = 8;
+	optional uint32 Type = 9;
+	optional string Name = 10;
+	optional string ThumbUrl = 11;
+	optional uint32 SubType = 12;
+	optional uint32 Scene = 13;
+	optional string PreferentialPrice = 14;
+	optional uint32 DiscountCount = 15;
+	repeated Discount Discounts = 16;
+}
+
+message Snapshot {
+	required uint32 ProductCount = 1;
+	repeated Production Productions = 2;
+	optional Express Express = 3;
+	optional Address Address = 4;
+	repeated Receipt Receipt = 5;
+	optional uint32 ReceiptCount = 6;
+	optional string LockId = 7;
+}
+
+message SubmitMallOrderRequest {
+	required BaseRequest BaseRequest = 1;
+	optional Snapshot Snapshot = 2;
+	optional string PayAppid = 3;
+}
+
+message SubmitMallOrderResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string PrepareId = 2;
+	optional int32 RetCode = 3;
+	optional string RetMsg = 4;
+}
+
+message SubmitMallFreeOrderRequest {
+	required BaseRequest BaseRequest = 1;
+	optional Snapshot Snapshot = 2;
+}
+
+message SubmitMallFreeOrderResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string PrepareId = 2;
+	optional int32 RetCode = 3;
+	optional string RetMsg = 4;
+}
+
+message SampleProduct {
+	optional string Pid = 1;
+	optional string SkuId = 2;
+	optional uint32 Count = 3;
+	optional string SafeUrl = 4;
+}
+
+message ActionAttr {
+	optional string Name = 1;
+	optional string Tips = 2;
+	optional uint32 Type = 3;
+	optional string Content = 4;
+	optional string IconUrl = 5;
+}
+
+message PreSubmitOrderRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 ProductCount = 2;
+	repeated SampleProduct Product = 3;
+}
+
+message PreSubmitOrderResponse {
+	optional BaseResponse BaseResponse = 1;
+	optional uint32 ExpressCount = 2;
+	repeated Express Express = 3;
+	optional string LockId = 4;
+	optional int32 RetCode = 5;
+	optional string RetMsg = 6;
+	repeated ActionAttr ActionAttrs = 7;
+	optional uint32 ActionAttrCount = 8;
+}
+
+message CancelPreOrderRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 ProductCount = 2;
+	repeated SampleProduct Product = 3;
+	optional string LockId = 4;
+}
+
+message CancelPreOrderResponse {
+	required BaseResponse BaseResponse = 1;
+	optional int32 RetCode = 2;
+	optional string RetMsg = 3;
+}
+
+message OrderDetailControlRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 ActionCode = 2;
+	optional string TransID = 3;
+}
+
+message OrderDetailControlResponse {
+	required BaseResponse BaseResponse = 1;
+	optional int32 RetCode = 2;
+	optional string RetMsg = 3;
+}
+
+message GetProductDiscountRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string LockId = 2;
+	optional string Url = 3;
+}
+
+message GetProductDiscountResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string DiscountDetail = 2;
+	optional int32 RetCode = 3;
+	optional string RetMsg = 4;
+}
+
+message GetLastestExpressInfoRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ProductId = 2;
+	optional string LockId = 3;
+	required Address Address = 4;
+}
+
+message GetLastestExpressInfoResponse {
+	required BaseResponse BaseResponse = 1;
+	repeated Express ExpressList = 2;
+	optional uint32 ExpressCount = 3;
+	optional int32 RetCode = 4;
+	optional string RetMsg = 5;
+}
+
+message SendC2CSecMsgRequest{
+    required BaseRequest BaseRequest = 1;
+    optional string ToUser = 2;
+    optional int32 MsgType = 3;
+    optional string TempId = 4;
+    optional string Title = 5;
+    optional string Des = 6;
+    optional string Url = 7;
+    optional int32 Scene = 8;
+}
+
+message SendC2cSecMsgResponse {
+    required BaseResponse BaseResponse = 1;
+    optional int32 ErrCode = 2;
+    optional string ErrMsg = 3;
+    optional string MsgId = 4;
+}
+

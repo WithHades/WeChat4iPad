@@ -1,0 +1,244 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message ConnectInfoAddr {
+    optional string IP = 1;
+    repeated uint32 Port = 2;
+    optional uint32 PortCount = 3;
+}
+
+message BakChatCreateQRCodeRequest {
+    required BaseRequest BaseRequest = 1;
+    required uint32 AddrCount = 2;
+    repeated ConnectInfoAddr AddrList = 3;
+    optional string PCName = 4;
+    optional string PCAcctName = 5;
+    required uint32 Scene = 6;
+    optional uint64 DataSize = 7;
+    optional string WifiName = 8;
+    optional int32 Op = 9;
+}
+
+message BakChatCreateQRcodeResponse {
+    required uint32 Ret = 1;
+    required SKBuiltinBuffer_t QRCodeBuffer = 2;
+    optional string QRCodeUrl = 3;
+    required SKBuiltinBuffer_t Key = 4;
+    optional string Hello = 5;
+    optional string OK = 6;
+    required uint32 EncryFlag = 7;
+    optional string ID = 8;
+    optional string Tickit = 9;
+}
+
+message PacketAuthenticateRequest {
+    required int32 Step = 1;//当前步骤 AuthenticateStepEnum
+    required string ID = 2;//微信生成的ID
+    optional bytes Data = 3;//附加数据
+    optional int32 Version = 4;
+    optional int32 Type = 5;
+    optional int32 SupportExt = 6;
+}
+
+message PacketAuthenticateResponse {
+    required int32 Step = 1;//当前步骤 AuthenticateStepEnum
+    required int32 Status = 2;//错误码 StatusEnum
+    required string ID = 3;//微信生成的ID
+    optional bytes Data = 4;//附加数据
+    optional int32 Version = 5;
+    optional int32 Type = 6;
+    optional int32 SupportExt = 7;
+}
+
+message BackupStartGeneralInfo {
+    required string DeviceID = 1; //唯一区别设备的id
+    required string DeviceName = 2; //设备名称
+    required string Model = 3; //设备型号
+    required string SystemName = 4; //系统名称
+    required string SystemVersion = 5; //系统版本
+    required uint32 WechatVersion = 6; //微信版本
+    required uint64 DeviceFreeSpace = 7; //设备剩余空间
+}
+
+message BackupStartRequest{
+    required string ID = 1;
+    optional uint64 BigDataSize = 2;
+    optional uint64 SessionCount = 3;
+    optional uint64 MsgCount = 4;
+    optional BackupStartGeneralInfo GeneralInfo = 5;
+    optional uint64 DataSize = 6; //此次传输的数据量大小
+    optional int32 TransferType = 7; //这次传输的类型TransferTypeEnum
+}
+
+message BackupStartResponse {
+    required string ID = 1;
+    required uint64 TotalCount = 2;
+    required uint64 TotalSize = 3;
+    required int32 Status = 4; //对应的StartResponseStatusEnum枚举值
+    optional uint32 NetworkState = 5;
+    optional uint64 BigDataSize = 6;
+    optional BackupStartGeneralInfo GeneralInfo = 7;
+}
+
+message BackupRequestSession {
+    repeated string SessionName = 1;
+    repeated int64 TimeInterval = 2;
+}
+
+message BackupRequestSessionResponse {
+    repeated string SessionName = 1;
+    repeated int64 TimeInterval = 2;
+}
+
+message PacketBackupDataPush {
+    required string DataID = 1;//数据块ID
+    required int32 DataType = 2;//数据块类型 DataTypeEnum
+    required int32 DataSize = 3;//数据块的大小
+    required int32 StartOffset = 4;//本次数据在当前数据块中的开始偏移
+    required int32 EndOffset = 5;//本次数据在当前数据块中的结束偏移
+    optional int32 CheckSum = 6; //Data的校验和
+    optional bytes Data = 7;//附加数据
+    optional int32 Progress = 8;//进度
+}
+
+message PacketBackupDataResponse {
+    required string DataID = 1;//数据块ID
+    required int32 DataType = 2;//数据块类型 DataTypeEnum
+    required int32 StartOffset = 3;//本次数据在当前数据块中的开始偏移
+    required int32 EndOffset = 4;//本次数据在当前数据块中的结束偏移
+    required int32 Status = 5;//状态码 StatusEnum
+}
+
+message PacketSvrIDRequest {
+    repeated uint64 SvrID = 1;
+    repeated string MediaID = 2;
+    repeated string MD5 = 3;
+    required string BakChatName = 4;
+}
+
+message PacketSvrIDResponse {
+    repeated uint64 SvrID = 1;
+    repeated string MediaID = 2;
+    repeated string MD5 = 3;
+    required string BakChatName = 4;
+}
+
+message PacketBackupDataTag {
+    required string BakChatName = 1;
+    required int64 StartTime = 2;
+    required int64 EndTime = 3;
+    required string MsgDataID = 4;
+    required string NickName = 5;
+    repeated string MediaIDList = 6;
+}
+
+message PacketBackupDataTagResponse {
+    required string BakChatName = 1;
+    required int64 StartTime = 2;
+    required int64 EndTime = 3;
+    required string MsgDataID = 4;
+}
+
+message BackupReportItem {
+    required string BakChatName = 1;
+    required uint32 MsgCount = 2;
+}
+
+message BackupReportList {
+    required uint32 Count = 1;
+    repeated BackupReportItem List = 2;
+}
+
+message BackupFinishRequest{
+    required string ID = 1;
+    optional BackupReportList Data = 2;
+    optional uint32 ServerSessionCount = 3;
+    optional uint32 ServerMessageCount = 4;
+    optional uint32 ServerFileCount = 5;
+    optional uint32 CalculateSize = 6;
+    optional uint32 ServerDataPushSize = 7;
+    optional uint32 ServerReadDBTotalTime = 8;
+    optional uint32 ServerReadFileTotalTime = 9;
+    optional uint32 ServerCostTotalTime = 10;
+    optional uint32 ServerVersion = 11;
+}
+
+message BackupCommandRequest {
+    required int32 Command = 1; //CommandTypeEnum
+    optional bytes Data = 2;
+}
+
+message BackupCommandResponse {
+    required int32 Command = 1; //CommandTypeEnum
+    optional bytes Data = 2;
+}
+
+enum TransferTypeEnum {
+    TRANSFER_NEW = 0; //全新
+    TRANSFER_ADDON = 1; //增量
+}
+
+enum CommandTypeEnum
+{
+    COMMAND_REQUEST_TO_BACKUP = 1; //请求开始备份
+    COMMAND_CONFIRM_BACKUP = 2; //确认可以备份
+    COMMAND_REQUEST_TO_RECOVER = 3; //请求开始恢复
+    COMMAND_CONFIRM_RECOVER = 4; //确认可以恢复
+    COMMAND_REQUEST_TO_CONTINUE_BACKUP = 5; //请求继续备份
+    COMMAND_CONFIRM_CONTINUE_BACKUP = 6; //确认可以继续备份
+    COMMAND_REQUEST_TO_CONTINUE_RECOVER = 7; //请求继续恢复
+    COMMAND_CONFIRM_CONTINUE_RECOVER = 8; //确认可以继续恢复
+}
+
+enum StartResponseStatusEnum {
+    START_RESPONSE_SUCCESS = 0; //状态成功
+    START_RESPONSE_ID_WRONG = 1; //id比对不上
+    START_RESPONSE_SIZE_WRONG = 2; //空间不足
+}
+
+message DataConfigInf {
+    required string UserName = 1;
+    optional string Deviceid = 2;
+    optional uint32 CreateTime = 3;
+    optional uint32 LastModifyTime = 4;
+    optional BackupStartGeneralInfo DeviceInfo = 5;
+}
+
+message BackupCancelRequest{
+    required string ID = 1;
+    optional uint32 Reason = 2;
+}
+
+message GetConnectInfoRequest {
+    required BaseRequest BaseRequest = 1;
+    optional string URL = 2;
+}
+
+message GetConnectInfoResponse {
+    required BaseResponse BaseResponse = 1;
+    optional string ID = 2;
+    required SKBuiltinBuffer_t Key = 3;
+    optional string Hello = 4;
+    optional string OK = 5;
+    required uint32 Type = 6;
+    required uint32 AddrCount = 7;
+    repeated ConnectInfoAddr AddrList = 8;
+    optional string Resource = 9;
+    optional string PCName = 10;
+    optional string PCAcctName = 11;
+    optional uint32 EncryFlag = 12;
+    optional uint32 Scene = 13;
+    optional uint64 DataSize = 14;
+    optional string WifiName = 15;
+}
+
+message BackupHeartBeatRequest {
+    required uint64 ack = 1;
+}
+
+message BackupHeartBeatResponse {
+    required uint64 ack = 1;
+}

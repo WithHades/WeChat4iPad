@@ -1,0 +1,980 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Crtpyo">
+      <UniqueIdentifier>{d0a93e1e-1aa9-4874-8562-a1556f69f87a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Proto">
+      <UniqueIdentifier>{8485de94-9b28-4ec8-a859-1ab2daf2bbf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Proto\include">
+      <UniqueIdentifier>{861b6de2-c314-46c7-af9d-5e6b6eee7d72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{99756b36-c431-41b3-9be4-657fc189145e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WxUser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="crypto\fun.h">
+      <Filter>Crtpyo</Filter>
+    </ClInclude>
+    <ClInclude Include="crypto\MakeHeader.h">
+      <Filter>Crtpyo</Filter>
+    </ClInclude>
+    <ClInclude Include="crypto\mmCryptInterface.h">
+      <Filter>Crtpyo</Filter>
+    </ClInclude>
+    <ClInclude Include="include\common\openssl\aes.h">
+      <Filter>Crtpyo</Filter>
+    </ClInclude>
+    <ClInclude Include="include\common\openssl\ec.h">
+      <Filter>Crtpyo</Filter>
+    </ClInclude>
+    <ClInclude Include="include\common\openssl\ecdh.h">
+      <Filter>Crtpyo</Filter>
+    </ClInclude>
+    <ClInclude Include="include\common\openssl\md5.h">
+      <Filter>Crtpyo</Filter>
+    </ClInclude>
+    <ClInclude Include="include\common\openssl\rsa.h">
+      <Filter>Crtpyo</Filter>
+    </ClInclude>
+    <ClInclude Include="include\common\zlib\zlib.h">
+      <Filter>Crtpyo</Filter>
+    </ClInclude>
+    <ClInclude Include="TT.h">
+      <Filter>Crtpyo</Filter>
+    </ClInclude>
+    <ClInclude Include="PbHead.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmbase.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmlogin.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmsync.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmtalk.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\any.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\any.pb.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\api.pb.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\arena.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\arenastring.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\descriptor.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\descriptor.pb.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\descriptor_database.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\duration.pb.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\dynamic_message.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\empty.pb.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\extension_set.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\field_mask.pb.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\generated_enum_reflection.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\generated_enum_util.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\generated_message_reflection.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\generated_message_table_driven.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\generated_message_util.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\has_bits.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\map.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\map_entry.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\map_entry_lite.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\map_field.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\map_field_inl.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\map_field_lite.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\map_type_handler.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\message.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\message_lite.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\metadata.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\metadata_lite.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\package_info.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\reflection.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\reflection_internal.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\reflection_ops.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\repeated_field.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\service.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\source_context.pb.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\struct.pb.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\text_format.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\timestamp.pb.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\type.pb.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\unknown_field_set.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\wire_format.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\wire_format_lite.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\wire_format_lite_inl.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\wrappers.pb.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\delimited_message_util.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\field_comparator.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\field_mask_util.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\json_util.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\message_differencer.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\package_info.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\time_util.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\type_resolver.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\type_resolver_util.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\constants.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\datapiece.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\default_value_objectwriter.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\error_listener.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\expecting_objectwriter.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\field_mask_utility.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\json_escaping.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\json_objectwriter.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\json_stream_parser.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\location_tracker.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\mock_error_listener.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\object_location_tracker.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\object_source.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\object_writer.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\proto_writer.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\protostream_objectsource.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\protostream_objectwriter.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\structured_objectwriter.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\type_info.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\util\internal\utility.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomic_sequence_num.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomicops.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_arm_gcc.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_arm_qnx.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_arm64_gcc.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_atomicword_compat.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_generic_c11_atomic.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_generic_gcc.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_mips_gcc.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_power.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_ppc_gcc.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_solaris.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_tsan.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_x86_gcc.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_x86_msvc.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\bytestream.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\callback.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\casts.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\common.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\fastmem.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\hash.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\int128.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\logging.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\macros.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\map_util.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\mathlimits.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\mathutil.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\mutex.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\once.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\platform_macros.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\port.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\scoped_ptr.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\shared_ptr.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\singleton.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\status.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\status_macros.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\statusor.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\stl_util.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\stringpiece.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\stringprintf.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\strutil.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\substitute.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\template_util.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\time.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\stubs\type_traits.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\io\coded_stream.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\io\coded_stream_inl.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\io\gzip_stream.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\io\package_info.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\io\printer.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\io\strtod.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\io\tokenizer.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\io\zero_copy_stream.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\io\zero_copy_stream_impl.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\google\protobuf\io\zero_copy_stream_impl_lite.h">
+      <Filter>Proto\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\BlockDumpList.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmappmsg.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmbackup.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmbottle.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmbuiltintype.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmcard.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmcontact.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmemotion.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmemotionstore.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmextsend.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmfav.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmgame.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmimg.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmlbs.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmopenapi.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmpay.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmprimsend.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmremind.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmsns.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmtrack.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmvoiceaddr.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmvoiceprint.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmvoip.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmvoiphw.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mmweb.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="include\WeChatProto.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bin2ascii.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\pbjson.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\NewInit.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\newsync.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="include\windows\zlib\adler32.h">
+      <Filter>Crtpyo</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\mm\mm.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+    <ClInclude Include="Proto\WeDA.pb.h">
+      <Filter>Proto</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="WeChatSDK.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="WxUser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Interface.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\fun.cpp">
+      <Filter>Crtpyo</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\MakeHeader.cpp">
+      <Filter>Crtpyo</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\mmCryptInterface.cpp">
+      <Filter>Crtpyo</Filter>
+    </ClCompile>
+    <ClCompile Include="TT.cpp">
+      <Filter>Crtpyo</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmbase.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmlogin.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmsync.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmtalk.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\any.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\any.pb.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\api.pb.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\arena.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\arenastring.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\descriptor.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\descriptor.pb.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\descriptor_database.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\duration.pb.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\dynamic_message.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\empty.pb.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\extension_set.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\extension_set_heavy.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\field_mask.pb.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\generated_message_reflection.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\generated_message_table_driven.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\generated_message_util.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\map_field.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\message.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\message_lite.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\reflection_ops.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\repeated_field.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\service.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\source_context.pb.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\struct.pb.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\text_format.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\timestamp.pb.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\type.pb.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\unknown_field_set.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\wire_format.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\wire_format_lite.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\wrappers.pb.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\delimited_message_util.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\field_comparator.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\field_mask_util.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\json_util.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\message_differencer.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\time_util.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\type_resolver_util.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\internal\datapiece.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\internal\default_value_objectwriter.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\internal\error_listener.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\internal\field_mask_utility.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\internal\json_escaping.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\internal\json_objectwriter.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\internal\json_stream_parser.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\internal\object_writer.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\internal\proto_writer.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\internal\protostream_objectsource.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\internal\protostream_objectwriter.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\internal\type_info.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\util\internal\utility.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\atomicops_internals_x86_gcc.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\atomicops_internals_x86_msvc.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\bytestream.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\common.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\int128.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\mathlimits.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\once.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\status.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\statusor.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\stringpiece.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\stringprintf.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\structurally_valid.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\strutil.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\substitute.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\stubs\time.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\io\coded_stream.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\io\gzip_stream.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\io\printer.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\io\strtod.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\io\tokenizer.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\io\zero_copy_stream.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\io\zero_copy_stream_impl.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="include\google\protobuf\io\zero_copy_stream_impl_lite.cc">
+      <Filter>Proto\include</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\BlockDumpList.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmappmsg.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmbackup.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmbottle.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmbuiltintype.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmcard.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmcontact.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmemotion.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmemotionstore.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmextsend.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmfav.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmgame.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmimg.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmlbs.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmopenapi.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmpay.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmprimsend.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmremind.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmsns.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmtrack.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmvoiceaddr.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmvoiceprint.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmvoip.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmvoiphw.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mmweb.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="include\WeChatProto.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="include\pbjson.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\NewInit.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\newsync.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="include\windows\zlib\adler32.c">
+      <Filter>Crtpyo</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\mm\mm.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+    <ClCompile Include="Proto\WeDA.pb.cc">
+      <Filter>Proto</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WeChatSDK.def">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="include\google\protobuf\any.proto">
+      <Filter>Proto\include</Filter>
+    </None>
+    <None Include="include\google\protobuf\api.proto">
+      <Filter>Proto\include</Filter>
+    </None>
+    <None Include="include\google\protobuf\descriptor.proto">
+      <Filter>Proto\include</Filter>
+    </None>
+    <None Include="include\google\protobuf\duration.proto">
+      <Filter>Proto\include</Filter>
+    </None>
+    <None Include="include\google\protobuf\empty.proto">
+      <Filter>Proto\include</Filter>
+    </None>
+    <None Include="include\google\protobuf\field_mask.proto">
+      <Filter>Proto\include</Filter>
+    </None>
+    <None Include="include\google\protobuf\source_context.proto">
+      <Filter>Proto\include</Filter>
+    </None>
+    <None Include="include\google\protobuf\struct.proto">
+      <Filter>Proto\include</Filter>
+    </None>
+    <None Include="include\google\protobuf\timestamp.proto">
+      <Filter>Proto\include</Filter>
+    </None>
+    <None Include="include\google\protobuf\type.proto">
+      <Filter>Proto\include</Filter>
+    </None>
+    <None Include="include\google\protobuf\wrappers.proto">
+      <Filter>Proto\include</Filter>
+    </None>
+    <None Include="include\google\protobuf\util\json_format_proto3.proto">
+      <Filter>Proto\include</Filter>
+    </None>
+  </ItemGroup>
+</Project>

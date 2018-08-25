@@ -1,0 +1,86 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+import "mmutils.proto";
+
+message ExtDeviceLoginConfirmGetRequest {
+	required string LoginUrl = 1;
+}
+enum ExtDevLoginType
+{
+	EXTDEV_LOGINTYPE_NORMAL = 0;
+	EXTDEV_LOGINTYPE_TMP =1;
+	EXTDEV_LOGINTYPE_PAIR =2;
+};
+message ExtDeviceLoginConfirmOKRet {
+    optional uint32 IconType = 1;
+    optional string ContentStr = 2;
+    optional string ButtonOkStr = 3;
+    optional string ButtonCancelStr = 4;
+	optional uint32 ReqSessionLimit = 5;
+	optional uint32 ConfirmTimeOut = 6;
+	optional string LoginedDevTip = 7;
+	optional string TitleStr =8;
+}
+
+message ExtDeviceLoginConfirmErrorRet {
+    optional uint32 IconType = 1;
+    optional string ContentStr = 2;
+    optional string TitleStr = 3;
+    optional string ButtonStr = 4;
+}
+
+message ExtDeviceLoginConfirmExpiredRet {
+    optional uint32 IconType = 1;
+    optional string ContentStr = 2;
+    optional string ButtonStr = 3;
+    optional string TitleStr = 4;
+}
+
+message ExtDeviceLoginConfirmGetResponse {
+	required BaseResponse BaseResponse = 1;
+    optional ExtDeviceLoginConfirmOKRet OKRet = 2;
+    optional ExtDeviceLoginConfirmErrorRet ErrorRet = 3;
+    optional ExtDeviceLoginConfirmExpiredRet ExpiredRet = 4;
+    optional string DeviceNameStr = 5;
+}
+
+message ExtDeviceLoginConfirmOKRequest {
+	required string LoginUrl = 1;
+    optional string SessionList = 2;
+	repeated string UnReadChatContactList = 3;
+}
+
+message ExtDeviceLoginConfirmOKResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message ExtDeviceLoginConfirmCancelRequest {
+	required string LoginUrl = 1;
+}
+
+message ExtDeviceLoginConfirmCancelResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message ExtDeviceInitRequest {
+	optional string UserName = 1;
+}
+
+message ExtDeviceInitResponse {
+	required BaseResponse BaseResponse = 1;
+	optional CmdList CmdList = 2;
+	repeated string ChatContactList = 3;
+}
+
+message ExtDeviceControlRequest {
+	optional uint32 OpType = 1;
+	optional uint32 LockDevice = 2;
+}
+
+message ExtDeviceControlResponse {
+	required BaseResponse BaseResponse = 1;
+}
+

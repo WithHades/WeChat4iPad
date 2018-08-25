@@ -1,0 +1,418 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message GetCDNDnsRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ClientIP = 2;
+}
+
+message GetCDNDnsResponse {
+	required BaseResponse BaseResponse = 1;
+	required CDNDnsInfo DnsInfo = 2;
+	optional CDNDnsInfo SnsDnsInfo = 3;
+	optional CDNDnsInfo AppDnsInfo = 4;
+	optional SKBuiltinBuffer_t CDNDnsRuleBuf = 5;
+	optional SKBuiltinBuffer_t FakeCDNDnsRuleBuf = 6;
+	optional CDNDnsInfo FakeDnsInfo = 7;
+}
+
+message EmojiUploadInfoReq {
+	optional string MD5 = 1;
+	required int32 StartPos = 2;
+	required int32 TotalLen = 3;
+	required SKBuiltinBuffer_t EmojiBuffer = 4;
+	required int32 Type = 5;
+	optional string ToUserName = 6;
+	optional string ExternXML = 7;
+	optional string Report = 8;
+	optional string ClientMsgID = 9;
+	optional string MsgSource = 10;
+	optional int32 NewXmlFlag = 11;
+}
+
+message UploadEmojiRequest {
+	required BaseRequest BaseRequest = 1;
+	required int32 EmojiItemCount = 2;
+	repeated EmojiUploadInfoReq EmojiItem = 3;
+	optional uint32 ReqTime = 4;
+}
+
+message EmojiUploadInfoResp {
+	required int32 Ret = 1;
+	required int32 StartPos = 2;
+	required int32 TotalLen = 3;
+	optional string MD5 = 4;
+	required uint32 MsgID = 5;
+	optional uint64 NewMsgId = 6;
+}
+
+message UploadEmojiResponse {
+	required BaseResponse BaseResponse = 1;
+	required int32 EmojiItemCount = 2;
+	repeated EmojiUploadInfoResp EmojiItem = 3;
+}
+
+message EmojiDownloadInfoReq {
+	optional string ID = 1;
+	required int32 StartPos = 2;
+	required int32 TotalLen = 3;
+	optional string MD5 = 4;
+}
+
+message DownloadEmojiRequest {
+	required BaseRequest BaseRequest = 1;
+	required int32 EmojiItemCount = 2;
+	repeated EmojiDownloadInfoReq EmojiItem = 3;
+}
+
+message EmojiDownloadInfoResp {
+	required int32 Ret = 1;
+	required int32 StartPos = 2;
+	required int32 TotalLen = 3;
+	required SKBuiltinBuffer_t EmojiBuffer = 4;
+	optional string MD5 = 5;
+	optional string ID = 6;
+}
+
+message DownloadEmojiResponse {
+	required BaseResponse BaseResponse = 1;
+	required int32 EmojiItemCount = 2;
+	repeated EmojiDownloadInfoResp EmojiItem = 3;
+}
+
+message DownloadVoiceRequest {
+	required uint32 MsgId = 1;
+	required uint32 Offset = 2;
+	required uint32 Length = 3;
+	optional string ClientMsgId = 4;
+	required BaseRequest BaseRequest = 5;
+	optional uint64 NewMsgId = 6;
+	optional string ChatRoomName = 7;
+	optional uint64 MasterBufId = 8;
+}
+
+message DownloadVoiceResponse {
+	required uint32 MsgId = 1;
+	required uint32 Offset = 2;
+	required uint32 Length = 3;
+	required uint32 VoiceLength = 5;
+	optional string ClientMsgId = 6;
+	required SKBuiltinBuffer_t Data = 7;
+	required uint32 EndFlag = 8;
+	required BaseResponse BaseResponse = 9;
+	optional uint32 CancelFlag = 10;
+	optional uint64 NewMsgId = 11;
+}
+
+message UploadMsgImgRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t ClientImgId = 2;
+	required SKBuiltinString_t FromUserName = 3;
+	required SKBuiltinString_t ToUserName = 4;
+	required uint32 TotalLen = 5;
+	required uint32 StartPos = 6;
+	required uint32 DataLen = 7;
+	required SKBuiltinBuffer_t Data = 8;
+	optional uint32 MsgType = 9;
+	optional string MsgSource = 10;
+	optional uint32 CompressType = 11;
+	optional int32 NetType = 12;
+	optional int32 PhotoFrom = 13;
+	optional string MediaId = 14;
+	optional string CDNBigImgUrl = 15;
+	optional string CDNMidImgUrl = 16;
+	optional string AESKey = 17;
+	optional int32 EncryVer = 18;
+	optional int32 CDNBigImgSize = 19;
+	optional int32 CDNMidImgSize = 20;
+	optional string CDNThumbImgUrl = 21;
+	optional int32 CDNThumbImgSize = 22;
+	optional int32 CDNThumbImgHeight = 23;
+	optional int32 CDNThumbImgWidth = 24;
+	optional string CDNThumbAESKey = 25;
+	optional uint32 ReqTime = 26;
+	optional string Md5 = 27;
+	optional uint32 CRC32 = 28;
+	optional uint32 MsgForwardType = 29;
+	optional uint32 HitMd5 = 30;
+}
+
+message UploadMsgImgResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 MsgId = 2;
+	required SKBuiltinString_t ClientImgId = 3;
+	required SKBuiltinString_t FromUserName = 4;
+	required SKBuiltinString_t ToUserName = 5;
+	required uint32 TotalLen = 6;
+	required uint32 StartPos = 7;
+	required uint32 DataLen = 8;
+	required uint32 CreateTime = 9;
+	optional uint64 NewMsgId = 10;
+	optional string AESKey = 11;
+	optional string FileId = 12;
+}
+
+message CDNUploadMsgImgPrepareRequest {
+	optional string ClientImgId = 1;
+	optional string FromUserName = 2;
+	optional string ToUserName = 3;
+	required int32 ThumbHeight = 4;
+	required int32 ThumbWidth = 5;
+	optional string MsgSource = 6;
+	optional SKBuiltinBuffer_t ClientStat = 7;
+	optional int32 Scene = 8;
+	optional float Longitude = 9;
+	optional float Latitude = 10;
+	optional string AttachedContent = 11;
+	optional int32 MidHeight = 12;
+	optional int32 MidWidth = 13;
+	optional int32 HDHeight = 14;
+	optional int32 HDWidth = 15;
+	optional string AESKey = 16;
+	optional int32 EncryVer = 17;
+	optional uint32 CRC32 = 18;
+	optional uint32 MsgForwardType = 19;
+}
+
+message CDNUploadMsgImgPrepareResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string ClientImgId = 3;
+	optional string FromUserName = 4;
+	optional string ToUserName = 5;
+	required uint32 CreateTime = 9;
+	optional uint64 NewMsgId = 10;
+	optional string AESKey = 11;
+	optional string FileId = 12;
+}
+
+message CDNUploadMsgImgCommitRequest {
+	optional string Ticket = 1;
+	optional string ImgUrl = 2;
+	optional string AESKey = 3;
+	required int32 EncryVer = 4;
+	required int32 MidSize = 5;
+	required int32 ThumbSize = 6;
+	optional int32 BigSize = 9;
+	optional string Md5Sum = 10;
+	optional int32 SafeProto = 11;
+	optional int32 Hit = 12;
+	optional string FileInfo = 13;
+}
+
+message CDNUploadMsgImgCommitResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message UploadWeiboImgRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ClientImgId = 2;
+	required uint32 TotalLen = 3;
+	required uint32 StartPos = 4;
+	required uint32 DataLen = 5;
+	optional bytes Data = 6;
+	optional string Content = 7;
+	required uint32 FilterType = 8;
+	optional uint32 Flag = 9;
+}
+
+message UploadWeiboImgResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string ClientImgId = 2;
+	required uint32 TotalLen = 3;
+	required uint32 StartPos = 4;
+	required uint32 DataLen = 5;
+}
+
+message UploadToWeiboRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ClientMsgId = 2;
+	required uint32 Type = 3;
+	required uint32 TotalLen = 4;
+	required uint32 StartPos = 5;
+	required uint32 DataLen = 6;
+	optional bytes Data = 7;
+	optional string Content = 8;
+	required uint32 FilterType = 9;
+}
+
+message UploadToWeiboResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string ClientMsgId = 2;
+	required uint32 Type = 3;
+	required uint32 TotalLen = 4;
+	required uint32 StartPos = 5;
+	required uint32 DataLen = 6;
+}
+
+message GetMsgImgRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 MsgId = 2;
+	required SKBuiltinString_t FromUserName = 3;
+	required SKBuiltinString_t ToUserName = 4;
+	required uint32 TotalLen = 5;
+	required uint32 StartPos = 6;
+	required uint32 DataLen = 7;
+	optional uint32 CompressType = 8;
+	optional uint64 NewMsgId = 9;
+}
+
+message GetMsgImgResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 MsgId = 2;
+	required SKBuiltinString_t FromUserName = 3;
+	required SKBuiltinString_t ToUserName = 4;
+	required uint32 TotalLen = 5;
+	required uint32 StartPos = 6;
+	required uint32 DataLen = 7;
+	required SKBuiltinBuffer_t Data = 8;
+	optional uint64 NewMsgId = 9;
+}
+
+message UploadVideoRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ClientMsgId = 2;
+	optional string FromUserName = 3;
+	optional string ToUserName = 4;
+	required uint32 ThumbTotalLen = 5;
+	required uint32 ThumbStartPos = 6;
+	required SKBuiltinBuffer_t ThumbData = 7;
+	required uint32 VideoTotalLen = 8;
+	required uint32 VideoStartPos = 9;
+	required SKBuiltinBuffer_t VideoData = 10;
+	required uint32 PlayLength = 11;
+	optional uint32 NetworkEnv = 12;
+	optional uint32 CameraType = 13;
+	optional uint32 FuncFlag = 14;
+	optional string MsgSource = 15;
+	optional string CDNVideoUrl = 16;
+	optional string AESKey = 17;
+	optional int32 EncryVer = 18;
+	optional string CDNThumbUrl = 19;
+	optional int32 CDNThumbImgSize = 20;
+	optional int32 CDNThumbImgHeight = 21;
+	optional int32 CDNThumbImgWidth = 22;
+	optional string CDNThumbAESKey = 23;
+	optional int32 VideoFrom = 24;
+	optional uint32 ReqTime = 25;
+	optional string VideoMd5 = 26;
+	optional string StreamVideoUrl = 27;
+	optional uint32 StreamVideoTotalTime = 28;
+	optional string StreamVideoTitle = 29;
+	optional string StreamVideoWording = 30;
+	optional string StreamVideoWebUrl = 31;
+	optional string StreamVideoThumbUrl = 32;
+	optional string StreamVideoPublishId = 33;
+	optional string StreamVideoAdUxInfo = 34;
+	optional string StatExtStr = 35;
+	optional uint32 HitMd5 = 36;
+	optional string VideoNewMd5 = 37;
+	optional uint32 CRC32 = 38;
+	optional uint32 MsgForwardType = 39;
+}
+
+message UploadVideoResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string ClientMsgId = 2;
+	required uint32 MsgId = 3;
+	required uint32 ThumbStartPos = 4;
+	required uint32 VideoStartPos = 5;
+	optional uint64 NewMsgId = 6;
+	optional string AESKey = 7;
+}
+
+message DownloadVideoRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 MsgId = 2;
+	required uint32 TotalLen = 3;
+	required uint32 StartPos = 4;
+	optional uint32 NetworkEnv = 5;
+	optional uint32 MxPackSize = 6;
+	optional uint64 NewMsgId = 7;
+}
+
+message DownloadVideoResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 MsgId = 2;
+	required uint32 TotalLen = 3;
+	required uint32 StartPos = 4;
+	required SKBuiltinBuffer_t Data = 5;
+	optional uint64 NewMsgId = 6;
+}
+
+message RevokeMsgRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ClientMsgId = 2;
+	required uint32 NewClientMsgId = 3;
+	required uint32 CreateTime = 4;
+	required uint32 SvrMsgId = 5;
+	optional string FromUserName = 6;
+	optional string ToUserName = 7;
+	required uint32 IndexOfRequest = 8;
+	optional uint64 SvrNewMsgId = 9;
+}
+
+message RevokeMsgResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string Introduction = 2;
+	optional string SysWording = 3;
+}
+
+message SendYoRequest {
+	optional string ToUserName = 1;
+	required uint32 Type = 2;
+	required uint32 Count = 3;
+	required uint32 CreateTime = 4;
+	required uint32 ClientMsgId = 5;
+	optional string MsgSource = 6;
+	optional uint32 YoType = 7;
+}
+
+message SendYoResponse {
+	required int32 Ret = 1;
+	required uint32 ServerTime = 2;
+	required uint64 MsgId = 3;
+}
+
+message CheckBigFileUploadRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string FromUserName = 2;
+	optional string ToUserName = 3;
+	required uint64 FileSize = 4;
+	optional string AESKey = 5;
+	optional string FileMd5 = 6;
+	required uint32 FileType = 7;
+	optional string FileExt = 8;
+	optional string FileName = 9;
+}
+
+message CheckBigFileUploadResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string Signature = 2;
+	optional uint32 Fakeuin = 3;
+	optional string FakeAESKey = 4;
+	optional string FakeSignature = 5;
+}
+
+message CheckBigFileDownloadRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string FromUserName = 2;
+	optional string ToUserName = 3;
+	required uint64 FileSize = 4;
+	optional string AESKey = 5;
+	optional string FileMd5 = 6;
+	required uint32 FileType = 7;
+	optional string FileExt = 8;
+	optional string FileName = 9;
+}
+
+message CheckBigFileDownloadResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string Signature = 2;
+	optional uint32 Fakeuin = 3;
+	optional string FakeAESKey = 4;
+	optional string FakeSignature = 5;
+}
+

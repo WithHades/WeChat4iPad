@@ -1,0 +1,32 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message HWParamBuffer {
+	required uint32 HeaderLen = 1;
+	required bytes  SPSBuf    = 2;
+	required bytes  PPSBuf    = 3;	
+}
+
+message HWTimeInfo {
+	required int64 DurTimeValue     = 1;
+	required int32 DurTimeScale     = 2;
+	required int64 PresentTimeValue = 3;
+	required int32 PresentTimeScale = 4;
+	required int64 DecodeTimeValue  = 5;
+	required int32 DecodeTimeScale  = 6;
+}
+
+message HWFrameBuffer {
+	required bytes      RawBuf       = 1;
+	required int32      SamplesCount = 2;
+	repeated HWTimeInfo TimeInfo     = 3;
+	repeated int32      SampleSize   = 4;
+}
+
+message VOIPRUDPCmd {
+	required int32 CmdType   = 1;
+	optional bytes CmdBuffer = 2;
+}

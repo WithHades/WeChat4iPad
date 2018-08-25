@@ -1,0 +1,424 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message VoipRelayData {
+	required int32 Type = 1;
+	required SKBuiltinBuffer_t Buffer = 2;
+}
+
+message VoipAddr {
+	required int32 Ip = 1;
+	required int32 Port = 2;
+}
+
+message VoipAddrSet {
+	required int32 Cnt = 1;
+	repeated VoipAddr Addrs = 2;
+}
+
+message VoipMultiRelayData {
+	required VoipRelayData PeerId = 1;
+	required VoipRelayData CapInfo = 2;
+	required int32 SendingType = 3;
+	optional VoipAddrSet VoipSvrAddr = 4;
+	optional VoipAddrSet PunchSvrAddr = 5;
+	optional int32 VoipNetQuality = 6;
+	optional int32 LinkDisconnectHbInterval = 7;
+	optional int32 LinkDisconnectHbCnt = 8;
+	optional uint32 ProtocolEncryptLength = 9;
+	optional SKBuiltinBuffer_t ClientHeadSigns = 10;
+	optional uint32 OppositeClientVersion = 11;
+	optional VoipAddrSet TcpSvrAddr = 12;
+	optional int32 ARQStrategy = 13;
+	optional int32 ARQCacheLen = 14;
+	optional int32 ARQRttThreshold = 15;
+	optional int32 ARQUsedRateThreshold = 16;
+	optional int32 ARQRespRateThreshold = 17;
+	optional int32 EncryptStrategy = 18;
+    optional int32 FECSvrCtr = 19;
+    optional SKBuiltinBuffer_t FECKeyPara1 = 20;
+    optional SKBuiltinBuffer_t FECKeyPara2 = 21;
+    optional int32 QosStrategy = 22;
+    optional SKBuiltinBuffer_t EncryptKeyBuf = 23;
+ 	optional uint32 OppositeDeviceType = 24;
+}
+
+message VoipStatReportData {
+	required SKBuiltinString_t StatReport = 1;
+}
+
+message VoipNetQuality {
+	required int32 Type = 1;
+	required int32 Begin = 2;
+	required int32 End = 3;
+	required int32 HitCnt = 4;
+}
+
+message VoipInviteRemindReq {
+	required BaseRequest BaseRequest = 1;
+	required uint32 ListCount = 2;
+	repeated SKBuiltinString_t ToUserNameList = 3;
+	optional uint32 InviteType = 4;
+}
+
+message VoipInviteRemindResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message VoipInviteReq {
+	required BaseRequest BaseRequest = 1;
+	optional string FromUsername = 2;
+	required int32 InviteUserCount = 3;
+	repeated SKBuiltinString_t ToUsernameList = 4;
+	required VoipRelayData PeerId = 6;
+	required VoipRelayData CapInfo = 7;
+	required int32 NetType = 8;
+	required int32 CallType = 9;
+	optional int32 RoomId = 10;
+	optional int64 RoomKey = 11;
+	optional uint32 InviteType = 12;
+	optional uint64 Timestamp64 = 13;
+	optional int32 HDVideo = 14;
+	optional uint32 InviteId = 15;
+}
+
+message VoipInviteResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 RoomId = 2;
+	required int32 AddrCount = 3;
+	repeated VoipAddr AddrList = 4;
+	required int64 RoomKey = 5;
+	required int32 RoomMemberId = 6;
+	optional VoipMultiRelayData RelayData = 7;
+	optional int32 NetQualityCnt = 8;
+	repeated VoipNetQuality NetQualityList = 9;
+	optional int32 AudioTsdfBeyond3G = 10;
+	optional int32 AudioTsdfEdge = 11;
+	optional int32 PassthroughQosAlgorithm = 12;
+	optional int32 FastPlayRepair = 13;
+	optional int32 VoipSyncInterval = 14;
+	optional int32 NewP2S = 15;
+	optional int32 AudioDTX = 16;
+	optional uint32 TcpCnt = 17;
+	optional uint32 SwitchInterval = 18;
+    optional int32 Hw264SvrCfg = 19;
+    optional int32 AudioEnableRmioAndS3A = 20;
+    optional int32 AudioEnableSpkec = 21;
+}
+
+message VoipCancelInviteReq {
+	required BaseRequest BaseRequest = 1;
+	optional string FromUsername = 2;
+	required int32 RoomId = 3;
+	required int64 RoomKey = 4;
+	optional string ToUserName = 6;
+	required VoipStatReportData ReportData = 8;
+	optional uint32 InviteType = 9;
+	optional uint64 Timestamp64 = 10;
+	optional uint32 InviteId = 11;
+}
+
+message VoipCancelInviteResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+}
+
+
+message VoipAnswerReq {
+	required BaseRequest BaseRequest = 1;
+	optional string FromUsername = 2;
+	required int32 RoomId = 3;
+	required int32 Answer = 4;
+	optional VoipRelayData PeerId = 5;
+	optional VoipRelayData CapInfo = 6;
+	required int64 RoomKey = 7;
+	required int32 NetType = 8;
+	optional uint64 Timestamp64 = 9;
+	optional int32 OnlyAudio = 10;
+}
+
+message VoipAnswerResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 AddrCount = 2;
+	repeated VoipAddr AddrList = 3;
+	required int32 RoomId = 4;
+	required int64 RoomKey = 5;
+	required int32 RoomMemberID = 6;
+	required VoipMultiRelayData RelayData = 7;
+	optional int32 NetQualityCnt = 8;
+	repeated VoipNetQuality NetQualityList = 9;
+	optional int32 AudioTsdfBeyond3G = 10;
+	optional int32 AudioTsdfEdge = 11;
+	optional int32 PassthroughQosAlgorithm = 12;
+	optional int32 FastPlayRepair = 13;
+	optional int32 NewP2S = 14;
+	optional int32 AudioDTX = 15;
+	optional uint32 TcpCnt = 16;
+	optional uint32 SwitchInterval = 17;
+    optional int32 Hw264SvrCfg = 18;
+    optional int32 AudioEnableRmioAndS3A = 19;
+    optional int32 AudioEnableSpkec = 20;
+}
+
+message VoipShutDownReq {
+	required BaseRequest BaseRequest = 1;
+	optional string FromUsername = 2;
+	required int32 RoomId = 3;
+	required int64 RoomKey = 4;
+	required VoipStatReportData ReportData = 5;
+	optional uint64 Timestamp64 = 6;
+	optional uint32 Duration = 7;
+}
+
+message VoipShutDownResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+}
+
+message VoipCmdItem {
+	required int32 CmdId = 1;
+	required SKBuiltinBuffer_t CmdBuf = 2;
+	optional string FromUserName = 3;
+}
+
+message VoipCmdList {
+	required uint32 Count = 1;
+	repeated VoipCmdItem List = 2;
+}
+
+message VoipSyncReq {
+	required BaseRequest BaseRequest = 1;
+	optional string FromUsername = 2;
+	required int32 RoomId = 3;
+	required SKBuiltinBuffer_t KeyBuf = 4;
+	required VoipCmdList OpLog = 5;
+	required int64 RoomKey = 6;
+	required int32 Selector = 7;
+	optional uint64 Timestamp64 = 8;
+}
+
+message VoipHeartBeatReq {
+	required BaseRequest BaseRequest = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	optional uint32 Timestamp = 4;
+	optional uint64 Timestamp64 = 5;
+	optional int32 ConnectionType = 6;
+}
+
+message VoipHeartBeatResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	optional uint32 Timestamp = 4;
+}
+
+message VoipSyncResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 RoomId = 3;
+	required SKBuiltinBuffer_t KeyBuf = 4;
+	required VoipCmdList CmdList = 5;
+	required int32 ContinueFlag = 7;
+	required int64 RoomKey = 8;
+}
+
+
+
+message VoipStatusItem {
+	optional string Username = 1;
+	required int32 Status = 2;
+}
+
+
+
+message VoipGetRoomInfoReq {
+	required BaseRequest BaseRequest = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	optional string CallerUserName = 4;
+	optional uint32 Type = 5;
+	optional uint64 Timestamp64 = 6;
+}
+
+message VoipGetRoomInfoResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	required uint32 CreateTime = 4;
+	required int32 MemberCount = 6;
+	repeated VoipStatusItem MemberStatus = 7;
+	optional string CallerUserName = 8;
+	optional uint32 InviteType = 9;
+}
+
+message VoipAckReq {
+	required BaseRequest BaseRequest = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	optional string FromUsername = 4;
+	optional int32 PreConnect = 5;
+	optional VoipRelayData PeerId = 6;
+	optional VoipRelayData CapInfo = 7;
+	optional int32 NetType = 8;
+	optional string CallerName = 9;
+	optional int32 AckStatus = 10;
+	optional uint64 Timestamp64 = 11;
+}
+
+message VoipAckResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	optional int32 RoomMemberID = 4;
+	optional VoipMultiRelayData RelayData = 5;
+	optional int32 PreConnect = 6;
+	optional uint32 TcpCnt = 7;
+	optional int32 AudioEnableRmioAndS3A = 8;
+}
+
+
+
+message VoipStatReportReq {
+	required BaseRequest BaseRequest = 1;
+	required VoipStatReportData ReportData = 2;
+	optional VoipStatReportData ChannelReportData = 3;
+	optional VoipStatReportData DialReportData = 4;
+	optional VoipStatReportData EngineReportData = 5;
+	optional uint64 Timestamp64 = 6;
+    optional VoipStatReportData EngineExtReportData = 7;
+}
+
+message VoipStatReportResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message VoipCompleteStatus {
+	required int32 CmdId = 1;
+	required uint32 Uin = 2;
+	required uint32 Key = 3;
+	required SKBuiltinBuffer_t Buffer = 4;
+}
+
+message VoipCompleteStatusList {
+	required int32 Count = 1;
+	repeated VoipCompleteStatus CompleteStatus = 2;
+	required uint32 Seq = 3;
+}
+
+message VoipRedirectReq {
+	required BaseRequest BaseRequest = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	required int32 RoomMemberId = 4;
+}
+
+message VoipRedirectResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 RoomId = 2;
+	required int32 RelayAddrCount = 3;
+	repeated VoipAddr RelayAddrList = 4;
+	required int32 PunchAddrCount = 5;
+	repeated VoipAddr PunchAddrList = 6;
+	required int64 RoomKey = 7;
+	required int32 RoomMemberId = 8;
+	optional int32 TcpAddrCount = 9;
+	repeated VoipAddr TcpAddrList = 10;
+}
+
+message VoipDoubleLinkSwitchReq {
+	required BaseRequest BaseRequest = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	required int32 RoomMemberId = 4;
+	required int32 CurLinkType = 5;
+	required int32 IsRelayConnReady = 6;
+	required int32 IsDirectConnReady = 7;
+	required int32 CurStrategy = 8;
+	required int32 BufferVersion = 9;
+	required SKBuiltinBuffer_t Buffer = 10;
+}
+
+message VoipDoubleLinkSwitchRsp {
+	required BaseResponse BaseResponse = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	required int32 RoomMemberId = 4;
+	required int32 ReportFlag = 5;
+	required int32 SwitchToLinkType = 6;
+}
+
+message VoipSpeedTestReq {
+	required BaseRequest BaseRequest = 1;
+	required int32 RoomId = 2;
+	required uint32 CallType = 3;
+	required uint32 NetType = 4;
+	required uint32 IsConnecting = 5;
+	required uint32 IsConnected = 6;
+	required uint32 C2CLossrate = 7;
+	required uint32 C2CRttCnt = 8;
+	repeated uint32 C2CRtt = 9[packed=true];
+	required uint32 C2SDownLossRate = 10;
+	required uint32 C2SRttCnt = 11;
+	repeated uint32 C2SRtt = 12[packed=true];
+	required uint32 SendPkts = 13;
+	required uint32 RcvPkts = 14;
+}
+
+message SpeedTestSvr {
+	required VoipAddr Addr = 1;
+	required uint32 TestCnt = 2;
+	required uint32 TestGap = 3;
+	required uint32 Timeout = 4;
+	required uint32 PktSize = 5;
+}
+
+message VoipSpeedTestRsp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 NeedTest = 2;
+	required uint64 TestId = 3;
+	required uint32 SvrListCnt = 4;
+	repeated SpeedTestSvr SvrList = 5;
+}
+
+message SpeedResult {
+	required uint32 ClientIp = 1;
+	required uint32 TestPktSize = 2;
+	required uint32 TestCnt = 3;
+	required VoipAddr Addr = 4;
+	required uint32 AvgRtt = 5;
+	required uint32 MinRtt = 6;
+	required uint32 MaxRtt = 7;
+	required uint32 RttCnt = 8;
+	repeated uint32 Rtt = 9[packed=true];
+	required uint32 DownSeqCnt = 10;
+	repeated uint32 DownSeq = 11[packed=true];
+	required uint32 UpSeqCnt = 12;
+	repeated uint32 UpSeq = 13[packed=true];
+}
+
+message VoipSpeedResultReq {
+	required BaseRequest BaseRequest = 1;
+	required uint64 TestId = 2;
+	required uint64 RoomKey = 3;
+	required uint32 NetType = 4;
+	required SKBuiltinString_t NetName = 5;
+	required SKBuiltinString_t WifiName = 6;
+	required double Longitude = 7;
+	required double Latitude = 8;
+	required uint32 RoomId = 9;
+	required uint32 ResultCnt = 10;
+	repeated SpeedResult Result = 11;
+}
+
+message VoipSpeedResultRsp {
+	required BaseResponse BaseResponse = 1;
+}
+
+
+
+

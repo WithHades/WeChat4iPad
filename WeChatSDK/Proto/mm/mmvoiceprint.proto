@@ -1,0 +1,115 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message VoicePieceCtx {
+	required uint32 StartPos = 1;
+	required uint32 PieceLen = 2;
+	required uint32 PieceFlag = 3;
+	required SKBuiltinBuffer_t PieceData = 4;
+}
+
+message ResourceCtx {
+	required uint32 ResId = 1;
+	required SKBuiltinBuffer_t ResData = 2;
+}
+
+message GetVoicePrintResourceRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 ResScence = 2;
+	optional string VerifyTicket = 3;
+}
+
+message GetVoicePrintResourceResponse {
+	required BaseResponse BaseResponse = 1;
+	required ResourceCtx ResourceData = 2;
+}
+
+message GetVoicePrintResourceRsaRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 ResScence = 2;
+	optional string VerifyTicket = 3;
+	required SKBuiltinBuffer_t RandomEncryKey = 4;
+}
+
+message GetVoicePrintResourceRsaResponse {
+	required BaseResponse BaseResponse = 1;
+	required ResourceCtx ResourceData = 2;
+}
+
+message RegisterVoicePrintRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Step = 2;
+	required uint32 VoiceTicket = 3;
+	required VoicePieceCtx PieceData = 4;
+	required uint32 ResId = 5;
+}
+
+message RegisterVoicePrintResponse {
+	required BaseResponse BaseResponse = 1;
+	required int32 ResgisterRet = 2;
+	required uint32 NextStep = 3;
+	required VoicePieceCtx NextPiece = 4;
+	required uint32 VoiceTicket = 5;
+}
+
+message VerifyVoicePrintRequest {
+	required BaseRequest BaseRequest = 1;
+	required VoicePieceCtx Piece = 2;
+	required uint32 VoiceTicket = 3;
+	required uint32 ResId = 4;
+	optional string VerifyTicket = 5;
+}
+
+message VerifyVoicePrintResponse {
+	required BaseResponse BaseResponse = 1;
+	required VoicePieceCtx NextPiece = 2;
+	required uint32 Result = 3;
+	required uint32 VoiceTicket = 4;
+}
+
+message VerifyVoicePrintRsaRequest {
+	required BaseRequest BaseRequest = 1;
+	required VoicePieceCtx Piece = 2;
+	required uint32 VoiceTicket = 3;
+	required uint32 ResId = 4;
+	optional string VerifyTicket = 5;
+	required SKBuiltinBuffer_t RandomEncryKey = 6;
+}
+
+message VerifyVoicePrintRsaResponse {
+	required BaseResponse BaseResponse = 1;
+	required VoicePieceCtx NextPiece = 2;
+	required uint32 Result = 3;
+	required uint32 VoiceTicket = 4;
+    optional string AuthPwd = 5;
+}
+
+message SwitchOpVoicePrintRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 opcode = 2;
+}
+
+message SwitchOpVoicePrintResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 UserSwitch = 2;
+	required uint32 UserStatus = 3;
+}
+
+message GetVoiceprintTicketRsaRequest {
+    required BaseRequest BaseRequest = 1;
+    optional string UserName = 2;
+    required uint32 GetScence = 3;
+    required SKBuiltinBuffer_t RandomEncryKey = 4;
+}
+
+message GetVoiceprintTicketRsaResponse {
+    required BaseResponse BaseResponse = 1;
+    optional string VoiceprintTicket = 2;
+    optional BuiltinIPList BuiltinIPList = 3;
+    optional HostList NewHostList = 4;
+    optional NetworkControl NetworkControl = 5;
+}
+

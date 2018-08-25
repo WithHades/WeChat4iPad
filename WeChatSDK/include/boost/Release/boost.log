@@ -1,0 +1,50 @@
+﻿  lockpool.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  date_generators.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  gregorian_types.cpp
+  greg_month.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  greg_weekday.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  posix_time_types.cpp
+  clone_current_exception_non_intrusive.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  codecvt_error_category.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  operations.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  path.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  path_traits.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  portability.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  unique_path.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  utf8_codecvt_facet.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  windows_file_codecvt.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  file_descriptor.cpp
+  Unknown compiler version - please run the configure tests and report the results
+libs\iostreams\src\file_descriptor.cpp(265): warning C4244: “参数”: 从“std::streamsize”转换到“DWORD”，可能丢失数据
+libs\iostreams\src\file_descriptor.cpp(289): warning C4244: “参数”: 从“std::streamsize”转换到“DWORD”，可能丢失数据
+  mapped_file.cpp
+  Unknown compiler version - please run the configure tests and report the results
+libs\iostreams\src\mapped_file.cpp(130): warning C4244: “return”: 从“const mars_boost::iostreams::stream_offset”转换到“::size_t”，可能丢失数据
+libs\iostreams\src\mapped_file.cpp(434): warning C4244: “参数”: 从“mars_boost::iostreams::stream_offset”转换到“SIZE_T”，可能丢失数据
+  sp_collector.cpp
+  sp_debug_hooks.cpp
+  error_code.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  正在编译...
+  future.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  thread.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  tss_dll.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  tss_pe.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  boost.vcxproj -> D:\ipad\weChat\mars\win32proj\Release\lib\boost.lib

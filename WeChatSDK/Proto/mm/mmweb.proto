@@ -1,0 +1,116 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message GetQRCodeRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t UserName = 2;
+	required uint32 Style = 3;
+}
+
+message GetQRCodeResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t QRCode = 2;
+	required uint32 Style = 5;
+	optional string FooterWording = 6;
+}
+
+message RevokeChatRoomQRCodeRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string QRCode = 2;
+	optional string ChatRoomUserName = 3;
+}
+
+message RevokeChatRoomQRCodeResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message SendQRCodeByEmailReq {
+	required BaseRequest BaseRequest = 1;
+	optional string QRCodeUserName = 2;
+	required uint32 ToCount = 3;
+	repeated SKBuiltinString_t ToList = 4;
+	optional string Tittle = 5;
+	optional string Content = 6;
+}
+
+message SendQRCodeByEmailResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GetCardRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Type = 2;
+}
+
+message GetCardResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t Image = 2;
+}
+
+message HeartBeatRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 TimeStamp = 2;
+	optional SKBuiltinBuffer_t KeyBuf = 3;
+	optional SKBuiltinBuffer_t BlueToothBroadCastContent = 4;
+	optional uint32 Scene = 5;
+}
+
+message HeartBeatResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 NextTime = 2;
+	optional uint32 Selector = 3;
+	optional SKBuiltinBuffer_t BlueToothBroadCastContent = 4;
+}
+
+message GetCliDBEncryptInfoRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 CertVersion = 2;
+	required SKBuiltinBuffer_t CliDBEncryptKey = 3;
+	required SKBuiltinBuffer_t CliDBEncryptInfo = 4;
+}
+
+message GetCliDBEncryptInfoResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t CliDBEncryptKey = 2;
+	required SKBuiltinBuffer_t CliDBEncryptInfo = 3;
+}
+
+message GetImUnreadMsgCountRequest {
+	required BaseRequest BaseRequest = 1;
+}
+
+message GetImUnreadMsgCountResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string DisplayMsg = 2;
+	optional string QQScheme = 3;
+	optional string DownloadUrl = 4;
+}
+
+message GetLocImgRequest {
+	required BaseRequest BaseRequest = 1;
+	required float Longitude = 2;
+	required float Latitude = 3;
+	required uint32 Width = 4;
+	required uint32 Height = 5;
+	optional string Language = 6;
+	required uint32 MapType = 7;
+	required uint32 ZoomLevel = 8;
+}
+
+message GetLocImgResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t ImgBuf = 2;
+}
+
+message GetWeChatOutCouponsRequest {
+	required BaseRequest BaseRequest = 1;
+}
+
+message GetWeChatOutCouponsResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string Coupons = 2;
+}
+

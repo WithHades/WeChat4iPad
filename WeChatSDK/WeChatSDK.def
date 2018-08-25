@@ -1,0 +1,12 @@
+EXPORTS
+WxInitHandle
+WxGetQRCode
+WxCheckQRCode
+WXQRCodeLogin
+SafeFree
+WxNewInit
+postLocal
+testCheck
+WXUserLogin
+WxSyncMsg
+SetQRCodeCallBack

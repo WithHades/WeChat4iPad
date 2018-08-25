@@ -1,0 +1,491 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message LbsLifeExtInfo {
+	required uint32 Limit = 1;
+	required uint32 Page = 2;
+	optional string sessiontoken = 3;
+}
+
+message LbsLocation {
+	required float Longitude = 1;
+	required float Latitude = 2;
+	required int32 Precision = 3;
+	optional string MacAddr = 4;
+	optional string CellId = 5;
+	optional int32 GPSSource = 6;
+}
+
+message CreatePoiRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Name = 2;
+	optional string District = 3;
+	optional string Street = 4;
+	required LbsLocation Loc = 5;
+	required uint32 Count = 6;
+	repeated SKBuiltinString_t Categories = 7;
+	optional string Telephone = 8;
+	optional string PhotoUrl = 9;
+}
+
+message CreatePoiResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string PoiId = 2;
+}
+
+message GetLbsLifeListRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Opcode = 2;
+	required uint32 Scene = 3;
+	optional SKBuiltinBuffer_t Buff = 4;
+	required LbsLocation Loc = 5;
+	optional string Keyword = 6;
+	optional uint32 EntryTime = 7;
+}
+
+message LbsLife {
+	optional string BId = 1;
+	optional string Title = 2;
+	required float Price = 3;
+	required uint32 IconIdxCount = 4;
+	repeated uint32 IconIdxList = 5[packed=true];
+	required uint32 DescCount = 6;
+	repeated SKBuiltinString_t DescList = 7;
+	required float Rate = 8;
+	optional string Link = 9;
+	optional uint32 Type = 10;
+}
+
+message GetLbsFunctionListRequest {
+	required BaseRequest BaseRequest = 1;
+	required LbsLocation Loc = 2;
+}
+
+message GetLbsFunctionListResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string LbsFunctionList = 2;
+}
+
+message GetLbsLifeListResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t Buff = 2;
+	required uint32 IconCount = 3;
+	repeated SKBuiltinString_t IconList = 4;
+	required uint32 LifeCount = 5;
+	repeated LbsLife LifeList  = 6;
+	required uint32 ContinueFlag = 7;
+	optional string LogoUrl = 8;
+}
+
+message LBSLifeActionBooking {
+	required uint32 Type = 1;
+	optional string Title = 2;
+	optional string Url = 3;
+}
+
+message LBSLifeActionBargain {
+	optional string Desc = 1;
+	optional string Url = 2;
+	optional string IconUrl = 3;
+}
+
+message LBSLifeAction {
+	required uint32 Type = 1;
+	optional string Name = 2;
+	optional string Desc = 3;
+	optional string Link = 4;
+	required uint32 BookingCount = 5;
+	repeated LBSLifeActionBooking BookingList = 6;
+	required uint32 BargainCount = 7;
+	repeated LBSLifeActionBargain BargainList = 8;
+}
+
+message LBSLifeActionList {
+	required uint32 Type = 1;
+	required LBSLifeAction LifeAction = 2;
+}
+
+message LbsLifeDetail {
+	required LbsLife Life = 1;
+	required uint32 CICount = 2;
+	repeated SKBuiltinString_t CIList = 3;
+	optional string ThumbUrl = 4;
+	optional string PhotoLink = 5;
+	required uint32 ActionCount = 6;
+	repeated LBSLifeActionList ActionList = 7;
+}
+
+message GetLbsLifeDetailRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string BusinessId = 2;
+}
+
+message GetLbsLifeDetailResponse {
+	required BaseResponse BaseResponse = 1;
+	required LbsLifeDetail LifeDetail = 2;
+}
+
+message LbsRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	required float Longitude = 3;
+	required float Latitude = 4;
+	required int32 Precision = 5;
+	optional string MacAddr = 6;
+	optional string CellId = 7;
+	optional int32 GPSSource = 8;
+}
+
+message AlbumLbsRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	required float Longitude = 3;
+	required float Latitude = 4;
+	required int32 Precision = 5;
+	optional string MacAddr = 6;
+	optional string CellId = 7;
+	required int32 GPSSource = 8;
+	required uint32 SBTime = 9;
+}
+
+message LbsContactInfo {
+	optional string UserName = 1;
+	optional string NickName = 2;
+	optional string Province = 3;
+	optional string City = 4;
+	optional string Signature = 5;
+	optional string Distance = 6;
+	required int32 Sex = 7;
+	required uint32 ImgStatus = 8;
+	optional uint32 VerifyFlag = 9;
+	optional string VerifyInfo = 10;
+	optional string VerifyContent = 11;
+	optional string Alias = 12;
+	optional string Weibo = 13;
+	optional string WeiboNickname = 14;
+	optional uint32 WeiboFlag = 15;
+	optional int32 HeadImgVersion = 19;
+	optional SnsUserInfo SnsUserInfo = 20;
+	optional string Country = 21;
+	optional string BigHeadImgUrl = 22;
+	optional string SmallHeadImgUrl = 23;
+	optional string MyBrandList = 24;
+	optional CustomizedInfo CustomizedInfo = 25;
+	optional string AntispamTicket = 26;
+}
+
+message LbsResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 ContactCount = 2;
+	repeated LbsContactInfo ContactList = 3;
+	optional uint32 State = 4;
+	optional uint32 FlushTime = 5;
+	optional uint32 IsShowRoom = 6;
+	optional uint32 RoomMemberCount = 7;
+}
+
+message AlbumLbsContactInfo {
+	optional string UserName = 1;
+}
+
+message AlbumLbsResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 ContactCount = 2;
+	repeated AlbumLbsContactInfo ContactList = 3;
+}
+
+message ShakeReportRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	required float Longitude = 3;
+	required float Latitude = 4;
+	required int32 Precision = 5;
+	optional string MacAddr = 6;
+	optional string CellId = 7;
+	required uint32 ImgId = 8;
+	required uint32 Times = 9;
+	optional int32 GPSSource = 10;
+}
+
+message ShakeBuffer {
+	required uint32 ReportTime = 1;
+	required uint32 X = 2;
+	required uint32 Y = 3;
+}
+
+message ShakeReportResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t Buffer = 2;
+	required int32 Ret = 3;
+	required uint32 ImgId = 4;
+	optional uint32 ImgTotoalLen = 5;
+}
+
+message ShakeGetRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinBuffer_t Buffer = 2;
+	optional int32 IsNewVerson = 3;
+}
+
+message ShakeGetItem {
+	optional string UserName = 1;
+	optional string NickName = 2;
+	optional string Province = 3;
+	optional string City = 4;
+	optional string Signature = 5;
+	optional string Distance = 6;
+	required int32 Sex = 7;
+	required uint32 ImgStatus = 8;
+	required uint32 HasHDImg = 9;
+	required SKBuiltinBuffer_t ImgBuffer = 10;
+	required uint32 NumDistance = 11;
+	optional string Weibo = 12;
+	optional string WeiboNickname = 13;
+	optional uint32 WeiboFlag = 14;
+	optional uint32 VerifyFlag = 15;
+	optional string VerifyInfo = 16;
+	optional string VerifyContent = 17;
+	optional int32 HeadImgVersion = 21;
+	optional SnsUserInfo SnsUserInfo = 22;
+	optional string Country = 23;
+	optional string BigHeadImgUrl = 24;
+	optional string SmallHeadImgUrl = 25;
+	optional string MyBrandList = 26;
+	optional CustomizedInfo CustomizedInfo = 27;
+	optional string AntispamTicket = 28;
+}
+
+message ShakeGetResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated ShakeGetItem ShakeGetList = 3;
+	optional string Tips = 4;
+	required uint32 Scence = 5;
+	required int32 Ret = 6;
+}
+
+message ShakeMatchRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	optional string ToUserName = 3;
+	required uint32 Scence = 4;
+}
+
+message ShakeMatchResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string Tips = 2;
+	required uint32 Ret = 3;
+}
+
+message ShakeImgRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 ImgId = 2;
+	required uint32 StartPos = 3;
+	required uint32 TotalLen = 4;
+}
+
+message ShakeImgResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 ImgId = 2;
+	required uint32 TotalLen = 3;
+	required uint32 StartPos = 4;
+	required SKBuiltinBuffer_t Buffer = 5;
+}
+
+message ScanStreetViewRequest {
+	required BaseRequest BaseRequest = 1;
+	required PositionInfo UserPos = 2;
+	optional uint32 Scene = 3;
+	optional float Heading = 4;
+	optional float Pitch = 5;
+}
+
+message ScanStreetViewResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Type = 2;
+	optional string DescriptionXML = 3;
+}
+
+message LbsRoomRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	required float Longitude = 3;
+	required float Latitude = 4;
+	required int32 Precision = 5;
+	optional string MacAddr = 6;
+	optional string CellId = 7;
+	optional int32 GPSSource = 8;
+	optional string RoomName = 9;
+	optional int32 ExitScene = 10;
+	optional int32 StayTime = 11;
+}
+
+message LbsRoomResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string RoomName = 2;
+	optional string RoomNickName = 3;
+}
+
+message LbsRoomMemberRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string RoomName = 2;
+}
+
+message LbsRoomMember {
+	optional string UserName = 1;
+	optional string NickName = 2;
+	optional string BigHeadImgUrl = 3;
+	optional string SmallHeadImgUrl = 4;
+	optional string AntispamTicket = 5;
+}
+
+message LbsRoomMemberResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 MemberCount = 2;
+	repeated LbsRoomMember MemberList = 3;
+}
+
+message RadarSearchRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	required float Longitude = 3;
+	required float Latitude = 4;
+	required int32 Precision = 5;
+	optional string MacAddr = 6;
+	optional string CellId = 7;
+	optional int32 GPSSource = 8;
+}
+
+message RadarSearchMember {
+	optional string UserName = 1;
+	required uint32 Distance = 2;
+	optional string NickName = 3;
+	optional string SmallImgUrl = 4;
+	optional string EncodeUserName = 5;
+	optional string AntispamTicket = 6;
+}
+
+message RadarSearchResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string Ticket = 2;
+	required uint32 OpCode = 3;
+	required uint32 MemberCount = 4;
+	repeated RadarSearchMember MemberList = 5;
+}
+
+message RadarChatRoomMember {
+	optional string UserName = 1;
+	optional string AntispamTicket = 2;
+	optional string EncodeUserName = 3;
+}
+
+message RadarRelationChainRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 MemberCount = 2;
+	repeated RadarChatRoomMember MemberList = 3;
+}
+
+message RadarRelationChainResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string Ticket = 2;
+	required uint32 MemberCount = 3;
+	repeated RadarChatRoomMember MemberList = 4;
+}
+
+message RadarCreateChatRoomRequest {
+	required BaseRequest BaseRequest = 1;
+	required float Longitude = 2;
+	required float Latitude = 3;
+	required int32 Precision = 4;
+	optional string MacAddr = 5;
+	optional string CellId = 6;
+	optional int32 GPSSource = 7;
+	optional string PassWord = 8;
+}
+
+message RadarCreateChatRoomResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string ChatRoomName = 2;
+}
+
+message GetPOIListRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Scene = 2;
+	required uint32 OpCode = 3;
+	optional string Keyword = 4;
+	required SKBuiltinBuffer_t Buff = 5;
+	required double Longitude = 6;
+	required double Latitude = 7;
+}
+
+message POIItem {
+	optional string Name = 1;
+	optional string Addr = 2;
+	required double Longitude = 3;
+	required double Latitude = 4;
+	optional string TypeId = 5;
+	optional string Link = 6;
+	optional string Nation = 7;
+	optional string Province = 8;
+	optional string City = 9;
+	optional string District = 10;
+	optional string Street = 11;
+	optional string SubAddr = 12;
+}
+
+message GetPOIListResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 ListCount = 2;
+	repeated POIItem POIList = 3;
+	required uint32 OpCode = 4;
+	required uint32 IsEnd = 5;
+	required SKBuiltinBuffer_t Buff = 6;
+	optional string Url = 7;
+	optional string LogoUrl = 8;
+	optional string Text = 9;
+    optional string OpenId = 10;
+}
+
+message FacingMember {
+	optional string UserName = 1;
+	optional string EncodeUserName = 2;
+	optional string NickName = 3;
+	optional string SmallImgUrl = 4;
+	required uint32 Status = 5;
+}
+
+message FacingCreateChatRoomRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	optional string PassWord = 3;
+	required float Longitude = 4;
+	required float Latitude = 5;
+	required int32 Precision = 6;
+	optional string MacAddr = 7;
+	optional string CellId = 8;
+	optional int32 GPSSource = 9;
+	optional string Ticket = 10;
+}
+
+message FacingCreateChatRoomResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string Ticket = 2;
+	required uint32 MemberCount = 3;
+	repeated FacingMember MemberList = 4;
+	optional string ChatRoomName = 5;
+}
+
+message GetAddressRequest {
+	required BaseRequest BaseRequest = 1;
+	required double Longitude = 2;
+	required double Latitude = 3;
+}
+
+message GetAddressResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string RetJson = 2;
+}
+

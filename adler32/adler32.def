@@ -1,0 +1,5 @@
+EXPORTS
+Adler32
+CompressBound
+Compress
+UnCompress

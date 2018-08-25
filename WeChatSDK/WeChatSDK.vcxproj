@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{78847C4B-7262-46A1-85D5-47ADB8CE758D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>WeChatSDK</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;WECHATSDK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\协议下面\WeChat\WeChatSDK\db;D:\协议下面\WeChat\WeChatSDK\include\common\openssl;D:\协议下面\WeChat\WeChatSDK\include\common;D:\协议下面\WeChat\WeChatSDK;D:\协议下面\WeChat\WeChatSDK\Proto\mm;D:\协议下面\WeChat\WeChatSDK\crypto;D:\协议下面\WeChat\WeChatSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\协议下面\WeChat\WeChatSDK\Lib;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sqlite3.lib;ws2_32.lib;comm.lib;libeay32.lib;ssleay32.lib;libcurld.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>WeChatSDK.def</ModuleDefinitionFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;WECHATSDK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;WECHATSDK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;WECHATSDK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="crypto\fun.h" />
+    <ClInclude Include="crypto\MakeHeader.h" />
+    <ClInclude Include="crypto\mmCryptInterface.h" />
+    <ClInclude Include="include\bin2ascii.h" />
+    <ClInclude Include="include\common\openssl\aes.h" />
+    <ClInclude Include="include\common\openssl\ec.h" />
+    <ClInclude Include="include\common\openssl\ecdh.h" />
+    <ClInclude Include="include\common\openssl\md5.h" />
+    <ClInclude Include="include\common\openssl\rsa.h" />
+    <ClInclude Include="include\common\zlib\zlib.h" />
+    <ClInclude Include="include\google\protobuf\any.h" />
+    <ClInclude Include="include\google\protobuf\any.pb.h" />
+    <ClInclude Include="include\google\protobuf\api.pb.h" />
+    <ClInclude Include="include\google\protobuf\arena.h" />
+    <ClInclude Include="include\google\protobuf\arenastring.h" />
+    <ClInclude Include="include\google\protobuf\descriptor.h" />
+    <ClInclude Include="include\google\protobuf\descriptor.pb.h" />
+    <ClInclude Include="include\google\protobuf\descriptor_database.h" />
+    <ClInclude Include="include\google\protobuf\duration.pb.h" />
+    <ClInclude Include="include\google\protobuf\dynamic_message.h" />
+    <ClInclude Include="include\google\protobuf\empty.pb.h" />
+    <ClInclude Include="include\google\protobuf\extension_set.h" />
+    <ClInclude Include="include\google\protobuf\field_mask.pb.h" />
+    <ClInclude Include="include\google\protobuf\generated_enum_reflection.h" />
+    <ClInclude Include="include\google\protobuf\generated_enum_util.h" />
+    <ClInclude Include="include\google\protobuf\generated_message_reflection.h" />
+    <ClInclude Include="include\google\protobuf\generated_message_table_driven.h" />
+    <ClInclude Include="include\google\protobuf\generated_message_util.h" />
+    <ClInclude Include="include\google\protobuf\has_bits.h" />
+    <ClInclude Include="include\google\protobuf\io\coded_stream.h" />
+    <ClInclude Include="include\google\protobuf\io\coded_stream_inl.h" />
+    <ClInclude Include="include\google\protobuf\io\gzip_stream.h" />
+    <ClInclude Include="include\google\protobuf\io\package_info.h" />
+    <ClInclude Include="include\google\protobuf\io\printer.h" />
+    <ClInclude Include="include\google\protobuf\io\strtod.h" />
+    <ClInclude Include="include\google\protobuf\io\tokenizer.h" />
+    <ClInclude Include="include\google\protobuf\io\zero_copy_stream.h" />
+    <ClInclude Include="include\google\protobuf\io\zero_copy_stream_impl.h" />
+    <ClInclude Include="include\google\protobuf\io\zero_copy_stream_impl_lite.h" />
+    <ClInclude Include="include\google\protobuf\map.h" />
+    <ClInclude Include="include\google\protobuf\map_entry.h" />
+    <ClInclude Include="include\google\protobuf\map_entry_lite.h" />
+    <ClInclude Include="include\google\protobuf\map_field.h" />
+    <ClInclude Include="include\google\protobuf\map_field_inl.h" />
+    <ClInclude Include="include\google\protobuf\map_field_lite.h" />
+    <ClInclude Include="include\google\protobuf\map_type_handler.h" />
+    <ClInclude Include="include\google\protobuf\message.h" />
+    <ClInclude Include="include\google\protobuf\message_lite.h" />
+    <ClInclude Include="include\google\protobuf\metadata.h" />
+    <ClInclude Include="include\google\protobuf\metadata_lite.h" />
+    <ClInclude Include="include\google\protobuf\package_info.h" />
+    <ClInclude Include="include\google\protobuf\reflection.h" />
+    <ClInclude Include="include\google\protobuf\reflection_internal.h" />
+    <ClInclude Include="include\google\protobuf\reflection_ops.h" />
+    <ClInclude Include="include\google\protobuf\repeated_field.h" />
+    <ClInclude Include="include\google\protobuf\service.h" />
+    <ClInclude Include="include\google\protobuf\source_context.pb.h" />
+    <ClInclude Include="include\google\protobuf\struct.pb.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomicops.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_arm64_gcc.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_arm_gcc.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_arm_qnx.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_atomicword_compat.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_generic_c11_atomic.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_generic_gcc.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_mips_gcc.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_power.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_ppc_gcc.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_solaris.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_tsan.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_x86_gcc.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomicops_internals_x86_msvc.h" />
+    <ClInclude Include="include\google\protobuf\stubs\atomic_sequence_num.h" />
+    <ClInclude Include="include\google\protobuf\stubs\bytestream.h" />
+    <ClInclude Include="include\google\protobuf\stubs\callback.h" />
+    <ClInclude Include="include\google\protobuf\stubs\casts.h" />
+    <ClInclude Include="include\google\protobuf\stubs\common.h" />
+    <ClInclude Include="include\google\protobuf\stubs\fastmem.h" />
+    <ClInclude Include="include\google\protobuf\stubs\hash.h" />
+    <ClInclude Include="include\google\protobuf\stubs\int128.h" />
+    <ClInclude Include="include\google\protobuf\stubs\logging.h" />
+    <ClInclude Include="include\google\protobuf\stubs\macros.h" />
+    <ClInclude Include="include\google\protobuf\stubs\map_util.h" />
+    <ClInclude Include="include\google\protobuf\stubs\mathlimits.h" />
+    <ClInclude Include="include\google\protobuf\stubs\mathutil.h" />
+    <ClInclude Include="include\google\protobuf\stubs\mutex.h" />
+    <ClInclude Include="include\google\protobuf\stubs\once.h" />
+    <ClInclude Include="include\google\protobuf\stubs\platform_macros.h" />
+    <ClInclude Include="include\google\protobuf\stubs\port.h" />
+    <ClInclude Include="include\google\protobuf\stubs\scoped_ptr.h" />
+    <ClInclude Include="include\google\protobuf\stubs\shared_ptr.h" />
+    <ClInclude Include="include\google\protobuf\stubs\singleton.h" />
+    <ClInclude Include="include\google\protobuf\stubs\status.h" />
+    <ClInclude Include="include\google\protobuf\stubs\statusor.h" />
+    <ClInclude Include="include\google\protobuf\stubs\status_macros.h" />
+    <ClInclude Include="include\google\protobuf\stubs\stl_util.h" />
+    <ClInclude Include="include\google\protobuf\stubs\stringpiece.h" />
+    <ClInclude Include="include\google\protobuf\stubs\stringprintf.h" />
+    <ClInclude Include="include\google\protobuf\stubs\strutil.h" />
+    <ClInclude Include="include\google\protobuf\stubs\substitute.h" />
+    <ClInclude Include="include\google\protobuf\stubs\template_util.h" />
+    <ClInclude Include="include\google\protobuf\stubs\time.h" />
+    <ClInclude Include="include\google\protobuf\stubs\type_traits.h" />
+    <ClInclude Include="include\google\protobuf\text_format.h" />
+    <ClInclude Include="include\google\protobuf\timestamp.pb.h" />
+    <ClInclude Include="include\google\protobuf\type.pb.h" />
+    <ClInclude Include="include\google\protobuf\unknown_field_set.h" />
+    <ClInclude Include="include\google\protobuf\util\delimited_message_util.h" />
+    <ClInclude Include="include\google\protobuf\util\field_comparator.h" />
+    <ClInclude Include="include\google\protobuf\util\field_mask_util.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\constants.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\datapiece.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\default_value_objectwriter.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\error_listener.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\expecting_objectwriter.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\field_mask_utility.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\json_escaping.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\json_objectwriter.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\json_stream_parser.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\location_tracker.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\mock_error_listener.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\object_location_tracker.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\object_source.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\object_writer.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\protostream_objectsource.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\protostream_objectwriter.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\proto_writer.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\structured_objectwriter.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\type_info.h" />
+    <ClInclude Include="include\google\protobuf\util\internal\utility.h" />
+    <ClInclude Include="include\google\protobuf\util\json_util.h" />
+    <ClInclude Include="include\google\protobuf\util\message_differencer.h" />
+    <ClInclude Include="include\google\protobuf\util\package_info.h" />
+    <ClInclude Include="include\google\protobuf\util\time_util.h" />
+    <ClInclude Include="include\google\protobuf\util\type_resolver.h" />
+    <ClInclude Include="include\google\protobuf\util\type_resolver_util.h" />
+    <ClInclude Include="include\google\protobuf\wire_format.h" />
+    <ClInclude Include="include\google\protobuf\wire_format_lite.h" />
+    <ClInclude Include="include\google\protobuf\wire_format_lite_inl.h" />
+    <ClInclude Include="include\google\protobuf\wrappers.pb.h" />
+    <ClInclude Include="include\pbjson.hpp" />
+    <ClInclude Include="include\WeChatProto.h" />
+    <ClInclude Include="include\windows\zlib\adler32.h" />
+    <ClInclude Include="Interface.h" />
+    <ClInclude Include="PbHead.h" />
+    <ClInclude Include="Proto\mm\BlockDumpList.pb.h" />
+    <ClInclude Include="Proto\mm\mm.pb.h" />
+    <ClInclude Include="Proto\mm\mmappmsg.pb.h" />
+    <ClInclude Include="Proto\mm\mmbackup.pb.h" />
+    <ClInclude Include="Proto\mm\mmbase.pb.h" />
+    <ClInclude Include="Proto\mm\mmbottle.pb.h" />
+    <ClInclude Include="Proto\mm\mmbuiltintype.pb.h" />
+    <ClInclude Include="Proto\mm\mmcard.pb.h" />
+    <ClInclude Include="Proto\mm\mmcontact.pb.h" />
+    <ClInclude Include="Proto\mm\mmemotion.pb.h" />
+    <ClInclude Include="Proto\mm\mmemotionstore.pb.h" />
+    <ClInclude Include="Proto\mm\mmextsend.pb.h" />
+    <ClInclude Include="Proto\mm\mmfav.pb.h" />
+    <ClInclude Include="Proto\mm\mmgame.pb.h" />
+    <ClInclude Include="Proto\mm\mmimg.pb.h" />
+    <ClInclude Include="Proto\mm\mmlbs.pb.h" />
+    <ClInclude Include="Proto\mm\mmlogin.pb.h" />
+    <ClInclude Include="Proto\mm\mmopenapi.pb.h" />
+    <ClInclude Include="Proto\mm\mmpay.pb.h" />
+    <ClInclude Include="Proto\mm\mmprimsend.pb.h" />
+    <ClInclude Include="Proto\mm\mmremind.pb.h" />
+    <ClInclude Include="Proto\mm\mmsns.pb.h" />
+    <ClInclude Include="Proto\mm\mmsync.pb.h" />
+    <ClInclude Include="Proto\mm\mmtalk.pb.h" />
+    <ClInclude Include="Proto\mm\mmtrack.pb.h" />
+    <ClInclude Include="Proto\mm\mmvoiceaddr.pb.h" />
+    <ClInclude Include="Proto\mm\mmvoiceprint.pb.h" />
+    <ClInclude Include="Proto\mm\mmvoip.pb.h" />
+    <ClInclude Include="Proto\mm\mmvoiphw.pb.h" />
+    <ClInclude Include="Proto\mm\mmweb.pb.h" />
+    <ClInclude Include="Proto\mm\NewInit.pb.h" />
+    <ClInclude Include="Proto\mm\newsync.pb.h" />
+    <ClInclude Include="Proto\WeDA.pb.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TT.h" />
+    <ClInclude Include="WxUser.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="crypto\fun.cpp" />
+    <ClCompile Include="crypto\MakeHeader.cpp" />
+    <ClCompile Include="crypto\mmCryptInterface.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="include\google\protobuf\any.cc" />
+    <ClCompile Include="include\google\protobuf\any.pb.cc" />
+    <ClCompile Include="include\google\protobuf\api.pb.cc" />
+    <ClCompile Include="include\google\protobuf\arena.cc" />
+    <ClCompile Include="include\google\protobuf\arenastring.cc" />
+    <ClCompile Include="include\google\protobuf\descriptor.cc" />
+    <ClCompile Include="include\google\protobuf\descriptor.pb.cc" />
+    <ClCompile Include="include\google\protobuf\descriptor_database.cc" />
+    <ClCompile Include="include\google\protobuf\duration.pb.cc" />
+    <ClCompile Include="include\google\protobuf\dynamic_message.cc" />
+    <ClCompile Include="include\google\protobuf\empty.pb.cc" />
+    <ClCompile Include="include\google\protobuf\extension_set.cc" />
+    <ClCompile Include="include\google\protobuf\extension_set_heavy.cc" />
+    <ClCompile Include="include\google\protobuf\field_mask.pb.cc" />
+    <ClCompile Include="include\google\protobuf\generated_message_reflection.cc" />
+    <ClCompile Include="include\google\protobuf\generated_message_table_driven.cc" />
+    <ClCompile Include="include\google\protobuf\generated_message_util.cc" />
+    <ClCompile Include="include\google\protobuf\io\coded_stream.cc" />
+    <ClCompile Include="include\google\protobuf\io\gzip_stream.cc" />
+    <ClCompile Include="include\google\protobuf\io\printer.cc" />
+    <ClCompile Include="include\google\protobuf\io\strtod.cc" />
+    <ClCompile Include="include\google\protobuf\io\tokenizer.cc" />
+    <ClCompile Include="include\google\protobuf\io\zero_copy_stream.cc" />
+    <ClCompile Include="include\google\protobuf\io\zero_copy_stream_impl.cc" />
+    <ClCompile Include="include\google\protobuf\io\zero_copy_stream_impl_lite.cc" />
+    <ClCompile Include="include\google\protobuf\map_field.cc" />
+    <ClCompile Include="include\google\protobuf\message.cc" />
+    <ClCompile Include="include\google\protobuf\message_lite.cc" />
+    <ClCompile Include="include\google\protobuf\reflection_ops.cc" />
+    <ClCompile Include="include\google\protobuf\repeated_field.cc" />
+    <ClCompile Include="include\google\protobuf\service.cc" />
+    <ClCompile Include="include\google\protobuf\source_context.pb.cc" />
+    <ClCompile Include="include\google\protobuf\struct.pb.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\atomicops_internals_x86_gcc.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\atomicops_internals_x86_msvc.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\bytestream.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\common.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\int128.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\mathlimits.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\once.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\status.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\statusor.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\stringpiece.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\stringprintf.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\structurally_valid.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\strutil.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\substitute.cc" />
+    <ClCompile Include="include\google\protobuf\stubs\time.cc" />
+    <ClCompile Include="include\google\protobuf\text_format.cc" />
+    <ClCompile Include="include\google\protobuf\timestamp.pb.cc" />
+    <ClCompile Include="include\google\protobuf\type.pb.cc" />
+    <ClCompile Include="include\google\protobuf\unknown_field_set.cc" />
+    <ClCompile Include="include\google\protobuf\util\delimited_message_util.cc" />
+    <ClCompile Include="include\google\protobuf\util\field_comparator.cc" />
+    <ClCompile Include="include\google\protobuf\util\field_mask_util.cc" />
+    <ClCompile Include="include\google\protobuf\util\internal\datapiece.cc" />
+    <ClCompile Include="include\google\protobuf\util\internal\default_value_objectwriter.cc" />
+    <ClCompile Include="include\google\protobuf\util\internal\error_listener.cc" />
+    <ClCompile Include="include\google\protobuf\util\internal\field_mask_utility.cc" />
+    <ClCompile Include="include\google\protobuf\util\internal\json_escaping.cc" />
+    <ClCompile Include="include\google\protobuf\util\internal\json_objectwriter.cc" />
+    <ClCompile Include="include\google\protobuf\util\internal\json_stream_parser.cc" />
+    <ClCompile Include="include\google\protobuf\util\internal\object_writer.cc" />
+    <ClCompile Include="include\google\protobuf\util\internal\protostream_objectsource.cc" />
+    <ClCompile Include="include\google\protobuf\util\internal\protostream_objectwriter.cc" />
+    <ClCompile Include="include\google\protobuf\util\internal\proto_writer.cc" />
+    <ClCompile Include="include\google\protobuf\util\internal\type_info.cc" />
+    <ClCompile Include="include\google\protobuf\util\internal\utility.cc" />
+    <ClCompile Include="include\google\protobuf\util\json_util.cc" />
+    <ClCompile Include="include\google\protobuf\util\message_differencer.cc" />
+    <ClCompile Include="include\google\protobuf\util\time_util.cc" />
+    <ClCompile Include="include\google\protobuf\util\type_resolver_util.cc" />
+    <ClCompile Include="include\google\protobuf\wire_format.cc" />
+    <ClCompile Include="include\google\protobuf\wire_format_lite.cc" />
+    <ClCompile Include="include\google\protobuf\wrappers.pb.cc" />
+    <ClCompile Include="include\pbjson.cpp" />
+    <ClCompile Include="include\WeChatProto.cpp" />
+    <ClCompile Include="include\windows\zlib\adler32.c" />
+    <ClCompile Include="Interface.cpp" />
+    <ClCompile Include="Proto\mm\BlockDumpList.pb.cc" />
+    <ClCompile Include="Proto\mm\mm.pb.cc" />
+    <ClCompile Include="Proto\mm\mmappmsg.pb.cc" />
+    <ClCompile Include="Proto\mm\mmbackup.pb.cc" />
+    <ClCompile Include="Proto\mm\mmbase.pb.cc" />
+    <ClCompile Include="Proto\mm\mmbottle.pb.cc" />
+    <ClCompile Include="Proto\mm\mmbuiltintype.pb.cc" />
+    <ClCompile Include="Proto\mm\mmcard.pb.cc" />
+    <ClCompile Include="Proto\mm\mmcontact.pb.cc" />
+    <ClCompile Include="Proto\mm\mmemotion.pb.cc" />
+    <ClCompile Include="Proto\mm\mmemotionstore.pb.cc" />
+    <ClCompile Include="Proto\mm\mmextsend.pb.cc" />
+    <ClCompile Include="Proto\mm\mmfav.pb.cc" />
+    <ClCompile Include="Proto\mm\mmgame.pb.cc" />
+    <ClCompile Include="Proto\mm\mmimg.pb.cc" />
+    <ClCompile Include="Proto\mm\mmlbs.pb.cc" />
+    <ClCompile Include="Proto\mm\mmlogin.pb.cc" />
+    <ClCompile Include="Proto\mm\mmopenapi.pb.cc" />
+    <ClCompile Include="Proto\mm\mmpay.pb.cc" />
+    <ClCompile Include="Proto\mm\mmprimsend.pb.cc" />
+    <ClCompile Include="Proto\mm\mmremind.pb.cc" />
+    <ClCompile Include="Proto\mm\mmsns.pb.cc" />
+    <ClCompile Include="Proto\mm\mmsync.pb.cc" />
+    <ClCompile Include="Proto\mm\mmtalk.pb.cc" />
+    <ClCompile Include="Proto\mm\mmtrack.pb.cc" />
+    <ClCompile Include="Proto\mm\mmvoiceaddr.pb.cc" />
+    <ClCompile Include="Proto\mm\mmvoiceprint.pb.cc" />
+    <ClCompile Include="Proto\mm\mmvoip.pb.cc" />
+    <ClCompile Include="Proto\mm\mmvoiphw.pb.cc" />
+    <ClCompile Include="Proto\mm\mmweb.pb.cc" />
+    <ClCompile Include="Proto\mm\NewInit.pb.cc" />
+    <ClCompile Include="Proto\mm\newsync.pb.cc" />
+    <ClCompile Include="Proto\WeDA.pb.cc" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TT.cpp" />
+    <ClCompile Include="WeChatSDK.cpp" />
+    <ClCompile Include="WxUser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\google\protobuf\any.proto" />
+    <None Include="include\google\protobuf\api.proto" />
+    <None Include="include\google\protobuf\descriptor.proto" />
+    <None Include="include\google\protobuf\duration.proto" />
+    <None Include="include\google\protobuf\empty.proto" />
+    <None Include="include\google\protobuf\field_mask.proto" />
+    <None Include="include\google\protobuf\source_context.proto" />
+    <None Include="include\google\protobuf\struct.proto" />
+    <None Include="include\google\protobuf\timestamp.proto" />
+    <None Include="include\google\protobuf\type.proto" />
+    <None Include="include\google\protobuf\util\json_format_proto3.proto" />
+    <None Include="include\google\protobuf\wrappers.proto" />
+    <None Include="WeChatSDK.def" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

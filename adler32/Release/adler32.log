@@ -1,0 +1,25 @@
+﻿  stdafx.cpp
+  compress.c
+  crc32.c
+  deflate.c
+  gzclose.c
+  gzlib.c
+  gzread.c
+  gzwrite.c
+  infback.c
+  inffast.c
+  inflate.c
+  inftrees.c
+  trees.c
+  uncompr.c
+  zutil.c
+  adler32.c
+  adler32.cpp
+  dllmain.cpp
+Release\adler32.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+comm.lib(adler32.obj) : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/OPT:ICF”规范)
+LINK : warning LNK4098: 默认库“LIBCMTD”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+  正在生成代码
+  All 32 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  adler32.vcxproj -> D:\协议下面\WeChat\Release\adler32.dll

@@ -1,0 +1,337 @@
+﻿  stdafx.cpp
+  fun.cpp
+d:\协议下面\wechat\wechatsdk\crypto\fun.cpp(53): warning C4244: “=”: 从“DWORD”转换到“char”，可能丢失数据
+d:\协议下面\wechat\wechatsdk\crypto\fun.cpp(64): warning C4018: “<”: 有符号/无符号不匹配
+d:\协议下面\wechat\wechatsdk\crypto\fun.cpp(66): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h(1774): note: 参见“sprintf”的声明
+d:\协议下面\wechat\wechatsdk\crypto\fun.cpp(147): warning C4244: “=”: 从“unsigned long”转换到“byte”，可能丢失数据
+d:\协议下面\wechat\wechatsdk\crypto\fun.cpp(156): warning C4244: “=”: 从“DWORD”转换到“byte”，可能丢失数据
+d:\协议下面\wechat\wechatsdk\crypto\fun.cpp(177): warning C4018: “<”: 有符号/无符号不匹配
+d:\协议下面\wechat\wechatsdk\crypto\fun.cpp(216): error C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h(1469): note: 参见“vsprintf”的声明
+d:\协议下面\wechat\wechatsdk\crypto\fun.cpp(221): error C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\time.h(476): note: 参见“ctime”的声明
+d:\协议下面\wechat\wechatsdk\crypto\fun.cpp(224): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h(1774): note: 参见“sprintf”的声明
+  MakeHeader.cpp
+d:\协议下面\wechat\wechatsdk\crypto\makeheader.cpp(4): fatal error C1083: 无法打开包括文件: “WxUser.h”: No such file or directory
+  mmCryptInterface.cpp
+d:\协议下面\wechat\wechatsdk\crypto\mmcryptinterface.cpp(9): fatal error C1083: 无法打开包括文件: “WxUser.h”: No such file or directory
+  dllmain.cpp
+  any.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\any.cc(115): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  any.pb.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\any.pb.cc(545): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  api.pb.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\api.pb.cc(2097): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  arena.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\arena.cc(316): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  arenastring.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\arenastring.cc(44): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  descriptor.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\descriptor.cc(6853): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  descriptor.pb.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\descriptor.pb.cc(16138): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  descriptor_database.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\descriptor_database.cc(547): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  duration.pb.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\duration.pb.cc(462): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  dynamic_message.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\dynamic_message.cc(472): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\dynamic_message.cc(354): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\dynamic_message.cc(796): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\dynamic_message.cc(472): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\dynamic_message.cc(849): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  empty.pb.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\empty.pb.cc(347): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  extension_set.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(946): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(904): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1184): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(946): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1242): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1184): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1390): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1242): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1447): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1390): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1480): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1447): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1508): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1480): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1551): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1508): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1567): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1551): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1604): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1567): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1624): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1604): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1641): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1624): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1668): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1641): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1688): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1668): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1715): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1688): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set.cc(1818): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  extension_set_heavy.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set_heavy.cc(474): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set_heavy.cc(372): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set_heavy.cc(507): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set_heavy.cc(474): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set_heavy.cc(533): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set_heavy.cc(507): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set_heavy.cc(546): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set_heavy.cc(533): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\extension_set_heavy.cc(813): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  field_mask.pb.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\field_mask.pb.cc(441): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  generated_message_reflection.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\generated_message_reflection.cc(744): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\generated_message_reflection.cc(255): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\generated_message_reflection.cc(839): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\generated_message_reflection.cc(744): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\generated_message_reflection.cc(891): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\generated_message_reflection.cc(839): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\generated_message_reflection.cc(962): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\generated_message_reflection.cc(891): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\generated_message_reflection.cc(2355): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  generated_message_table_driven.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\generated_message_table_driven.cc(677): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  正在编译...
+  generated_message_util.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\generated_message_util.cc(81): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  coded_stream.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\io\coded_stream.cc(801): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  gzip_stream.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\io\gzip_stream.cc(331): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  printer.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\io\printer.cc(349): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  strtod.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\io\strtod.cc(126): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  tokenizer.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\io\tokenizer.cc(1140): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  zero_copy_stream.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\io\zero_copy_stream.cc(59): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  zero_copy_stream_impl.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\io\zero_copy_stream_impl.cc(469): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  zero_copy_stream_impl_lite.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\io\zero_copy_stream_impl_lite.cc(439): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  map_field.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\map_field.cc(385): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\map_field.cc(177): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\map_field.cc(428): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\map_field.cc(385): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\map_field.cc(455): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  message.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\message.cc(484): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  message_lite.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\message_lite.cc(380): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  reflection_ops.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\reflection_ops.cc(105): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\reflection_ops.cc(80): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\reflection_ops.cc(292): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  repeated_field.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\repeated_field.cc(111): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  service.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\service.cc(47): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  source_context.pb.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\source_context.pb.cc(433): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  struct.pb.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\struct.pb.cc(1836): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  atomicops_internals_x86_gcc.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\atomicops_internals_x86_gcc.cc(58): warning C4005: “cpuid”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\atomicops_internals_x86_gcc.cc(52): note: 参见“cpuid”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\atomicops_internals_x86_gcc.cc(138): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  atomicops_internals_x86_msvc.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\atomicops_internals_x86_msvc.cc(114): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  bytestream.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\bytestream.cc(197): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  正在编译...
+  common.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\common.cc(469): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  int128.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\int128.cc(202): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mathlimits.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\mathlimits.cc(58): warning C4005: “DEF_COMMON_LIMITS”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\mathlimits.cc(47): note: 参见“DEF_COMMON_LIMITS”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\mathlimits.cc(67): warning C4005: “DEF_UNSIGNED_INT_LIMITS”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\mathlimits.cc(48): note: 参见“DEF_UNSIGNED_INT_LIMITS”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\mathlimits.cc(72): warning C4005: “DEF_SIGNED_INT_LIMITS”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\mathlimits.cc(49): note: 参见“DEF_SIGNED_INT_LIMITS”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\mathlimits.cc(75): warning C4005: “DEF_PRECISION_LIMITS”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\mathlimits.cc(50): note: 参见“DEF_PRECISION_LIMITS”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\mathlimits.cc(145): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  once.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\once.cc(100): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  status.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\status.cc(135): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  statusor.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\statusor.cc(47): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  stringpiece.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\stringpiece.cc(269): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  stringprintf.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\stringprintf.cc(175): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  structurally_valid.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\structurally_valid.cc(589): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  strutil.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\strutil.cc(2305): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  substitute.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\substitute.cc(137): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  time.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\stubs\time.cc(366): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  text_format.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\text_format.cc(1962): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  timestamp.pb.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\timestamp.pb.cc(462): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  type.pb.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\type.pb.cc(3790): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  unknown_field_set.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\unknown_field_set.cc(341): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  delimited_message_util.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\delimited_message_util.cc(80): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  field_comparator.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\field_comparator.cc(209): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  field_mask_util.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\field_mask_util.cc(548): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  datapiece.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\internal\datapiece.cc(407): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  正在编译...
+  default_value_objectwriter.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\internal\default_value_objectwriter.cc(647): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  error_listener.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\internal\error_listener.cc(43): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  field_mask_utility.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\internal\field_mask_utility.cc(221): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  json_escaping.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\internal\json_escaping.cc(357): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  json_objectwriter.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\internal\json_objectwriter.cc(197): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  json_stream_parser.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\internal\json_stream_parser.cc(845): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  object_writer.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\internal\object_writer.cc(93): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  protostream_objectsource.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\internal\protostream_objectsource.cc(1138): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  protostream_objectwriter.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\internal\protostream_objectwriter.cc(1275): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  proto_writer.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\internal\proto_writer.cc(800): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  type_info.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\internal\type_info.cc(180): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  utility.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\internal\utility.cc(407): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  json_util.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\json_util.cc(251): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  message_differencer.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\message_differencer.cc(1707): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  time_util.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\time_util.cc(505): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  type_resolver_util.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\util\type_resolver_util.cc(248): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  wire_format.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\wire_format.cc(877): warning C4005: “CASE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\wire_format.cc(852): note: 参见“CASE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\wire_format.cc(926): warning C4005: “CASE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\wire_format.cc(877): note: 参见“CASE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\wire_format.cc(1087): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\wire_format.cc(597): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\wire_format.cc(1250): warning C4005: “CASE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\wire_format.cc(926): note: 参见“CASE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\wire_format.cc(1366): warning C4005: “HANDLE_TYPE”: 宏重定义
+  d:\协议下面\wechat\wechatsdk\include\google\protobuf\wire_format.cc(1087): note: 参见“HANDLE_TYPE”的前一个定义
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\wire_format.cc(1449): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  wire_format_lite.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\wire_format_lite.cc(787): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  wrappers.pb.cc
+d:\协议下面\wechat\wechatsdk\include\google\protobuf\wrappers.pb.cc(2777): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  pbjson.cpp
+d:\协议下面\wechat\wechatsdk\include\pbjson.cpp(553): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  正在编译...
+  WeChatProto.cpp
+d:\协议下面\wechat\wechatsdk\include\wechatproto.cpp(306): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  Interface.cpp
+d:\协议下面\wechat\wechatsdk\interface.cpp(422): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  BlockDumpList.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\blockdumplist.pb.cc(438): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmappmsg.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmappmsg.pb.cc(12589): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmbackup.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmbackup.pb.cc(18782): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmbase.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmbase.pb.cc(34353): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmbottle.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmbottle.pb.cc(118): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmbuiltintype.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmbuiltintype.pb.cc(5426): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmcard.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmcard.pb.cc(18542): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmcontact.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmcontact.pb.cc(62907): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmemotion.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmemotion.pb.cc(21803): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmemotionstore.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmemotionstore.pb.cc(15205): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmextsend.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmextsend.pb.cc(36528): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmfav.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmfav.pb.cc(17595): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmgame.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmgame.pb.cc(25548): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmimg.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmimg.pb.cc(2870): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmlbs.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmlbs.pb.cc(43863): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmlogin.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmlogin.pb.cc(98408): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmopenapi.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmopenapi.pb.cc(39158): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmpay.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmpay.pb.cc(32561): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  正在编译...
+  mmprimsend.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmprimsend.pb.cc(2640): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmremind.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmremind.pb.cc(5801): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmsns.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmsns.pb.cc(33037): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmsync.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmsync.pb.cc(31327): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmtalk.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmtalk.pb.cc(13135): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmtrack.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmtrack.pb.cc(5277): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmvoiceaddr.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmvoiceaddr.pb.cc(16491): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmvoiceprint.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmvoiceprint.pb.cc(9616): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmvoip.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmvoip.pb.cc(32235): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmvoiphw.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmvoiphw.pb.cc(2277): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  mmweb.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\mmweb.pb.cc(9775): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  NewInit.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\newinit.pb.cc(17259): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  newsync.pb.cc
+d:\协议下面\wechat\wechatsdk\proto\mm\newsync.pb.cc(6651): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+  TT.cpp
+d:\协议下面\wechat\wechatsdk\tt.cpp(238): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+d:\协议下面\wechat\wechatsdk\tt.cpp(238): error C2146: 语法错误: 缺少“;”(在标识符“Encodeer”的前面)
+d:\协议下面\wechat\wechatsdk\tt.cpp(239): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+d:\协议下面\wechat\wechatsdk\tt.cpp(239): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+d:\协议下面\wechat\wechatsdk\tt.cpp(444): error C2146: 语法错误: 缺少“)”(在标识符“Pack”的前面)
+d:\协议下面\wechat\wechatsdk\tt.cpp(445): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+d:\协议下面\wechat\wechatsdk\tt.cpp(445): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+d:\协议下面\wechat\wechatsdk\tt.cpp(455): error C2039: “string”: 不是“std”的成员
+  c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stddef.h(19): note: 参见“std”的声明
+d:\协议下面\wechat\wechatsdk\tt.cpp(455): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+d:\协议下面\wechat\wechatsdk\tt.cpp(455): error C2086: “int string”: 重定义
+  d:\协议下面\wechat\wechatsdk\tt.cpp(238): note: 参见“string”的声明
+d:\协议下面\wechat\wechatsdk\tt.cpp(455): error C2146: 语法错误: 缺少“;”(在标识符“DecodeEr”的前面)
+d:\协议下面\wechat\wechatsdk\tt.cpp(456): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+d:\协议下面\wechat\wechatsdk\tt.cpp(456): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+  WeChatSDK.cpp
+  WxUser.cpp

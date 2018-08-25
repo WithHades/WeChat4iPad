@@ -1,0 +1,195 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message VoiceAddrRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+	required SKBuiltinBuffer_t Data = 3;
+	required uint32 Offset = 4;
+	optional string ClientVoiceId = 5;
+	required uint32 EndFlag = 6;
+	required uint32 SamplePerSec = 7;
+	required uint32 BitsPerSample = 8;
+	required uint32 VoiceEncodeType = 9;
+	required uint32 FileType = 10;
+	optional uint32 SearchType = 11;
+	optional uint32 ExtraNameCount = 12;
+	repeated SKBuiltinString_t ExtraNameUserNameList = 13;
+	repeated SKBuiltinBuffer_t ExtraNameRemarkNameList = 14;
+}
+
+message VoiceAddrResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 EndFlag = 2;
+	required int32 UserCount = 3;
+	repeated SKBuiltinString_t UserNameList = 4;
+	optional string ReportFiled = 5;
+}
+
+message VoiceAddrReportRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 HitPos = 2;
+	optional string HitUserName = 3;
+}
+
+message VoiceAddrReportResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message ScanBarcodeRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Type = 2;
+	optional string Barcode = 3;
+	optional uint32 Scene = 4;
+}
+
+message ScanBarcodeResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Type = 2;
+	optional string DescXML = 3;
+}
+
+message ScanImageRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 ClientScanID = 2;
+	required SKBuiltinBuffer_t ImageBuffer = 3;
+	required uint32 TotalLength = 4;
+	required uint32 Offset = 5;
+	required uint32 EndFlag = 6;
+	required uint32 ImageType = 7;
+	optional uint32 OPCode = 8;
+	optional uint32 SessionID = 9;
+}
+
+message ScanImageResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 ClientScanID = 2;
+	required uint32 Type = 3;
+	optional string DescriptionXML = 4;
+	required uint32 EndFlag = 5;
+	required uint32 ImageType = 6;
+}
+
+message GetProductInfoRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ProductID = 2;
+	required uint32 Scene = 3;
+	optional string QrUrl = 4;
+}
+
+message GetProductInfoResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Type = 2;
+	optional string DescXML = 3;
+	optional string ProductID = 4;
+}
+
+message OCRTranslationRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 ClientScanID = 2;
+	required SKBuiltinBuffer_t ImageBuffer = 3;
+	required uint32 ImageType = 4;
+	optional string FromLanguage = 5;
+	optional string ToLanguage = 6;
+	optional uint32 SessionID = 7;
+}
+
+message OCRTranslationResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 ClientScanID = 2;
+	optional string Source = 3;
+	optional string Translation = 4;
+	required uint32 ImageType = 5;
+}
+
+message ShakeTVRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinBuffer_t Data = 2;
+	required uint32 DataId = 3;
+	required uint32 EndFlag = 4;
+	required float VoiceLen = 5;
+	required uint32 NetType = 6;
+	required uint32 SdkVersion = 7;
+}
+
+message ShakeTVResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 EndFlag = 2;
+	required uint32 Type = 3;
+	optional string DescriptionXML = 4;
+}
+
+message GetTVInfoRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string TVID = 2;
+	required uint32 Scene = 3;
+}
+
+message GetTVInfoResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Type = 2;
+	optional string DescriptionXML = 3;
+	optional string TVID = 4;
+}
+
+message ShakeMusicRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinBuffer_t Data = 2;
+	required uint32 DataId = 3;
+	required uint32 EndFlag = 4;
+	required float VoiceLen = 5;
+	required uint32 NetType = 6;
+	required uint32 SdkVersion = 7;
+}
+
+message ShakeMusicResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 EndFlag = 2;
+	required uint32 MusicId = 3;
+	required float Offset = 4;
+	required SKBuiltinBuffer_t SongName = 5;
+	required SKBuiltinBuffer_t SongSinger = 6;
+	required SKBuiltinBuffer_t SongAlbum = 7;
+	required SKBuiltinBuffer_t SongAlbumUrl = 8;
+	required SKBuiltinBuffer_t SongWifiUrl = 9;
+	required SKBuiltinBuffer_t SongWapLinkUrl = 10;
+	required SKBuiltinBuffer_t SongWebUrl = 11;
+	required SKBuiltinBuffer_t SongLyric = 12;
+	optional uint32 ResultType = 13;
+	optional uint32 TVType = 14;
+	optional string TVDescriptionXML = 15;
+}
+
+message GetQQMusicLyricRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 SongId = 2;
+	required SKBuiltinBuffer_t Url = 3;
+}
+
+message GetQQMusicLyricResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t SongLyric = 2;
+}
+
+message UploadInputVoiceRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+	required SKBuiltinBuffer_t Data = 3;
+	required uint32 Offset = 4;
+	optional string ClientVoiceId = 5;
+	required uint32 EndFlag = 6;
+	required uint32 SamplePerSec = 7;
+	required uint32 BitsPerSample = 8;
+	required uint32 VoiceEncodeType = 9;
+	required uint32 FileType = 10;
+}
+
+message UploadInputVoiceResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 EndFlag = 2;
+	required SKBuiltinBuffer_t Text = 3;
+}
+

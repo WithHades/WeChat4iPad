@@ -1,0 +1,309 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message EnemyGameInfo {
+	required uint32 Type = 1;
+	required uint32 Score = 2;
+}
+
+message EnemyGameKilled {
+	required uint32 Type = 1;
+	required uint32 Count = 2;
+	optional uint32 GeneralCount = 3;
+	optional uint32 UsedCount = 4;
+}
+
+message UserGameInfo {
+	optional string UserName = 1;
+	optional string NickName = 2;
+	optional string HeadImageUrl = 3;
+}
+
+message UserGameAchieveInfo {
+	required UserGameInfo UserInfo = 1;
+	required uint32 Score = 2;
+	required uint32 Rank = 3;
+}
+
+message UserGameWishInfo {
+	required UserGameInfo UserInfo = 1;
+}
+
+message GamePropsInfo {
+	required uint32 PropsId = 1;
+	optional string IconUrl = 2;
+	optional string Name = 3;
+	optional string Desc = 4;
+	required uint32 Type = 5;
+}
+
+message GameUserPropsInfo {
+	required uint32 PropsId = 1;
+	required uint32 Count = 2;
+}
+
+message GameAnnouncementInfo {
+	required uint32 Style = 1;
+	optional string Title = 2;
+	optional string Desc = 3;
+}
+
+message GameConsumeProps {
+	required uint32 PropsId = 1;
+	required int32 ConsumeCount = 2;
+}
+
+message GameInitReq {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+}
+
+message GameInitResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 LifeNum = 2;
+	optional string GameNumerConfig = 3;
+	required uint32 CheckLeftTime = 4;
+	optional string Token = 5;
+	required int32 FriendCount = 6;
+	repeated UserGameInfo FriendList = 7;
+	required int32 WishCount = 8;
+	repeated UserGameWishInfo WishList = 9;
+	optional int32 GamePropsCount = 10;
+	repeated GameUserPropsInfo GamePropsList = 11;
+	optional int32 GameAnnouncementCount = 12;
+	repeated GameAnnouncementInfo GameAnnouncementList = 13;
+	optional string PropsViewTip = 14;
+	optional string RankViewTip = 15;
+	optional uint32 GameCoinCount = 16;
+	optional uint32 ProductIdCount = 17;
+	repeated SKBuiltinString_t ProductIdList = 18;
+	optional string BuyEngineOilWording = 19;
+	optional string OilPrice = 20;
+	optional string OilCurrency = 21;
+}
+
+message GameEndReq {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+	required int32 Count = 3;
+	repeated EnemyGameKilled EnemyKilled = 4;
+	required uint32 LocalScore = 5;
+	required uint32 ConsumeTime = 6;
+	optional string Token = 7;
+	optional uint32 DeadCount = 8;
+	optional int32 GameConsumePropsCount = 9;
+	repeated GameConsumeProps GameConsumePropsList = 10;
+	optional uint32 GameStartTime = 11;
+	optional uint32 GameEndTime = 12;
+	optional uint32 ShieldNum = 13;
+	optional uint32 TotalShots = 14;
+	optional uint32 GameCoinCount = 15;
+	optional uint32 ClientUseReviveNum = 16;
+}
+
+message GameEndResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Score = 2;
+	optional string Achievement = 3;
+	required uint32 Rank = 4;
+	required uint32 LifeNum = 5;
+	required uint32 CheckLeftTime = 6;
+	required int32 Count = 7;
+	repeated UserGameAchieveInfo RankList = 8;
+	optional string PropsViewTip = 11;
+	optional string RankViewTip = 12;
+	optional uint32 GameCoinCount = 13;
+}
+
+message GameRankListReq {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+}
+
+message GameRankListResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 Count = 2;
+	repeated UserGameAchieveInfo RankList = 3;
+}
+
+message GameStartReq {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+	required uint32 LocalLifeNum = 3;
+	optional string Token = 4;
+	required uint32 NeedClearWishList = 5;
+	optional int32 GameConsumePropsCount = 6;
+	repeated GameConsumeProps GameConsumePropsList = 7;
+}
+
+message GameStartResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 LifeNum = 2;
+	required uint32 CheckLeftTime = 3;
+	optional string Token = 4;
+	required int32 Count = 5;
+	repeated UserGameAchieveInfo RankList = 6;
+	optional int32 GamePropsCount = 7;
+	repeated GameUserPropsInfo GamePropsList = 8;
+	optional uint32 GameCoinCount = 9;
+}
+
+message GameCheckReq {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+	required uint32 LocalLifeNum = 3;
+	optional string Token = 4;
+}
+
+message GameCheckResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 CheckLeftTime = 2;
+	required uint32 LifeNum = 3;
+}
+
+message GameWishReq {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+	required int32 Count = 3;
+	repeated SKBuiltinString_t UserNameList = 4;
+}
+
+message GameWishResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GameGiftReq {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+	required uint32 LocalLifeNum = 3;
+	required int32 Count = 4;
+	repeated SKBuiltinString_t UserNameList = 5;
+}
+
+message GameGiftResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 LifeNum = 2;
+	required uint32 CheckLeftTime = 3;
+}
+
+message GameFriendListReq {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+}
+
+message GameFriendListResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 Count = 2;
+	repeated UserGameInfo FriendList = 3;
+}
+
+message GameWishListReq {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+}
+
+message GameWishListResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 Count = 2;
+	repeated UserGameWishInfo WishList = 3;
+}
+
+message GameShareReq {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+	required uint32 Type = 3;
+	required uint32 Score = 4;
+	optional string Achieve = 5;
+}
+
+message GameShareResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GameResourceReq {
+	required BaseRequest BaseRequest = 1;
+	required int32 PropsCount = 2;
+	repeated uint32 PropsIdList = 3[packed=true];
+}
+
+message GameResourceResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 PropsCount = 2;
+	repeated GamePropsInfo PropsList = 3;
+}
+
+message GameConsumeReq {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+}
+
+message GameConsumeResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 ConsumeOk = 2;
+	required uint32 GameCoinCount = 3;
+}
+
+message AddGameMsg {
+	required int32 MsgId = 1;
+	optional string FromUserName = 2;
+	optional string ToUserName = 3;
+	required int32 Type = 4;
+	required uint32 Flag = 5;
+	required uint32 Status = 6;
+	required uint32 UpdateTime = 7;
+	required uint32 UpdateSeq = 8;
+}
+
+message GameSyncRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Selector = 2;
+	required SKBuiltinBuffer_t KeyBuf = 3;
+}
+
+message GameSyncResponse {
+	required BaseResponse BaseResponse = 1;
+	required CmdList CmdList = 2;
+	required SKBuiltinBuffer_t KeyBuf = 3;
+	required uint32 ContinueFlag = 4;
+}
+
+message GameMsg {
+	required uint32 MsgId = 1;
+	required uint32 Status = 2;
+	optional string Object = 3;
+	required uint32 UpdateTime = 4;
+	required uint32 UpdateSeq = 5;
+}
+
+message BatchGetGameMsgRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated uint32 MsgIdList = 3[packed=true];
+}
+
+message BatchGetGameMsgResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated GameMsg MsgList = 3;
+}
+
+message BatchDelGameMsgRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated uint32 MsgIdList = 3[packed=true];
+}
+
+message DelGameMsgRsp {
+	required int32 Ret = 1;
+	required uint32 MsgId = 2;
+}
+
+message BatchDelGameMsgResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated DelGameMsgRsp List = 3;
+}
+

@@ -1,0 +1,423 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message GetA8KeyReq {
+    required BaseRequest BaseRequest = 1;
+    required uint32 OpCode = 2;
+    optional SKBuiltinBuffer_t A2Key = 3;
+    optional SKBuiltinString_t AppID = 4;
+    optional SKBuiltinString_t Scope = 5;
+    optional SKBuiltinString_t State = 6;
+    optional SKBuiltinString_t ReqUrl = 7;
+    optional string FriendUserName = 8;
+    optional uint32 FriendQQ = 9;
+    optional uint32 Scene = 10;
+    optional string UserName = 11;
+    optional string BundleID = 12;
+    optional SKBuiltinBuffer_t A2KeyNew = 13;
+    optional uint32 Reason = 14;
+    optional uint32 FontScale = 15;
+    optional uint32 Flag = 16;
+    optional string NetType = 17;
+}
+
+message JSAPIPermissionBitSet {
+	required uint32 BitValue = 1;
+	optional uint32 BitValue2 = 2;
+	optional uint32 BitValue3 = 3;
+	optional uint32 BitValue4 = 4;
+}
+
+message GeneralControlBitSet {
+	required uint32 BitValue = 1;
+}
+
+message DeepLinkBitSet {
+	required uint64 BitValue = 1;
+}
+
+message BizApiInfo {
+	optional string ApiName = 1;
+}
+
+message BizScopeInfo {
+	optional string Scope = 1;
+	required uint32 ScopeStatus = 2;
+	optional string ScopeDesc = 3;
+	required uint32 ApiCount = 4;
+	repeated BizApiInfo ApiList = 5;
+}
+
+message YYBStruct {
+	optional uint32 AndroidDownloadFlag = 1;
+	optional string DownloadUrl = 2;
+	optional string ApkMd5 = 3;
+	optional string PreemptiveUrl = 4;
+	optional string ExtInfo = 5;
+	optional string DownloadTipsWording = 6;
+	optional int32 SupportedVersionCode = 7;
+}
+
+message GetA8KeyResp {
+	required BaseResponse BaseResponse = 1;
+	optional string FullURL = 2;
+	optional string A8Key = 3;
+	optional uint32 ActionCode = 4;
+	optional string Title = 5;
+	optional string Content = 6;
+	optional JSAPIPermissionBitSet JSAPIPermission = 7;
+	optional GeneralControlBitSet GeneralControlBitSet = 8;
+	optional string UserName = 9;
+	optional string ShareURL = 15;
+	optional uint32 ScopeCount = 16;
+	repeated BizScopeInfo ScopeList = 17;
+	optional string AntispamTicket = 18;
+	optional string SSID = 20;
+	optional string MID = 21;
+	optional DeepLinkBitSet DeepLinkBitSet = 22;
+	optional SKBuiltinBuffer_t JSAPIControlBytes = 23;
+}
+
+message AdAppList {
+	optional string AppID = 1;
+	optional string AppCoverUrl = 2;
+	optional string AppDownloadUrl = 3;
+	optional string AndroidApkMd5 = 4;
+	optional string AppName = 5;
+	optional string AppIconUrl = 6;
+	optional string AppSnsDesc = 7;
+	optional string AndroidPackageName = 8;
+	optional string GooglePlayDownloadUrl = 9;
+	optional YYBStruct SYYB = 10;
+	optional string ExtAsXML = 11;
+}
+
+message GiftList {
+	optional string GiftID = 1;
+	optional string IconUrl = 2;
+	optional string Title = 3;
+	optional string Desc = 4;
+	optional string GiftUrl = 5;
+}
+
+message GiftEntranceItem {
+	optional string CellTitle = 1;
+	optional string EnranceWording = 2;
+	optional string AllGiftUrl = 3;
+}
+
+message RcAppList {
+	optional string AppID = 1;
+	optional string AppName = 2;
+	optional string AppIconUrl = 3;
+	optional string AppDesc = 4;
+	optional string AppDownloadUrl = 5;
+	optional string AppCoverUrl = 6;
+	optional string AppDevInfo = 7;
+	required int32 AppScreenShotCount = 8;
+	repeated SKBuiltinString_t AppScreenShotList = 9;
+	optional string AppSnsDesc = 10;
+	optional string AppSnapshotUrl = 11;
+	optional string AppDetailDesc = 12;
+	optional uint32 FriendCount = 13;
+	optional string AppType = 14;
+	optional string AndroidApkMd5 = 15;
+	optional string AndroidPackageName = 16;
+	optional string AppNamezhTW = 17;
+	optional string AppNameEnUS = 18;
+	optional string GooglePlayDownloadUrl = 19;
+	optional string AppSuggestionIconUrl = 20;
+	optional string AppSuggestionIntroUrl = 21;
+	optional YYBStruct SYYB = 22;
+	optional string AppLaunchScheme = 23;
+	optional uint32 GooglePlayDownloadFlag = 24;
+	optional uint32 AppInfoFlag = 25;
+}
+
+message GetGameIntroListRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated SKBuiltinString_t AppIdList = 3;
+	optional string DevicePlatform = 4;
+}
+
+message GameIntro {
+	optional string AppID = 1;
+	optional string GameIntroPage = 2;
+	optional string AndroidApkMd5 = 3;
+	optional string AppDownloadUrl = 4;
+	optional string GooglePlayDownloadUrl = 5;
+	optional YYBStruct SYYB = 6;
+}
+
+message GetGameIntroListResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated GameIntro GameIntroList = 3;
+}
+
+message GetAppPersonalInfoListRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated SKBuiltinString_t AppIdList = 3;
+	optional uint32 Scene = 4;
+}
+
+message AppPersonalInfo {
+	optional string AppID = 1;
+	optional string PersonalSettingXml = 2;
+}
+
+message GetAppPersonalInfoListResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated AppPersonalInfo AppPersonalInfoList = 3;
+}
+
+message GetSuggestionAppDetailRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+	optional string Lang = 3;
+}
+
+message GetSuggestionAppDetailResponse {
+	required BaseResponse BaseResponse = 1;
+	required RcAppList RcDetail = 2;
+}
+
+message UserGameRankInfo {
+	optional string UserName = 1;
+	required uint32 Score = 2;
+	optional uint32 Rank = 3;
+}
+
+message GetGameRankListRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+}
+
+message GetGameRankListResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated UserGameRankInfo RankList = 3;
+	optional uint32 FriendsCount = 4;
+	optional uint32 HasReportScore = 5;
+	optional YYBStruct SYYB = 6;
+}
+
+message GetAppInfoListRequest {
+	required BaseRequest BaseRequest = 1;
+	required int32 Count = 2;
+	repeated SKBuiltinString_t AppIdList = 3;
+}
+
+message BizAppInfo {
+	optional string AppId = 1;
+	optional string Name = 2;
+	optional string Description = 3;
+	optional string Name4EnUS = 4;
+	optional string Description4EnUS = 5;
+	optional string Name4ZhTW = 6;
+	optional string Description4ZhTW = 7;
+	optional string IconUrlSD = 8;
+	optional string IconUrlHD = 9;
+	optional string StoreUrl = 10;
+	optional string WatermarkUrl = 11;
+	optional string AndroidPackageName = 12;
+	optional string AndroidSignature = 13;
+	optional string AppType = 14;
+	optional string DevInfo = 15;
+	required uint32 AppInfoFlag = 16;
+	required uint32 AppVersion = 17;
+	optional uint32 AppUpdateVersion = 18;
+	optional string IconUrlMDPI = 19;
+	optional string DownloadUrl = 20;
+	optional string DownloadUrlMd5 = 21;
+	optional string GooglePlayDownloadUrl = 22;
+}
+
+message GetAppInfoListResponse {
+	required BaseResponse BaseResponse = 1;
+	required int32 Count = 2;
+	repeated BizAppInfo AppInfoList = 3;
+}
+
+message AppCenterRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Type = 2;
+	required SKBuiltinBuffer_t ReqBuf = 3;
+}
+
+message AppCenterResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t RespBuf = 2;
+}
+
+message GetAuthAppListRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Type = 2;
+	optional string Lang = 3;
+}
+
+message AuthAppBaseInfo {
+	optional string AppID = 1;
+	optional string AppType = 2;
+	optional string IconUrl = 3;
+	optional string AppName = 4;
+	required uint32 AppFlag = 5;
+	optional string ExternInfo = 6;
+	optional string AuthInfo = 7;
+	optional string DevInfo = 8;
+}
+
+message GetAuthAppListResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 AppCount = 2;
+	repeated AuthAppBaseInfo AuthAppList = 3;
+}
+
+message GetAuthAppInfoRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+}
+
+message GetAuthAppInfoResponse {
+	required BaseResponse BaseResponse = 1;
+	required AuthAppBaseInfo BaseInfo = 2;
+	optional string AuthInfo = 3;
+	optional string DevInfo = 4;
+	optional string ExternInfo = 5;
+}
+
+message SetAppSettingRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+	required uint32 CmdID = 3;
+	optional string CmdValue = 4;
+}
+
+message SetAppSettingResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string AppID = 2;
+	required uint32 AppFlag = 3;
+	required uint32 CmdID = 4;
+}
+
+message AppSettingReq {
+	optional string AppID = 1;
+}
+
+message AppSetting {
+	optional string AppID = 1;
+	required uint32 AppFlag = 2;
+	optional string OpenID = 3;
+}
+
+message GetAppSettingRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 AppCount = 2;
+	repeated AppSettingReq AppSettingReqList = 3;
+}
+
+message GetAppSettingResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 AppCount = 2;
+	repeated AppSetting SettingList = 3;
+}
+
+message GetSuggestionAppListRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 AppType = 2;
+	required uint32 OffSet = 3;
+	required uint32 Limit = 4;
+	optional string Lang = 5;
+	optional uint32 InstalledAppCount = 6;
+	repeated SKBuiltinString_t InstalledAppList = 7;
+}
+
+message GetSuggestionAppListResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 RcCount = 2;
+	repeated RcAppList RcList = 3;
+	optional uint32 IsInternalDownload = 4;
+	optional uint32 AdCount = 5;
+	repeated AdAppList AdList = 6;
+	optional uint32 GiftCount = 7;
+	repeated GiftList GiftList = 8;
+	optional GiftEntranceItem GiftEntranceItem = 9;
+}
+
+message JSOAuthRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+	optional string Url = 3;
+	optional string Scope = 4;
+	optional string Signature = 5;
+	optional string Signature_method = 6;
+	optional string TimeStamp = 7;
+	optional string Nonce = 8;
+}
+
+message JSOAuthResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 ScopeCount = 2;
+	repeated BizScopeInfo ScopeList = 3;
+	optional string OAuthTitle = 4;
+}
+
+message SetOAuthScopeRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+	required uint32 ScopeCount = 3;
+	repeated BizScopeInfo ScopeList = 4;
+}
+
+message SetOAuthScopeResponse {
+	required BaseRequest BaseRequest = 1;
+	required uint32 ScopeCount = 2;
+	repeated BizScopeInfo ScopeList = 3;
+}
+
+message GetUserInfoInAppRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string AppID = 2;
+	required uint32 UserCount = 3;
+	repeated SKBuiltinString_t UserNameList = 4;
+	required uint32 Scene = 5;
+}
+
+message UserInfoInApp {
+	optional string UserName = 1;
+	optional string PersonalSettingXml = 2;
+}
+
+message GetUserInfoInAppResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 UserCount = 2;
+	repeated UserInfoInApp UserInfoList = 3;
+}
+
+message CheckCanSubscribeBizRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Source = 2;
+	optional string ToUserName = 3;
+	optional string ExtInfo = 4;
+	optional string AppID = 5;
+	required uint32 PackNum = 6;
+	repeated SKBuiltinString_t AndroidPackNameList = 7;
+	optional string IosBunddleID = 8;
+	optional string FromURL = 9;
+	optional uint32 Scene = 10;
+}
+
+message CheckCanSubscribeBizResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string CheckTicket = 2;
+	optional string ToUserName = 3;
+	optional string WebViewUrl = 4;
+	optional string ShowWord = 5;
+}
+

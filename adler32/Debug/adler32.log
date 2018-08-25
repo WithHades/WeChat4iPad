@@ -1,0 +1,6 @@
+﻿  adler32.c
+  adler32.cpp
+Debug\adler32.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+    正在创建库 D:\协议下面\WeChat\Debug\adler32.lib 和对象 D:\协议下面\WeChat\Debug\adler32.exp
+LINK : warning LNK4098: 默认库“LIBCMTD”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+  adler32.vcxproj -> D:\协议下面\WeChat\Debug\adler32.dll

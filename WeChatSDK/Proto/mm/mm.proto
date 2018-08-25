@@ -1,0 +1,947 @@
+syntax = "proto2";
+
+message SKBuiltinBuffer_t {
+    required uint32 iLen = 1;
+    optional bytes Buffer = 2;
+}
+message mmStr
+{
+	optional int32 	len 		= 1;
+	optional string str 		= 2;
+}
+
+message mmRes
+{
+	optional int32 	code 		= 1;	//错误码
+	optional string message 	= 2;	//错误信息
+}
+
+message LoginInfo 
+{
+	optional bytes aesKey 		= 1;	//解密服务器返回封包时使用的aeskey
+	optional int32 	uin 		= 2;
+	optional string guid 		= 3;	//手机guid长度16,这里取前15字节,以'\0'结尾
+	optional int32 clientVer 	= 4;
+	optional string androidVer 	= 5;
+	optional int32 unknown 		= 6;
+}
+
+//同步key(该数据通常不需要解析,每次同步消息服务器会返回最新的完整的synckey,二进制保存即可;下次同步消息时直接使用)
+message SyncKey
+{
+	optional int32  len 					= 1;				//MsgKey总长度
+	message MsgKey 
+	{
+		optional int32  cnt 			= 1;					//消息类型数量
+		message Key 
+		{
+			optional int32  type = 1;							//消息类型
+			optional int64  key  = 2;							//服务器消息id(通常每个消息加1,但不是从0开始)
+		}
+		repeated Key key 				= 2;					//每种消息类型都有单独的synckey
+	}
+	optional MsgKey msgkey          		=2;					//synckey
+}
+
+//同步消息
+message common_msg
+{
+		optional int32  type 		= 1;						//消息类型:1==>个人信息,2==>好友信息,5==>服务器上未读取的最新消息,其余消息类型暂未知
+		message Data
+		{
+			optional int32 len 		= 1;
+			optional bytes data 	= 2;
+		}
+		optional Data data 			= 2;
+}
+
+//wxid
+message Wxid
+{
+	optional string id = 1;
+}
+
+//服务器返回消息(newinit/newsync)
+message Msg
+{
+	optional int64 serverid 		= 1;
+	optional Wxid from_id 			= 2;							//发送方wxid
+	optional Wxid to_id 			= 3;							//接收方wxid
+	optional int32 type 			= 4;							//消息类型:9999==>系统垃圾消息,10002==>sysmsg(系统垃圾消息),49==>appmsg,1==>文字消息,10000==>系统提示
+	message RawContent
+	{
+		optional string content = 1;
+	}
+	optional RawContent raw 		= 5;							//原始消息内容,需要根据不同消息类型解析
+	optional int32 status 			= 6;
+	optional int32 tag7 			= 7;
+	optional bytes tag8 			= 8;
+	optional int32 createTime 		= 9;							//消息发送时间
+	optional string ex_info 		= 10;							//消息附加内容(群是否屏蔽,群人数,群at功能)
+	optional string xmlContent 		= 11;							//推送内容(xml格式)
+	optional int64 svrId 			= 12;							//每条消息的唯一id
+	optional int32 msgKey 			= 13;							//sync key中的id
+}
+
+//好友详细信息
+message contact_info
+{
+	optional Wxid 	wxid 		= 1;
+	message NickName
+	{
+		optional string name    = 1;
+	}
+	optional NickName nickname 	= 2;
+	message PY_SHORT
+	{
+		optional string name    = 1;
+	}
+	optional PY_SHORT shortPy 	= 3;
+	message QuanPin
+	{
+		optional string name    = 1;
+	}
+	optional QuanPin quanpin 	= 4;
+	optional int32  sex 		= 5;						//性别：0=>未知,1=>男,2=>女
+	optional string tag6    	= 6;
+	optional int32  tag7  		= 7;
+	optional int32  type 		= 8;						//好友状态:  
+	optional int32  tag9 		= 9;
+	message BeiZhu
+	{
+		optional string name    = 1;
+	}
+	optional BeiZhu remark_name = 10;						//备注名:为空则显示nickname
+	message REAL_PY_SHORT
+	{
+		optional string name    = 1;
+	}
+	optional REAL_PY_SHORT real_shortPy 	= 11;
+	message REAL_QuanPin
+	{
+		optional string name    = 1;
+	}
+	optional REAL_QuanPin real_quanpin 	= 12;
+	optional int32  tag13 		= 13;
+	optional int32  tag14 		= 14;
+	optional string tag16    	= 16;
+	optional int32  bChatRoom 	= 17;							//todo
+	optional int32  tag18 		= 18;
+	optional string sheng    	= 19;
+	optional string shi    		= 20;
+	optional string qianming    = 21;							//签名
+	optional int32  tag22     	= 22;							//todo
+	optional int32  tag23  		= 23;							//todo
+	optional int32  register_body_type = 24;					//8=>个人;24=>公司
+	optional string register_body = 25;							//注册主体:xx公司或个人
+	optional int32  tag26       = 26;
+	optional int32  src 		= 27;							//好友来源:(10000XX为对方添加自己)0=>未知;1=>QQ;3=>微信号;6=>名片;13=>手机通讯录;14=>群聊;15=>手机号;30=>扫一扫  （1000015=>对方手机号;1000030=>对方扫一扫;1000014=>对方群聊......）
+	
+	optional string lastMsgTime = 29;
+	optional string alias 		= 30;							//微信号(未设置则显示wxid)
+	
+	optional string chatroomOwnerWxid = 31;
+	
+	optional int32  tag33 		= 33;
+	optional int32  tag34 		= 34;
+	optional int32  tag35 		= 35;
+	
+	optional bytes tag37 		= 37;							//个人相册封面图片
+	optional string country 	= 38;
+	optional string avatar_big	= 39;
+	optional string avatar_small= 40;
+	
+	optional bytes tag42 		= 42;
+	
+	optional string v1_name		= 45;							//encryptName(等价于wxid,固定不变)		
+	
+	optional bytes tag50 		= 50;
+	
+	optional int32  chatroom_serverVer 	= 53;
+	optional int32  chatroom_max_member = 55;
+	optional int32  tag56 		= 56;
+	message GroupMemberList
+	{
+		optional int32 cnt = 1;
+		message MemberInfo
+		{
+			optional string wxid = 1;
+			optional string nick_name = 2;						//昵称(非群昵称)
+			optional int32  tag6 = 6;
+			optional string inviteer_wxid = 7;					//邀请入群wxid
+			optional int32  tag8 = 8;
+		}
+		repeated MemberInfo member = 2;
+		optional int32   tag3 = 3;
+		optional string  tag4 = 4;
+	}
+	optional GroupMemberList group_member_list 	= 57;
+	optional int32  tag58 		= 58;
+	
+	optional bytes  tag62 		= 62;
+	
+	optional int32  tag64 		= 64;
+	optional int32  tag65 		= 65;
+	optional int32  tag66 		= 66;
+	optional int32  tag67 		= 67;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//登录请求--账号信息
+message ManualAuthAccountRequest 
+{
+	message AesKey 
+	{  
+		required int32  len  = 1;
+		required bytes key = 2;
+	}
+    required AesKey aes = 1;				//仅用于本次登录请求,后续通讯使用的aeskey根据服务器返回的数据做ECDH生成
+
+	message Ecdh 
+	{  
+		required int32 	 nid 	= 1;        //椭圆曲线类型
+
+		message EcdhKey 
+		{  
+			required int32  len  = 1;
+			required bytes key  = 2;       //椭圆曲线client pubkey
+		}
+		required EcdhKey ecdhKey  = 2;
+	}
+	required Ecdh   ecdh  		= 2;
+	required string userName 	= 3;
+	required string password1 	= 4;
+    required string password2 	= 5;
+}
+
+
+//登录请求--设备信息
+message ManualAuthDeviceRequest 
+{
+	optional LoginInfo login 			= 1;
+	message _Tag2 
+	{
+		optional mmStr tag1 = 1;
+		message __Tag2 
+		{
+			optional string tag1 		= 1;
+			optional string tag2 		= 2;
+			optional string tag3 		= 3;
+			optional mmStr  tag4 		= 4;
+		}
+		optional __Tag2 tag2 = 2;
+		message TAG3
+		{
+			optional string tag1 		= 1;
+			optional string tag2 		= 2;
+		}
+		optional TAG3 	tag3 = 3;
+		optional mmStr 	tag4 = 4;
+		optional mmStr 	tag5 = 5;
+		optional int32 	tag6 = 6;
+	}
+	optional _Tag2 tag2 				= 2;
+	optional string imei 		  		= 3;
+	optional string softInfoXml       	= 4;
+	optional int32 unknown5       		= 5;
+	optional string clientSeqID      	= 6;
+	optional string clientSeqID_sign 	= 7;
+	optional string loginDeviceName     = 8;
+	optional string deviceInfoXml 		= 9;
+	optional string language       		= 10;
+	optional string timeZone       		= 11;
+	optional int32 unknown13       		= 13;
+	optional int32 unknown14       		= 14;
+	optional string deviceBrand    		= 15;
+	optional string deviceModel    		= 16;
+	optional string osType   	   		= 17;
+	optional string realCountry    		= 18;
+	optional int32 unknown22      		= 22;
+}
+
+//登录结果
+message ManualAuthResponse 
+{
+    message AuthResult 
+	{  
+		required int32  code  		= 1;		    //登录错误码
+		message ErrMsg 
+		{
+			optional string msg 	= 1;		    //错误信息
+		}
+		required ErrMsg err_msg =2;
+	}
+    required AuthResult result = 1;				    //登录结果
+	required int32  unifyFlag  = 2;
+	message AuthParam
+	{
+		required int32  uin    = 1;
+		
+		message Ecdh 
+		{  
+			required int32 	 nid 	= 1;
+			message EcdhKey 
+			{  
+				required int32  len  = 1;
+				optional bytes key  = 2;           //椭圆曲线server pubkey
+			}
+			optional EcdhKey ecdhKey  = 2;
+		}
+		required Ecdh   ecdh  		    = 2;
+		
+		message SessionKey
+		{
+			required int32 	 len 		 = 1;
+			optional bytes  key         = 2;       
+		}
+		required SessionKey session = 3;            //加密的sessionKey 需要使用ECDH握手后的密钥做AES解密得到最终长16字节的aeskey
+		optional bytes SmsTicket = 16;				//需要短信授权时的ticket,用于后续请求验证码以及发送验证码
+
+		optional string bindMailLoginUrl = 20;
+		optional int32 serverTime        = 22;		
+	}
+	required AuthParam authParam = 3;
+	message AccountInfo
+	{
+		optional string wxId                = 1;
+		optional string nickName            = 2;
+		optional int32  tag3                = 3;
+		optional string bindMail            = 4;
+		optional string bindMobile          = 5;
+		optional string Alias               = 6;
+		optional string tag7                = 7;
+		optional int32 status               = 8;
+		optional int32 pluginFlag           = 9;
+		optional int32 registerType         = 10;
+		optional string tag11               = 11;
+		optional int32 safeDevice           = 12;
+		optional string officialNamePinyin  = 13;
+		optional string officialNameZh      = 14;
+		optional string tag15               = 15;
+		optional string fsUrl               = 16;
+	}
+	optional AccountInfo accountInfo = 4;                   //登录成功后返回账号信息
+	
+	message dns_info
+	{
+		message redirect_info
+		{
+			optional int32 cnt				= 1;				//host cnt
+			message real_host_info
+			{
+				optional string host  		= 1;				//host
+				optional string redirect  	= 2;				//redirect_host
+			}
+			repeated real_host_info real_host = 2;					
+		}
+		optional redirect_info redirect    			= 1;		//域名重定向信息
+		message ip_info
+		{
+			optional int32 longlink_ip_cnt	= 1;				//长链接ip池数量				
+			optional int32 shortlink_ip_cnt	= 2;				//短链接ip池数量
+			message longlink_ip_info
+			{
+				optional string ip  	= 3;					//ip
+				optional string host  	= 4;					//host
+			}
+			repeated longlink_ip_info longlink = 3;				//长链接ip池
+			message shortlink_ip_info
+			{
+				optional string ip  	= 3;					//ip
+				optional string host  	= 4;					//host
+			}
+			repeated shortlink_ip_info shortlink = 4;			//短链接ip池
+		}
+		optional ip_info ip							= 3;		//长短链接ip
+	}
+	optional dns_info dns					= 5;				//dns信息
+}
+
+//新设备第一次登录初始化请求
+message NewInitRequest 
+{
+	optional LoginInfo login 				= 1;
+	optional string wxid 					= 2;
+	optional SKBuiltinBuffer_t sync_key_cur				= 3;				//首次初始化时sync_key_cur = ''
+	optional SKBuiltinBuffer_t sync_key_max				= 4;				//首次初始化时sync_key_max = ''
+	optional string language 				= 5;
+}
+
+//新设备第一次登录初始化服务器响应
+message NewInitResponse 
+{
+	optional bytes tag1 					= 1;
+	optional bytes sync_key_cur				= 2;				//当前synckey二进制数据
+	optional bytes sync_key_max				= 3;				//最新synckey二进制数据(若与sync_key_cur不相同,则continue_flag返回1,表示需要继续初始化)
+	optional int32 continue_flag			= 4;				//为1时表示仍要继续调用newinit初始化,直到该标志位返回0停止初始化(联系人或未读消息数据太多,无法一次获取完毕)
+	optional int32  cntList 				= 6;				//tag7结构体数量
+	repeated common_msg tag7 			    = 7;				//需要根据消息类型解析
+}
+
+//同步消息
+message new_sync_req
+{
+	message continue_flag
+	{
+		optional int32 flag 	= 1;			
+	}
+	optional continue_flag  flag  		= 1;						//unknown,must be 0
+	optional int32 selector 			= 2;						//unknown,just set 7
+	optional bytes sync_Key     		= 3;						//同步成功后服务器返回的消息id
+	optional int32  scene 				= 4;						//unkown,just set 3
+	optional string device 				= 5;						//'android-22'	
+	optional int32  sync_msg_digest 	= 6;						//unknown,just set 1
+}
+
+//同步消息响应
+message new_sync_resp
+{
+	optional int32 tag1 				= 1;
+	message new_msg
+	{
+		optional int32  cntList 	= 1;							//tag2结构体数量
+		repeated common_msg tag2 	= 2;							//需要根据消息类型解析
+	}
+	optional new_msg msg 				= 2;						//未读消息
+	optional int32  tag3 				= 3;
+	optional bytes sync_key 			= 4;						//服务器返回的sync key
+	optional int32  tag5 				= 5;
+	optional int32  tag6 				= 6;
+	optional int32  utc 				= 7;
+}
+
+//发送消息请求
+message new_send_msg_req
+{
+	optional int32  cnt  				= 1;						//本次发送的消息数量
+	message msg_info 
+	{
+		optional Wxid  to  			= 1;							//to wxid
+		optional bytes content 		= 2;							//消息内容
+		optional int32 type 		= 3;							//消息类型: 文字消息=>1,名片=>42，
+		optional int32 utc 			= 4;
+		optional int32 client_id 	= 5;							//不同消息的utc与client_id必须至少有1个不相同
+		optional string at_list		= 6;							//群聊at功能
+	}
+	optional msg_info msg 				= 2;						//这里可以是repeated,允许一次发送多条消息
+}
+
+//发送消息响应
+message new_send_msg_resp
+{
+	optional mmStr tag1					= 1;
+	optional int32 cnt 					= 2;
+	message result
+	{
+		optional int32 code		= 1;								//错误码 0=>发送成功,-44=>对方开启了朋友验证(被删好友),-22=>消息已发出,但被对方拒收了(被拉黑)
+		optional Wxid  to   	= 2;								//to wxid
+		optional int32 type 	= 7;								//消息类型
+		optional int64 svrid 	= 8;								//消息唯一id
+	}
+	optional result res					= 3;						//发送结果
+}
+
+//分享链接请求(也可以分享app链接)
+message new_send_app_msg_req
+{
+	optional LoginInfo login 				= 1;					//登录信息
+	message appmsg_info
+	{
+		optional string from_wxid		= 1;
+		optional string app_wxid		= 2;
+		optional int32 tag3				= 3;						//unknown just set 0
+		optional string to_wxid			= 4;
+		optional int32 type				= 5;						//app_msg type == 5
+		optional string content			= 6;						//appmsg具体信息
+		optional int32 utc				= 7;
+		optional string client_id		= 8;						//to_wxid+randomint+T+utc
+		optional int32 tag10 			= 10;						//unknown just set 3
+		optional int32 tag11			= 11;						//unknown just set 0
+	}
+	optional appmsg_info info               = 2;					//appmsg消息
+	optional int32 tag4 					= 4;					//unknown just set 0
+	optional int32 tag6 					= 6;					//unknown just set 0
+	optional string tag7					= 7;					//unknown just set ''
+	optional string fromScene				= 8;
+	optional int32 tag9 					= 9;					//unknown just set 0
+	optional int32 tag10 					= 10;					//unknown just set 0
+}
+
+//分享链接响应
+message new_send_app_msg_resp
+{
+	optional mmStr tag1						= 1;					//结果?
+	optional string from_wxid				= 3;
+	optional string to_wxid					= 4;
+	optional int32 sync_key_id				= 5;
+	optional string client_id				= 6;
+	optional int32 utc						= 7;
+	optional int32 type						= 8;
+	optional int64 svrid					= 9;
+}
+
+//好友请求(申请或同意)
+message verify_user_req
+{
+	optional LoginInfo login 				= 1;					//登录信息
+	optional int32 op_code					= 2;					//操作code				
+	optional int32 tag3						= 3;					//todo,just set 1
+	message user_info
+	{
+		optional string 	wxid 		= 1;						
+		optional string  	ticket 		= 2;						//v2_name
+		optional string  	anti_ticket = 3;						//可不填(由getcontact返回,长108位)
+		optional int32  	tag4 		= 4;
+		optional int32  	tag8 		= 8;
+	}
+	optional user_info user					= 4;					//好友详细信息
+	optional string  content 				= 5;					//打招呼内容
+	optional int32  tag6 					= 6;					//just set 1
+	optional string scene 					= 7;					//scene
+	optional mmStr  device_info				= 8;					//登录设备信息
+}
+
+//好友请求响应
+message verify_user_resp
+{
+	optional mmRes res						= 1;					//结果
+	optional string wxid					= 2;					//wxid
+}
+
+//收红包请求1:获取timingIdentifier
+message receive_wxhb_req
+{
+	optional LoginInfo login 				= 1;					//登录信息
+	optional int32     cmd                  = 2;
+	optional int32	   tag3					= 3;
+	optional mmStr	   info					= 4;					//红包信息(nativeUrl、id等)
+}
+
+//收红包请求1响应
+message receive_wxhb_resp
+{
+	message TAG1
+	{
+		optional int32 tag1 = 1;
+		message TAG1
+		{
+			optional string tag1 = 1;
+		}
+	}
+	optional TAG1 tag1 						= 1;					//没啥用
+	optional mmStr 	   hb_info				= 2;					//红包内容,需要取出timingIdentifier字段
+	optional int32     cmd                  = 5;
+	optional int32	   ret_code				= 6;					//错误码
+	optional string    ret_msg				= 7;					//错误信息
+}
+
+//收红包请求2:拆红包
+message open_wxhb_req
+{
+	optional LoginInfo login 				= 1;					//登录信息
+	optional int32     cmd                  = 2;
+	optional int32	   tag3					= 3;
+	optional mmStr	   info					= 4;					//红包信息(必须填写timingIdentifier字段)
+}
+
+//收红包请求2响应
+message open_wxhb_resp
+{
+	message TAG1
+	{
+		optional int32 tag1 = 1;
+		message TAG1
+		{
+			optional string tag1 = 1;
+		}
+	}
+	optional TAG1 tag1 						= 1;					//没啥用
+	optional mmStr 	   res					= 2;					//红包领取结果
+	optional int32     cmd                  = 5;
+	optional int32	   ret_code				= 6;					//错误码 416:需要实名认证
+	optional string    ret_msg				= 7;					//错误信息
+}
+
+//获取红包详细信息请求
+message qry_detail_wxhb_req
+{
+	optional LoginInfo login 				= 1;					//登录信息
+	optional int32     cmd                  = 2;
+	optional int32	   tag3					= 3;
+	optional mmStr	   info					= 4;					//红包信息:需要nativeUrl和sendid
+}
+
+//获取红包详细信息响应
+message qry_detail_wxhb_resp
+{
+	message TAG1
+	{
+		optional int32 tag1 = 1;
+		message TAG1
+		{
+			optional string tag1 = 1;
+		}
+	}
+	optional TAG1 tag1 						= 1;					//没啥用
+	optional mmStr 	   res					= 2;					//红包领取信息
+	optional int32     cmd                  = 5;
+	optional int32	   ret_code				= 6;					//错误码 416:需要实名认证
+	optional string    ret_msg				= 7;					//错误信息
+}
+
+//发送emoji请求
+message send_emoji_req
+{
+	optional LoginInfo login 				= 1;					//登录信息
+	optional int32     tag2                 = 2;
+	message emoji_info
+	{
+		optional string    animation_id = 1;						//emoji加密文件名;发送游戏emoji时该参数无效
+		optional int32     tag2      	= 2;
+		optional int32     tag3      	= 3;
+		message TAG4
+		{
+			optional int32 tag1 = 1;
+		}
+		optional TAG4      tag4      	= 4;
+		optional int32 	   tag5      	= 5;
+		optional string    to_wxid   	= 6;
+		optional string    game_ext  	= 7;						//游戏参数:<gameext type="2" content="8" ></gameext>
+		optional string    tag8      	= 8;
+		optional string    utc       	= 9;						//ms
+		optional int32    tag11      	= 11;
+	}
+	optional emoji_info emoji				= 3;					//发送表情详细信息
+	optional int32     tag4                 = 4;
+}
+
+//发送emoji响应
+message send_emoji_resp
+{
+	message result
+	{
+		optional int32     code      	= 1;						//错误码;返回0表示发送成功
+		optional int32     tag2      	= 2;						//小游戏随机种子?
+		optional int32     tag3      	= 3;						//小游戏随机种子?
+		optional string    file_name    = 4;
+		optional int32     svrid     	= 5;						//服务器唯一id
+		optional int32     tag6      	= 6;						
+	}
+	optional result res						= 3;					//发送结果
+}
+
+//收款请求
+message transfer_operation_req
+{
+	optional LoginInfo login 				= 1;					//登录信息
+	optional int32     tag2                 = 2;
+	optional int32     tag3                 = 3;
+	optional mmStr	   info					= 4;					//转账信息:需要op_code, invalid_time, trans_id, 转账人wxid和transfer_id, 签名使用TDES加密算法(可不签)
+}
+
+//收款结果
+message transfer_operation_resp
+{
+	optional mmStr 	   res					= 2;					//收款结果详细信息
+	optional int32	   ret_code				= 6;					//错误码 
+	optional string    ret_msg				= 7;					//错误信息
+}
+
+//查询转账记录请求
+message transfer_query_req
+{
+	optional LoginInfo login 				= 1;					//登录信息
+	optional int32     tag2                 = 2;
+	optional int32     tag3                 = 3;
+	optional mmStr	   info					= 4;					//转账信息:需要invalid_time, trans_id和transfer_id, 签名使用TDES加密算法(可不签)
+}
+
+//查询转账记录结果
+message transfer_query_resp
+{
+	optional mmStr 	   res					= 2;					//收款结果详细信息
+	optional int32	   ret_code				= 6;					//错误码 
+	optional string    ret_msg				= 7;					//错误信息
+}
+
+//获取好友详细信息请求
+message get_contact_req
+{
+	optional LoginInfo login 				= 1;					//登录信息
+	optional int32     tag2					= 2;
+	optional Wxid      wxid					= 3;					//要查询的 好友/群聊 wxid
+	optional int32     tag4					= 4;
+	optional int32     tag6					= 6;
+	message TAG7
+	{
+		optional string tag1  = 1;
+	}
+	optional TAG7       tag7				= 7;
+	optional int32      tag8				= 8;
+}
+
+//获取好友详细信息响应
+message get_contact_resp
+{
+	optional contact_info   info			= 3;					//好友详细信息
+	message ticket_info
+	{
+		optional string wxid  	= 1;								//查询好友的wxid
+		optional string ticket  = 2;								//v2_ticket
+	}
+	optional ticket_info ticket             = 5;					//对方删除/拉黑我 返回v2_name;正常好友该字段为空
+}
+
+//建群聊请求
+message create_chatroom_req
+{
+	optional LoginInfo login 				= 1;					//登录信息
+	message TAG2
+	{
+		optional string tag1  = 1;
+	}
+	optional TAG2       tag2				= 2;
+	optional int32      member_cnt    		= 3;					//群成员数量
+	message member_info
+	{
+		optional Wxid    wxid		= 1;
+	}
+	repeated member_info member				= 4;					//群成员信息
+	optional int32		tag5				= 5;
+}
+
+//建群聊响应
+message create_chatroom_resp
+{
+	message result
+	{
+		optional int32 code    		= 1;							//错误码
+		message err_msg
+		{
+			optional string msg  = 1;								//错误信息
+		}
+		optional err_msg msg		= 2;
+	}
+	optional result res						= 1;					//建群结果
+	optional int32	member_cnt 				= 5;					//群成员数量
+	message member_info
+	{
+		optional Wxid    wxid			  = 1;						//wxid
+		message nick_name_info
+		{
+			optional string name  = 1;								//昵称
+		}
+		optional nick_name_info nick_name = 3;
+		optional string qianming  		  = 15;						//签名
+	}
+	repeated member_info member				= 6;
+	optional Wxid chatroom_wxid  			= 7;					//新建群聊wxid
+	message chatroom_avatar
+	{
+		optional int32	len  = 1;									//群头像raw data大小
+		optional bytes  data = 2; 									//群头像 jpg格式 raw data
+	}
+	optional chatroom_avatar  avatar		= 8;					//群头像				
+}
+
+//面对面建群请求
+message mm_facing_create_chatroom_req
+{
+	optional LoginInfo login 				= 1;					//登录信息
+	optional int32	op_code					= 2;					//op_code=0：建群等人(未生成群wxid,只返回群成员信息) op_code=1:进群(返回群wxid)
+	optional string chatroom_pwd			= 3;					//面对面建群密码(4位;不能是1234)
+	optional float lon						= 4;					//面对面建群坐标经度
+	optional float lat						= 5;					//面对面建群坐标纬度
+	optional int32 tag6						= 6;
+	optional int32 tag9						= 9;
+	optional string tag10					= 10;
+}
+
+//面对面建群响应
+message mm_facing_create_chatroom_resp
+{
+	message result
+	{
+		optional int32 code    		= 1;							//错误码
+		message err_msg
+		{
+			optional string msg  = 1;								//错误信息
+		}
+		optional err_msg msg		= 2;
+	}
+	optional result res						= 1;					//面对面建群结果
+	optional int32	member_cnt				= 3;					//群成员数量(op_code=0阶段)
+	message member_info
+	{
+		optional string msg  		= 1;							//wxid
+		optional string nick_name   = 3;							//nick_name
+	}
+	repeated member_info member             = 4;					//群成员信息(op_code=0阶段)
+	optional string wxid					= 5;					//面对面群id(op_code=1阶段)
+}
+
+//群聊拉人请求
+message add_chatroom_member_req
+{
+	optional LoginInfo login 				= 1;					//登录信息
+	optional int32      member_cnt    		= 2;					//本次邀请加入群聊的好友数量
+	message member_info
+	{
+		optional Wxid    wxid		= 1;
+	}
+	repeated member_info member				= 3;					//本次邀请加入群聊的好友信息
+	message chatroom_info
+	{
+		optional string  wxid = 1;
+	}
+	optional chatroom_info chatroom_wxid    = 4;					//群聊wxid
+	optional int32	tag5					= 5;
+}
+
+//群聊拉人响应
+message add_chatroom_member_resp
+{
+	message result
+	{
+		optional int32 code    		= 1;							//错误码
+		message err_msg
+		{
+			optional string msg  = 1;								//错误信息
+		}
+		optional err_msg msg		= 2;
+	}
+	optional result res						= 1;					//群聊拉人结果
+}
+
+//oplog:cmd_id=48 设置群昵称
+message op_set_group_nick_name
+{
+	optional string tag1  = 1;
+	optional string tag2  = 2;
+	optional bytes tag3  = 3;
+}
+
+//操作请求
+message oplog_req
+{
+	message TAG1
+	{
+		optional int32 tag1    				= 1;					//cnt?
+		message CMD
+		{
+			optional int32 cmd_id = 1;								//操作类型
+			message OPTION
+			{
+				optional int32 len = 1;
+				optional bytes data	= 2;							//不同cmd_id使用不同结构体填充该字段
+			}
+			optional OPTION option	= 2;
+		}
+		optional CMD cmd					= 2;
+	}
+	optional TAG1	tag1                        = 1;
+}
+
+//操作响应
+message oplog_resp
+{
+	message result
+	{
+		optional bytes code = 2;									//错误码  varint
+		optional string msg = 3;									//错误信息
+	}
+	optional result res                        = 2;					//结果
+}
+
+//消息撤回请求
+message revoke_msg_req
+{
+	optional LoginInfo login 				= 1;					//登录信息
+	optional string  client_id				= 2;					//客户端发送的消息id
+	optional int64	new_client_id			= 3;					//新的客户端消息id
+	optional int32	utc						= 4;
+	optional int32	tag5					= 5;
+	optional string from_wxid				= 6;
+	optional string to_wxid					= 7;
+	optional int32  index_of_request		= 8;
+	optional int64  svrid					= 9;					//撤回消息的svrid
+}
+
+//消息撤回响应
+message revoke_msg_resp
+{
+	optional mmRes res						= 1;					//错误码
+	optional string response_sys_wording    = 3;					//消息撤回提示(已撤回或撤回失败原因)
+}
+
+//发布群公告请求
+message set_chatroom_announcement_req
+{
+	optional LoginInfo login 				= 1;					//登录信息
+	optional string chatroom_wxid			= 2;					//群聊wxid
+	optional string content					= 3;					//群公告内容
+}
+
+//发布群公告响应
+message set_chatroom_announcement_resp
+{
+	optional mmRes res						= 1;					//发布群公告结果
+}
+message GetLoginQRCodeRequest {
+	required LoginInfo base = 1;
+	required sKBuiltinBufferT randomEncryKey = 2;
+	required int32 opcode = 3;
+	optional string deviceName = 4;
+	optional string username = 5;
+}
+message sKBuiltinBufferT 
+{
+ optional int32  ILen = 1;
+ optional bytes  Buffer = 2;
+
+}
+message GetLoginQRCodeResponse {
+	required mmRes Base =1;
+	required sKBuiltinBufferT QRCode = 2;
+	required string UUID = 3;
+	required int32 CheckTime = 4;
+	optional sKBuiltinBufferT NotifyKey = 5;
+	optional int32 ExpiredTime = 6;
+	optional string BlueToothBroadCastUuid = 7;
+	optional sKBuiltinBufferT BlueToothBroadCastContent = 8;	
+}
+message CheckLoginQRCodeRequest{
+	required LoginInfo base = 1;
+	required sKBuiltinBufferT randomEncryKey = 2;
+	required string uuid = 3;
+	required int32 timeStamp = 4;
+	required int32 opcode = 5;	
+}
+
+message CheckLoginQRCodeResponse {
+	required mmRes base = 1;
+		message LoginQRCodeNotifyPkg 
+	{
+	 optional sKBuiltinBufferT 	NotifyData = 1;  //是bytes,需notifykey不解压aes解密一次,解密后再序列化成下面的对象
+	 optional int32  Opcode = 2;
+
+	}
+	optional LoginQRCodeNotifyPkg notifyPkg = 3;
+}
+
+message NotifyMsg 
+{
+ optional string  Uuid = 1;
+ optional int32  Opcode = 2;
+ optional string  Username = 3;
+ optional string  Pass = 4;
+ optional string  Imgurl = 5;
+ optional int32  Unkownint6 = 6;
+ optional string  Nickname = 7;
+ optional int32  Unkownint8 = 8;
+ optional int32  Unkownint10 = 10;
+ optional string  Platform = 11;
+
+}

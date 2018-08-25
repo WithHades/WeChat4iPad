@@ -1,0 +1,1873 @@
+package micromsg;
+
+import "mmgateway/public/proto/mmbuiltintype.proto";
+
+import "micromsg/mmproto/skproto/mmbase.proto";
+
+message BaseResponseErrMsg {
+	required int32 ShowType = 1;
+	optional string Content = 2;
+	optional string Url = 3;
+	required int32 DispSec = 4;
+	optional string Title = 5;
+	required int32 Action = 6;
+	optional int32 DelayConnSec = 7;
+	optional uint32 Countdown = 8;
+	optional string Ok = 9;
+	optional string Cancel = 10;
+}
+
+message GetStreamUrlRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string StreamId = 2;
+}
+
+message GetStreamUrlResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string StreamUrl = 2;
+}
+
+message PossibleFriend {
+	optional string UserName = 1;
+	optional string NickName = 2;
+	optional string PYInitial = 3;
+	optional string QuanPin = 4;
+	required int32 Sex = 5;
+	required uint32 ImgFlag = 6;
+	required uint32 ContactType = 7;
+	optional string DomainList = 8;
+	optional string Source = 9;
+	required uint32 FriendScene = 10;
+	optional string Mobile = 11;
+}
+
+message SetPushSoundReq {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Type = 2;
+	optional string Sound = 3;
+}
+
+message SetPushSoundResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message SendVerifyEmailRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t UserName = 2;
+}
+
+message SendVerifyEmailResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GetInviteFriendRequest {
+	required BaseRequest BaseRequest = 1;
+	optional uint32 FriendType = 2;
+}
+
+message InviteFriend {
+	required uint32 Uin = 1;
+	required SKBuiltinString_t NickName = 2;
+	optional string Email = 3;
+	optional string Remark = 4;
+	optional string UserName = 5;
+	optional uint32 FriendType = 6;
+}
+
+message GetInviteFriendResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 FriendCount = 2;
+	repeated InviteFriend FriendList = 3;
+}
+
+message SendInviteEmailRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 UinCount = 2;
+	repeated uint32 UinList = 3[packed=true];
+}
+
+message SendInviteEmailResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message DomainEmailItem {
+	required uint32 Status = 1;
+	required SKBuiltinString_t Email = 2;
+}
+
+message SendDomainEmailRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t UserName = 2;
+	required SKBuiltinString_t Email = 3;
+}
+
+message SendDomainEmailResponse {
+	required BaseResponse BaseResponse = 1;
+	required int32 DomainEmailRet = 2;
+	required uint32 Count = 3;
+	repeated DomainEmailItem List = 4;
+}
+
+message SwitchPushMailRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 SwitchValue = 2;
+	optional string SecPwdMd5 = 3;
+}
+
+message SwitchPushMailResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 SwitchValue = 2;
+}
+
+message SendCardRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+	optional string Content = 3;
+	optional uint32 SendCardBitFlag = 4;
+	optional uint32 Style = 5;
+	optional string ContentEx = 6;
+}
+
+message SendCardResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message BindCookie {
+	optional string mobile = 1;
+	optional string verifycode = 2;
+	required uint32 expire = 3;
+}
+
+message Mobile {
+	optional string v = 1;
+}
+
+message MEmail {
+	optional string v = 1;
+}
+
+message UploadMContactRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+	required int32 Opcode = 3;
+	optional string Mobile = 4;
+	required int32 MobileListSize = 5;
+	repeated Mobile MobileList = 6;
+	required int32 EmailListSize = 7;
+	repeated MEmail EmailList = 8;
+}
+
+message UploadMContactResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message ModifyHeadImgRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+	required SKBuiltinBuffer_t ImgBuf = 3;
+}
+
+message ModifyHeadImgResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message NewGetInviteFriendRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 FriendType = 2;
+}
+
+message NewInviteFriend {
+	required uint32 Uin = 1;
+	optional string NickName = 2;
+	optional string Email = 3;
+	optional string Remark = 4;
+	optional string UserName = 5;
+	required uint32 FriendType = 6;
+	required uint32 GroupId = 7;
+	optional string ImgIdx = 8;
+}
+
+message FriendGroup {
+	required uint32 GroupId = 1;
+	optional string GroupName = 2;
+}
+
+message NewGetInviteFriendResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 FriendCount = 2;
+	repeated NewInviteFriend FriendList = 3;
+	required uint32 GroupCount = 4;
+	repeated FriendGroup GroupList = 5;
+}
+
+message VerifyUser {
+	optional string Value = 1;
+	optional string VerifyUserTicket = 2;
+	optional string AntispamTicket = 3;
+	optional uint32 FriendFlag = 4;
+	optional string ChatRoomUserName = 5;
+	optional string SourceUserName = 6;
+	optional string SourceNickName = 7;
+}
+
+message VerifyUserInfo {
+	optional string Key = 1;
+	optional string Value = 2;
+}
+
+message VerifyUserRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Opcode = 2;
+	required uint32 VerifyUserListSize = 3;
+	repeated VerifyUser VerifyUserList = 4;
+	optional string VerifyContent = 5;
+	optional uint32 SceneListCount = 6;
+	repeated uint32 SceneList = 7[packed=true];
+	optional uint32 VerifyInfoListCount = 8;
+	repeated VerifyUserInfo VerifyInfoList = 9;
+}
+
+message VerifyUserResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string UserName = 2;
+}
+
+message QContact {
+	optional string UserName = 1;
+	optional string DisplayName = 2;
+	required uint32 ExtInfoSeq = 3;
+	required uint32 ImgUpdateSeq = 4;
+}
+
+message TContact {
+	optional string UserName = 1;
+	optional string DisplayName = 2;
+	required uint32 ExtInfoSeq = 3;
+	required uint32 ImgUpdateSeq = 4;
+}
+
+message ContactProfile {
+	optional string UserName = 1;
+	optional string NickName = 2;
+	optional string PYInitial = 3;
+	optional string QuanPin = 4;
+	required int32 Sex = 5;
+	required SKBuiltinBuffer_t ImgBuf = 6;
+	required uint32 BitMask = 7;
+	required uint32 BitVal = 8;
+	optional string Remark = 9;
+	required uint32 ImgRet = 10;
+	optional string RemarkPYInitial = 11;
+	optional string RemarkQuanPin = 12;
+	required uint32 ContactType = 13;
+	required uint32 RoomInfoCount = 14;
+	repeated RoomInfo RoomInfoList = 15;
+	optional string DomainList = 16;
+	required uint32 ChatRoomNotify = 17;
+	required uint32 AddContactScene = 18;
+	optional string ExtInfo = 19;
+	required uint32 ExtUpdateSeq = 20;
+	required uint32 ImgUpdateSeq = 21;
+	optional string Alias = 22;
+}
+
+message BatchGetContactProfileRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Mode = 2;
+	required uint32 Count = 3;
+	repeated SKBuiltinString_t UserNameList = 4;
+}
+
+message BatchGetContactProfileResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated SKBuiltinBuffer_t ContactProfileBufList = 3;
+}
+
+message GetPSMImgRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string URL = 2;
+	required uint32 Offset = 3;
+}
+
+message GetPSMImgResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t Data = 2;
+	required uint32 TotalLength = 3;
+}
+
+message PSMStat {
+	required uint32 MType = 1;
+	optional string AType = 2;
+}
+
+message GetMFriendRequest {
+	required BaseRequest BaseRequest = 1;
+	optional uint32 OpType = 2;
+	optional string MD5 = 3;
+	optional int32 UpdateMobileListSize = 4;
+	repeated Mobile UpdateMobileList = 5;
+	optional int32 UpdateEmailListSize = 6;
+	repeated MEmail UpdateEmailList = 7;
+	optional uint32 Scene = 8;
+}
+
+message FBFriend {
+	required uint64 ID = 1;
+	optional string Name = 2;
+	required uint32 ImgKey = 3;
+}
+
+message MFriend {
+	optional string Username = 1;
+	optional string Nickname = 2;
+	optional string MobileMD5 = 3;
+	optional int32 Sex = 4;
+	optional string Province = 5;
+	optional string City = 6;
+	optional string Signature = 7;
+	optional uint32 PersonalCard = 8;
+	optional string Alias = 9;
+	optional FBFriend FBInfo = 10;
+	optional uint32 AlbumFlag = 11;
+	optional uint32 AlbumStyle = 12;
+	optional string AlbumBGImgID = 13;
+	optional SnsUserInfo SnsUserInfo = 14;
+	optional string Country = 15;
+	optional string MyBrandList = 16;
+	optional CustomizedInfo CustomizedInfo = 17;
+	optional string BigHeadImgUrl = 20;
+	optional string SmallHeadImgUrl = 21;
+	optional string AntispamTicket = 22;
+}
+
+message GetMFriendResponse {
+	required BaseResponse BaseResponse = 1;
+	required int32 Count = 2;
+	repeated MFriend FriendList = 3;
+	optional string MD5 = 4;
+}
+
+message GetQQGroupRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpType = 2;
+	required uint32 GroupID = 3;
+}
+
+message QQGroup {
+	required uint32 GroupID = 1;
+	optional string GroupName = 2;
+	optional string MD5 = 3;
+	required uint32 MemberNum = 4;
+	required uint32 WeixinNum = 5;
+}
+
+message QQGroupList {
+	required uint32 Count = 1;
+	repeated QQGroup QQGroups = 2;
+}
+
+message QQFriendInGroup {
+	required uint32 QQUin = 1;
+	optional string UserName = 2;
+	optional string NickName = 3;
+	optional string QQNickName = 4;
+	required uint32 WeixinStatus = 5;
+	optional string QQRemarkName = 6;
+	optional int32 Sex = 7;
+	optional string Province = 8;
+	optional string City = 9;
+	optional string Signature = 10;
+	optional uint32 PersonalCard = 11;
+	optional string Alias = 12;
+	optional uint32 AlbumFlag = 13;
+	optional uint32 AlbumStyle = 14;
+	optional string AlbumBGImgID = 15;
+	optional SnsUserInfo SnsUserInfo = 16;
+	optional string Country = 17;
+	optional string MyBrandList = 18;
+	optional CustomizedInfo CustomizedInfo = 19;
+	optional string BigHeadImgUrl = 20;
+	optional string SmallHeadImgUrl = 21;
+	optional string AntispamTicket = 22;
+}
+
+message QQFriendList {
+	required uint32 GroupID = 1;
+	required uint32 Count = 2;
+	repeated QQFriendInGroup QQFriends = 3;
+}
+
+message GetQQGroupResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 OpType = 2;
+	required QQGroupList QQGroup = 3;
+	required QQFriendList QQFriend = 4;
+}
+
+message GetFSUrlRequest {
+	required BaseRequest BaseRequest = 1;
+}
+
+message GetFSUrlResponse {
+	optional string FSURL = 1;
+}
+
+message ShareCardDestInfo {
+	optional string UserName = 1;
+}
+
+message ShareCardRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	optional string SrcFriendUserName = 3;
+	required uint32 DestFriendCount = 4;
+	repeated ShareCardDestInfo DestFriendList = 5;
+}
+
+message ShareCardRetInfo {
+	optional string UserName = 1;
+	required int32 RetCode = 2;
+}
+
+message ShareCardResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 RetInfoCount = 2;
+	repeated ShareCardRetInfo RetInfoList = 3;
+}
+
+message GroupCardRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	optional string GroupNickName = 3;
+	required uint32 MemberCount = 4;
+	repeated RoomInfo MemberList = 5;
+	optional string GroupUserName = 6;
+}
+
+message GroupCardResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string GroupUserName = 2;
+}
+
+message SendFeedbackRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string MachineType = 2;
+	optional string Content = 3;
+	optional uint32 ReportType = 4;
+}
+
+message SendFeedbackResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message UploadHDHeadImgRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 TotalLen = 2;
+	required uint32 StartPos = 3;
+	required uint32 HeadImgType = 4;
+	required SKBuiltinBuffer_t Data = 5;
+	optional string ImgHash = 6;
+	optional string UserName = 7;
+}
+
+message UploadHDHeadImgResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 TotalLen = 2;
+	required uint32 StartPos = 3;
+	optional string FinalImgMd5sum = 4;
+	optional string BigHeadImgUrl = 5;
+	optional string SmallHeadImgUrl = 6;
+}
+
+message GetHDHeadImgRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+	required uint32 ImgWidth = 3;
+	required uint32 ImgHeight = 4;
+	optional string ImgFormat = 5;
+	required uint32 TotalLen = 6;
+	required uint32 StartPos = 7;
+	required uint32 HeadImgType = 8;
+}
+
+message GetHDHeadImgResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string UserName = 2;
+	required uint32 TotalLen = 3;
+	required uint32 StartPos = 4;
+	required SKBuiltinBuffer_t Data = 5;
+}
+
+message Package {
+	required int32 Id = 1;
+	required int32 Version = 2;
+	optional string Name = 3;
+	optional uint32 Size = 4;
+	optional SKBuiltinBuffer_t Thumb = 5;
+	optional string PackName = 6;
+	optional SKBuiltinBuffer_t Ext = 7;
+	optional string Md5 = 8;
+}
+
+message GetPackageListRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated Package List = 3;
+	optional uint32 Type = 4;
+	optional uint32 Flag = 5;
+}
+
+message GetPackageListResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated Package List = 3;
+	required uint32 ContinueFlag = 4;
+	required uint32 SvrCount = 5;
+	optional uint32 Type = 6;
+}
+
+message DownLoadPackageRequest {
+	required BaseRequest BaseRequest = 1;
+	required Package Package = 2;
+	required uint32 Offset = 3;
+	required uint32 Len = 4;
+	optional uint32 Type = 5;
+}
+
+message DownLoadPackageResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t PackageBuf = 2;
+	optional uint32 Type = 3;
+	optional uint32 TotalSize = 4;
+}
+
+message ModBottleContact {
+	optional string UserName = 1;
+	required uint32 Type = 2;
+	required uint32 Sex = 3;
+	optional string City = 4;
+	optional string Province = 5;
+	optional string Signature = 6;
+	required uint32 ImgFlag = 7;
+	required uint32 HDImgFlag = 8;
+	optional string Country = 9;
+	optional string BigHeadImgUrl = 10;
+	optional string SmallHeadImgUrl = 11;
+}
+
+message DelBottleContact {
+	optional string UserName = 1;
+}
+
+message EchoRequest {
+	optional string EchoStr = 1;
+	optional string Pwd = 2;
+}
+
+message EchoResponse {
+	optional string EchoStr = 1;
+}
+
+message ExposeRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+	required uint32 Scene = 3;
+	required uint32 Type = 4;
+	optional string AlbumPhotoId = 5;
+	optional uint32 AlbumType = 6;
+	optional uint64 SnsId = 7;
+	optional string ExposeContent = 8;
+}
+
+message ExposeResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message ExposeItem {
+	required uint32 Count = 1;
+	repeated uint32 UinList = 2[packed=true];
+	repeated uint32 TimeList = 3[packed=true];
+	repeated uint32 CountList = 4[packed=true];
+}
+
+message VUserResponseItem {
+	required uint32 ID = 1;
+	optional string Desc = 2;
+	required SKBuiltinBuffer_t Icon = 3;
+	required SKBuiltinBuffer_t HDIcon = 4;
+}
+
+message GetVUserInfoRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Version = 2;
+}
+
+message GetVUserInfoResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Version = 2;
+	required uint32 VUserCount = 3;
+	repeated VUserResponseItem VUserList = 4;
+}
+
+message GmailOperRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpType = 2;
+	optional string GmailAcct = 3;
+	optional string GmailPwd = 4;
+}
+
+message GmailOperResponse {
+	required uint32 RetCode = 1;
+}
+
+message MailComposeSendRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string MailAccount = 2;
+	optional string OldMailID = 3;
+	optional string Subject = 4;
+	optional string RcptTo = 5;
+	optional string Cc = 6;
+	optional string Bcc = 7;
+	optional string From = 8;
+	optional string MailContent = 9;
+	required int32 ReplyType = 10;
+}
+
+message MailComposeSendResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GeneralSetRequest {
+	required BaseRequest BaseRequest = 1;
+	required int32 SetType = 2;
+	optional string SetValue = 3;
+}
+
+message GeneralSetResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GetRegStyleRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ClientSeqID = 2;
+	required SKBuiltinBuffer_t RandomEncryKey = 3;
+}
+
+message GetRegStyleResponse {
+	required BaseResponse BaseResponse = 1;
+	required ShowStyleKey RegStyle = 2;
+}
+
+message GetMailOAuthUrlRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string MailAccount = 2;
+}
+
+message GetMailOAuthUrlResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string OAuthUrl = 2;
+}
+
+message BizRegRequest {
+	required uint32 QQUin = 1;
+	optional string Pwd = 2;
+	optional string Pwd2 = 3;
+	optional string ImgSid = 4;
+	optional string ImgCode = 5;
+	optional string UserName = 6;
+	optional string NickName = 7;
+}
+
+message BizRegResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string ImgSid = 2;
+	required SKBuiltinBuffer_t ImgBuf = 3;
+}
+
+message BizAuthRequest {
+	required uint32 QQUin = 1;
+	optional string Pwd = 2;
+	optional string Pwd2 = 3;
+	optional string ImgSid = 4;
+	optional string ImgCode = 5;
+}
+
+message BizAuthResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string ImgSid = 2;
+	required SKBuiltinBuffer_t ImgBuf = 3;
+}
+
+message MassSendRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ToList = 2;
+	optional string ToListMD5 = 3;
+	optional string ClientID = 4;
+	required uint32 MsgType = 5;
+	required uint32 MediaTime = 6;
+	required SKBuiltinBuffer_t DataBuffer = 7;
+	required uint32 DataStartPos = 8;
+	required uint32 DataTotalLen = 9;
+	required uint32 ThumbTotalLen = 10;
+	required uint32 ThumbStartPos = 11;
+	required SKBuiltinBuffer_t ThumbData = 12;
+	required uint32 CameraType = 13;
+	required uint32 VideoSource = 14;
+	required uint32 ToListCount = 15;
+	required uint32 IsSendAgain = 16;
+	optional uint32 CompressType = 17;
+	optional uint32 VoiceFormat = 18;
+	optional string VideoUrl = 19;
+	optional string ThumbUrl = 20;
+	optional uint32 ThumbWidth = 21;
+	optional uint32 ThumbHeight = 22;
+	optional string ThumbAESKey = 23;
+	optional string VideoAESKey = 24;
+	optional string MD5 = 25;
+}
+
+message MassSendResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 DataStartPos = 2;
+	required uint32 ThumbStartPos = 3;
+	required uint32 MaxSupport = 4;
+}
+
+message BufferId {
+	required uint64 MasterBufId = 1;
+	required uint64 SlaveBufId = 2;
+}
+
+message UploadAppAttachRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string AppId = 2;
+	required uint32 SdkVersion = 3;
+	optional string ClientAppDataId = 4;
+	optional string UserName = 5;
+	required uint32 TotalLen = 6;
+	required uint32 StartPos = 7;
+	required uint32 DataLen = 8;
+	required SKBuiltinBuffer_t Data = 9;
+	optional uint32 Type = 10;
+	optional string MD5 = 11;
+}
+
+message UploadAppAttachResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string AppId = 2;
+	optional string MediaId = 3;
+	optional string ClientAppDataId = 4;
+	optional string UserName = 5;
+	required uint32 TotalLen = 6;
+	required uint32 StartPos = 7;
+	required uint32 DataLen = 8;
+	required uint32 CreateTime = 9;
+}
+
+message ImportFriendsRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	required uint32 Source = 3;
+}
+
+message ImportFriendsResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 ImportedCount = 2;
+}
+
+message BizBottleInfo {
+	optional string BottleID = 1;
+	required uint32 MsgType = 2;
+	optional string FromUserName = 3;
+}
+
+message UploadMediaRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t ClientMediaId = 2;
+	required SKBuiltinString_t DataMD5 = 3;
+	required uint32 TotalLen = 4;
+	required uint32 StartPos = 5;
+	required uint32 DataLen = 6;
+	required SKBuiltinBuffer_t Data = 7;
+	required uint32 MediaType = 8;
+	optional uint32 AudioFormat = 9;
+	optional uint32 AudioSamplingRate = 10;
+	optional uint32 AudioChannelNum = 11;
+	optional uint32 AudioBitRate = 12;
+}
+
+message UploadMediaResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string MediaId = 2;
+	required uint32 StartPos = 3;
+}
+
+message HandleImgMsgRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t ClientImgId = 2;
+	optional string MediaId = 3;
+	required SKBuiltinString_t FromUserName = 4;
+	required SKBuiltinString_t ToUserName = 5;
+	required uint32 ImgLen = 6;
+	required uint32 MsgType = 7;
+	optional string MsgSource = 8;
+	required uint32 CompressType = 9;
+}
+
+message HandleImgMsgResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 MsgId = 2;
+	required SKBuiltinString_t ClientImgId = 3;
+	required SKBuiltinString_t FromUserName = 4;
+	required SKBuiltinString_t ToUserName = 5;
+	required uint32 ImgLen = 6;
+	required uint32 CreateTime = 7;
+	optional uint64 NewMsgId = 8;
+}
+
+message StatReportItem {
+	required uint32 ActionID = 1;
+	required uint32 Time = 2;
+	required uint32 IP = 3;
+	required uint32 Port = 4;
+	required uint32 IPType = 5;
+	required uint32 NetType = 6;
+	required uint32 IfSuc = 7;
+	required uint32 FunID = 8;
+	required uint32 Cost = 9;
+	required uint32 AliveTime = 10;
+	required uint32 UploadSize = 11;
+	required uint32 DownloadSize = 12;
+	optional uint32 Count = 13;
+	optional uint32 IsWifiFirstConnect = 14;
+	optional uint64 BeginTimeMS = 15;
+	optional uint64 EndTimeMS = 16;
+	optional uint32 NotifySyncCount = 17;
+	optional uint32 PushSyncCount = 18;
+	optional uint32 SyncCount = 19;
+	optional uint32 IsDNS = 20;
+	optional uint32 IsSocket = 21;
+	optional int32 ErrCode = 22;
+	optional uint32 SignalStrength = 23;
+	optional uint32 ISPCode = 24;
+	optional string ISPName = 25;
+	optional uint32 RetryCount = 26;
+	optional string Host = 27;
+	optional uint32 IPCnt = 28;
+	optional uint64 reserved1 = 29;
+	optional uint64 reserved2 = 30;
+	optional uint64 reserved3 = 31;
+	optional uint32 ClientIP = 32;
+	optional uint32 NetworkCost = 33;
+	optional uint32 DnsCount = 34;
+	optional uint32 DnsCost = 35;
+	optional uint32 ConnCount = 36;
+	optional uint32 ConnCost = 37;
+	optional uint32 NewDnsCostTime = 38;
+	optional uint32 NewDnsErrType = 39;
+	optional uint32 NewDnsErrCode = 40;
+	optional uint32 NewDnsSvrIp = 41;
+	optional uint32 FirstPkgTime = 42;
+	optional uint32 EndFlag = 43;
+	optional uint32 TotalTime = 44;
+	optional uint32 Conncosttime = 45;
+	optional uint32 Endstep = 46;
+	optional uint32 Dnscosttime = 47;
+	optional uint32 Dnserrtype = 48;
+	optional int32 NewNetType = 49;
+	optional int32 SubNetType = 50;
+	optional string NetExtraInfo = 51;
+	optional string StatReportExtraInfo = 52;
+	optional int32 TotalConnCost = 53;
+	optional int32 IpIndex = 54;
+	optional int32 InnerIp = 55;
+}
+
+message StatReportInfo {
+	required int32 Count = 1;
+	repeated StatReportItem List = 2;
+}
+
+message StatReportExtInfo {
+	required uint32 BeginTime = 1;
+	required uint32 EndTime = 2;
+	required uint32 ClientReportTime = 3;
+	required uint32 TotalUploadSize = 4;
+	required uint32 TotalDownloadSize = 5;
+	required uint32 SyncCount = 6;
+	required uint32 SyncFailCount = 7;
+	required uint32 NotifyCount = 8;
+	required uint32 CGICount = 9;
+	required uint32 CGIFailCount = 10;
+	optional uint32 PushSyncCount = 11;
+}
+
+message StatReportRequest {
+	required BaseRequest BaseRequest = 1;
+	required StatReportInfo Info = 2;
+	required StatReportExtInfo ExtInfo = 3;
+}
+
+message StatReportResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 NextReportTime = 2;
+	required uint32 ReportFlag = 3;
+}
+
+message PropertySurveyItem {
+	optional string DeviceModel = 1;
+	optional string OsType = 2;
+	optional string Module = 3;
+	optional string SubModule = 4;
+	required uint32 AvgElapsedTime = 5;
+	required uint32 MaxElapsedTime = 6;
+	required uint32 MinElapsedTime = 7;
+	required uint32 UseModuleCount = 8;
+	optional string Expand = 9;
+	required uint32 BeginTime = 10;
+	required uint32 EndTime = 11;
+}
+
+message PropertySurveyInfo {
+	required uint32 Count = 1;
+	repeated PropertySurveyItem List = 2;
+}
+
+message PropertySurveyRequest {
+	required BaseRequest BaseRequest = 1;
+	required PropertySurveyInfo Info = 2;
+}
+
+message PropertySurveyResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 NextReportTime = 2;
+	required uint32 ReportFlag = 3;
+}
+
+message UnbindMobileByQQRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t UserName = 2;
+	optional string Pwd = 3;
+	optional string Pwd2 = 4;
+	required SKBuiltinString_t ImgSid = 5;
+	required SKBuiltinString_t ImgCode = 6;
+	required SKBuiltinString_t ImgEncryptKey = 7;
+	required SKBuiltinBuffer_t KSid = 8;
+}
+
+message UnbindMobileByQQResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string ImgSid = 2;
+	required SKBuiltinBuffer_t ImgBuf = 3;
+	required SKBuiltinString_t ImgEncryptKey = 4;
+	required SKBuiltinBuffer_t A2Key = 5;
+	required SKBuiltinBuffer_t KSid = 6;
+}
+
+message LogOutWebWxRequest {
+	required BaseRequest BaseRequest = 1;
+	optional uint32 OpCode = 2;
+}
+
+message LogOutWebWxResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message LogOutRequest {
+	required BaseRequest BaseRequest = 1;
+	optional uint32 Scene = 2;
+}
+
+message LogOutResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message ModBrandSetting {
+	required uint32 BrandFlag = 1;
+	optional string UserName = 2;
+}
+
+message SnsTag {
+	required uint64 TagId = 1;
+	optional string TagName = 2;
+	required uint32 Count = 3;
+	repeated SKBuiltinString_t List = 4;
+}
+
+message SnsTagOptionRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	required uint64 TagId = 3;
+	optional string TagName = 4;
+}
+
+message SnsTagOptionResponse {
+	required BaseResponse BaseResponse = 1;
+	required SnsTag SnsTag = 2;
+}
+
+message SnsTagMemberOptionRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	required uint64 TagId = 3;
+	optional string TagName = 4;
+	required uint32 Count = 5;
+	repeated SKBuiltinString_t List = 6;
+	optional uint32 Scene = 7;
+}
+
+message SnsTagMemberOptionResponse {
+	required BaseResponse BaseResponse = 1;
+	required SnsTag SnsTag = 2;
+}
+
+message SnsTagListRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	optional string TagListMd5 = 3;
+}
+
+message SnsTagListResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 OpCode = 2;
+	optional string TagListMd5 = 3;
+	required uint32 Count = 4;
+	repeated SnsTag List = 5;
+}
+
+message SnsTagMemMutilSetRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ModUserName = 2;
+	required uint32 Count = 3;
+	repeated SKBuiltinUint64_t TagIdList = 4;
+}
+
+message SnsTagMemMutilSetResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string ModUserName = 2;
+	required uint32 Count = 3;
+	repeated SKBuiltinUint64_t TagIdList = 4;
+}
+
+message GetProfileRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+}
+
+message GetProfileResponse {
+	required BaseResponse BaseResponse = 1;
+	required ModUserInfo UserInfo = 2;
+	required UserInfoExt UserInfoExt = 3;
+}
+
+message StatusNotifyUnreadChat {
+	optional string UserName = 1;
+	required uint32 LastReadTime = 2;
+}
+
+message StatusNotifyFunction {
+	optional string Name = 1;
+	optional string Arg = 2;
+}
+
+message StatusNotifyRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Code = 2;
+	optional string FromUserName = 3;
+	optional string ToUserName = 4;
+	optional string ClientMsgId = 5;
+	optional uint32 UnreadChatListCount = 6;
+	repeated StatusNotifyUnreadChat UnreadChatList = 7;
+	optional StatusNotifyFunction Function = 8;
+	optional uint32 UnreadFunctionCount = 9;
+	repeated StatusNotifyFunction UnreadFunctionList = 10;
+}
+
+message ChatContact {
+	optional string UserName = 1;
+}
+
+message StatusNotifyResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 MsgId = 2;
+	optional uint64 NewMsgId = 3;
+	optional uint32 ChatContactCount = 4;
+	repeated ChatContact ChatContactList = 5;
+}
+
+message StrategyItem {
+	required uint32 LogType = 1;
+	required uint32 Enalbe = 2;
+	required uint32 Cycle = 3;
+	optional string ExtInfo = 4;
+}
+
+message GetReportStrategyReq {
+	required BaseRequest BaseRequest = 1;
+	optional string DeviceModel = 2;
+	optional string DeviceBrand = 3;
+	optional string OsName = 4;
+	optional string OsVersion = 5;
+	optional string LanguageVer = 6;
+	optional int32 Logid = 7;
+}
+
+message GetReportStrategyResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Cnt = 2;
+	repeated StrategyItem List = 3;
+}
+
+message ClientPerfItem {
+	required uint32 EventID = 1;
+	required uint32 AvgElapseTime = 2;
+	required uint32 MaxElapseTime = 3;
+	required uint32 MinElapseTime = 4;
+	required uint32 Cnt = 5;
+	required uint32 StartTime = 6;
+	required uint32 EndTime = 7;
+}
+
+message ClientPerfReportReq {
+	required BaseRequest BaseRequest = 1;
+	optional string DeviceModel = 2;
+	optional string DeviceBrand = 3;
+	optional string OsName = 4;
+	optional string OsVersion = 5;
+	optional string LanguageVer = 6;
+	required uint32 EventIdCnt = 7;
+	repeated ClientPerfItem List = 8;
+}
+
+message ClientPerfReportResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message ShakeTranImgReportRequest {
+	required BaseRequest BaseRequest = 1;
+}
+
+message ShakeTranImgReportResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t Buffer = 2;
+}
+
+message ShakeTranImgGetRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinBuffer_t Buffer = 2;
+}
+
+message ShakeTranImgGetItem {
+	optional string WebUrl = 1;
+	optional string ThumbUrl = 2;
+	optional string ImgUrl = 3;
+}
+
+message ShakeTranImgGetResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string PageUrl = 2;
+	required uint32 Count = 3;
+	repeated ShakeTranImgGetItem ImgUrlList = 4;
+	optional SKBuiltinBuffer_t Buffer = 5;
+	optional string Title = 6;
+}
+
+message ShakeTranImgUnBindRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Scene = 2;
+	optional uint32 OpType = 3;
+}
+
+message ShakeTranImgUnBindResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message BatchGetShakeTranImgRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated SKBuiltinString_t WebUrlList = 3;
+}
+
+message BatchGetShakeTranImgResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated ShakeTranImgGetItem ImgUrlList = 3;
+}
+
+message KVReportItem {
+	required uint32 LogID = 1;
+	optional string Value = 2;
+	required uint32 StartTime = 3;
+	required uint32 EndTime = 4;
+	required uint32 Count = 5;
+}
+
+message KVReportReq {
+	required BaseRequest BaseRequest = 1;
+	optional string DeviceModel = 2;
+	optional string DeviceBrand = 3;
+	optional string OsName = 4;
+	optional string OsVersion = 5;
+	optional string LanguageVer = 6;
+	required uint32 KVCnt = 7;
+	repeated KVReportItem List = 8;
+	optional SKBuiltinBuffer_t RandomEncryKey = 9;
+}
+
+message KVReportResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message KVCommReportReq {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Bin = 2;
+	required SKBuiltinBuffer_t KVBuffer = 3;
+	optional SKBuiltinBuffer_t RandomEncryKey = 4;
+	optional SKBuiltinBuffer_t UUID = 5;
+}
+
+message KVCommReportResp {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t KVResponBuffer = 2;
+}
+
+message GameKVReportReq {
+	required BaseRequest BaseRequest = 1;
+	optional string DeviceModel = 2;
+	optional string DeviceBrand = 3;
+	optional string OsName = 4;
+	optional string OsVersion = 5;
+	optional string LanguageVer = 6;
+	required uint32 LogId = 7;
+	optional string LogExt = 8;
+}
+
+message GameKVReportResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message UserActionItem {
+	required uint32 EventID = 1;
+	required uint32 ClickCnt = 2;
+	optional string ActionPath = 3;
+	required uint32 StartTime = 4;
+	required uint32 EndTime = 5;
+}
+
+message UserActionReportReq {
+	required BaseRequest BaseRequest = 1;
+	optional string DeviceModel = 2;
+	optional string DeviceBrand = 3;
+	optional string OsName = 4;
+	optional string OsVersion = 5;
+	optional string LanguageVer = 6;
+	required uint32 ActionCnt = 7;
+	repeated UserActionItem List = 8;
+}
+
+message UserActionReportResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message VoiceRemindInfo {
+	required uint32 RemindId = 1;
+}
+
+message OpVoiceReminderReq {
+	required BaseRequest BaseRequest = 1;
+	required int32 OpCode = 2;
+	required uint32 RemindInfoNum = 3;
+	repeated VoiceRemindInfo RemindInfoList = 4;
+}
+
+message OpVoiceReminderResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GrantBigChatRoomReq {
+	required BaseRequest BaseRequest = 1;
+	optional string ToUserName = 2;
+}
+
+message GrantBigChatRoomResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Quota = 2;
+}
+
+message ClickCommandRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 ClickType = 2;
+	optional string ClickInfo = 3;
+	optional string BizUserName = 4;
+}
+
+message ClickCommandResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message ModSnsBlackList {
+	optional string ContactUsername = 1;
+	required uint32 ModType = 2;
+}
+
+message ModSnsNotInterestList {
+	optional string ContactUsername = 1;
+	required uint32 ModType = 2;
+}
+
+message DeleteSnsOldGroup {
+	required uint32 GroupCount = 1;
+	repeated uint64 GroupIds = 2[packed=true];
+}
+
+message SubmsgSyncRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Selector = 2;
+	required SKBuiltinBuffer_t KeyBuf = 3;
+}
+
+message SubmsgSyncResponse {
+	required BaseResponse BaseResponse = 1;
+	required CmdList CmdList = 2;
+	required uint32 ContinueFlag = 3;
+	required SKBuiltinBuffer_t KeyBuf = 4;
+}
+
+message NBSInfo {
+	required uint32 NBSId = 1;
+	optional string Summary = 2;
+	required uint32 CardFlag = 3;
+	required float Distance = 4;
+	optional string Category = 5;
+	required uint32 Rank = 6;
+	required uint32 Status = 7;
+}
+
+message NBSConfigInfo {
+	required uint32 ConfId = 1;
+	required uint32 Type = 2;
+	optional string Summary = 3;
+}
+
+message FindNBSRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 NBSType = 2;
+	required PositionInfo UserPos = 3;
+	required SKBuiltinBuffer_t PageBuff = 4;
+}
+
+message FindNBSResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 NBSCount = 2;
+	repeated NBSInfo NBSList = 3;
+	required uint32 NBSConfigCount = 4;
+	repeated NBSConfigInfo NBSConfigList = 5;
+	required SKBuiltinBuffer_t PageBuff = 6;
+}
+
+message SearchNBSRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string KeyWord = 2;
+	optional string Tags = 3;
+	optional string BizMarkets = 4;
+	required PositionInfo UserPos = 5;
+	required SKBuiltinBuffer_t PageBuff = 6;
+}
+
+message SearchNBSResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 NBSCount = 2;
+	repeated NBSInfo NBSList = 3;
+	required SKBuiltinBuffer_t PageBuff = 4;
+}
+
+message GetNBSDetailRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 NBSId = 2;
+}
+
+message GetNBSDetailResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string DetailInfo = 2;
+	optional string CardInfo = 3;
+}
+
+message ShowcaseInfo {
+	required uint32 ObjectId = 1;
+	optional string Summary = 2;
+}
+
+message GetShowcaseInfoRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 NBSId = 2;
+	required SKBuiltinBuffer_t PageBuff = 3;
+}
+
+message GetShowcaseInfoResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 ObjectCount = 2;
+	repeated ShowcaseInfo ObjectList = 3;
+	required SKBuiltinBuffer_t PageBuff = 4;
+}
+
+message GetObjectDetailRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 NBSId = 2;
+	required uint32 ObjectId = 3;
+}
+
+message GetObjectDetailResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string DetailInfo = 2;
+}
+
+message AppCommentRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Status = 2;
+}
+
+message AppCommentResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message WebWxLoginConfirmRequest {
+	required BaseRequest BaseRequest = 1;
+}
+
+message WebWxLoginConfirmResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message SyncCheckResponse {
+	optional string ErrMsg = 1;
+	optional string Signature = 2;
+}
+
+message ListMFriendMobileInfo {
+	optional string Value = 1;
+	optional string UserName = 2;
+	required uint32 Status = 3;
+	optional string BigHeadImgUrl = 4;
+	optional string SmallHeadImgUrl = 5;
+	optional string NickName = 6;
+	optional string AntispamTicket = 7;
+}
+
+message ListMFriendReq {
+	required BaseRequest BaseRequest = 1;
+	optional string Ticket = 2;
+	required uint32 MobileCount = 3;
+	repeated SKBuiltinString_t MobileList = 4;
+	required uint32 EMailCount = 5;
+	repeated SKBuiltinString_t EMailList = 6;
+}
+
+message ListMFriendResp {
+	required BaseResponse BaseResponse = 1;
+	optional string Ticket = 2;
+	required uint32 MobileCount = 3;
+	repeated ListMFriendMobileInfo MobileInfo = 4;
+	required uint32 EMailCount = 5;
+	repeated ListMFriendMobileInfo EMailInfo = 6;
+}
+
+message SendSmsToMFriendReq {
+	required BaseRequest BaseRequest = 1;
+	optional string Ticket = 2;
+	required uint32 MobileCount = 3;
+	repeated SKBuiltinString_t MobileList = 4;
+}
+
+message SendSmsToMFriendResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message SendPhoto2FBWallRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Message = 2;
+	optional string Picture = 3;
+	optional string Link = 5;
+	optional string Name = 4;
+	optional string Description = 6;
+	optional string Caption = 7;
+}
+
+message SendPhoto2FBWallResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message SearchOrRecommendItem {
+	required SKBuiltinString_t UserName = 1;
+	required SKBuiltinString_t NickName = 2;
+	required int32 Sex = 3;
+	optional string Province = 4;
+	optional string City = 5;
+	optional string Signature = 6;
+	optional uint32 PersonalCard = 7;
+	optional uint32 VerifyFlag = 8;
+	optional string VerifyInfo = 9;
+	optional string Weibo = 10;
+	optional string Alias = 11;
+	optional string WeiboNickname = 12;
+	optional uint32 WeiboFlag = 13;
+	optional string Country = 14;
+	optional CustomizedInfo CustomizedInfo = 15;
+	optional string BigHeadImgUrl = 16;
+	optional string SmallHeadImgUrl = 17;
+}
+
+message SearchOrRecommendBizRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t NickName = 2;
+	required uint32 OpCode = 3;
+	required uint32 EntryFlag = 4;
+	required SKBuiltinBuffer_t ReqBuf = 5;
+}
+
+message SearchOrRecommendBizResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 BizCount = 2;
+	repeated SearchOrRecommendItem BizList = 3;
+	required uint32 ShowFlag = 4;
+	required uint32 IsEnd = 5;
+	required SKBuiltinBuffer_t ResBuf = 6;
+}
+
+message GroupRecommendBizRequest {
+	required BaseRequest BaseRequest = 1;
+}
+
+message RecommendGroup {
+	required SKBuiltinString_t GroupName = 1;
+	required uint32 MemCount = 2;
+	repeated SearchOrRecommendItem Members = 3;
+}
+
+message RecommendGroups {
+	required uint32 GroupCount = 1;
+	repeated RecommendGroup Groups = 2;
+}
+
+message GroupRecommendBizResp {
+	required BaseResponse BaseResponse = 1;
+	required RecommendGroups GroupList = 2;
+}
+
+message GeneralShareBaseInfo {
+	required uint32 DestType = 1;
+}
+
+message GeneralShareContent {
+	required uint32 contentType = 1;
+	optional string Title = 2;
+	optional string Content = 3;
+	optional string Description = 4;
+	optional string ImageUrl = 5;
+	optional string LinkUrl = 6;
+	optional string DataUrl = 7;
+	optional string ExtInfo = 8;
+}
+
+message GeneralShareRequest {
+	required BaseRequest BaseRequest = 1;
+	required GeneralShareBaseInfo BaseInfo = 2;
+	required GeneralShareContent Content = 3;
+}
+
+message GeneralShareResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message HardDeviceAttr {
+	optional string BrandName = 1;
+	optional string AuthKey = 2;
+	optional string Mac = 3;
+	optional string ConnProto = 4;
+	optional uint32 ConnStrategy = 5;
+	optional uint32 CloseStrategy = 6;
+	optional int32 ManuMacPos = 7;
+	optional int32 SerMacPos = 8;
+	optional string HardDeviceAttrDesc = 9;
+	optional string Alias = 10;
+	optional string IconUrl = 11;
+	optional string JumpUrl = 12;
+	optional string DeviceTitle = 13;
+	optional string DeviceDesc = 14;
+	optional string Category = 15;
+	optional uint32 DeviceTypeMainDevice = 16;
+	optional uint32 isEnterMyDevice = 17;
+	optional int64 bleSimpleProtocol = 18;
+}
+
+message ModHardDevice {
+	required HardDevice HardDevice = 1;
+	required HardDeviceAttr HardDeviceAttr = 2;
+	required uint32 BindFlag = 3;
+}
+
+message HardDeviceMsg {
+	required uint64 SessionID = 1;
+	required uint32 CreateTime = 2;
+	required SKBuiltinBuffer_t Buffer = 3;
+	optional uint32 Type = 4;
+}
+
+message HardDeviceAuthRequest {
+	required BaseRequest BaseRequest = 1;
+	required HardDevice HardDevice = 2;
+	required uint32 AuthVer = 3;
+	required SKBuiltinBuffer_t AuthBuffer = 4;
+}
+
+message HardDeviceAuthResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t SessionKey = 2;
+	required SKBuiltinBuffer_t SessionBuffer = 3;
+	required SKBuiltinBuffer_t KeyBuffer = 4;
+	required uint32 CacheTimeout = 5;
+	required uint32 BlockTimeout = 6;
+	required uint32 CryptMethod = 7;
+}
+
+message BindHardDeviceRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string BindTicket = 4;
+}
+
+message BindHardDeviceResponse {
+	required BaseResponse BaseResponse = 1;
+	required HardDevice HardDevice = 2;
+	required HardDeviceAttr HardDeviceAttr = 3;
+	optional uint32 Flag = 4;
+}
+
+message SendHardDeviceMsgRequest {
+	required BaseRequest BaseRequest = 1;
+	required HardDevice HardDevice = 2;
+	required HardDeviceMsg HardDeviceMsg = 3;
+	required SKBuiltinBuffer_t SessionBuffer = 4;
+}
+
+message SendHardDeviceMsgResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message UnbindHardDeviceRequest {
+	required BaseRequest BaseRequest = 1;
+	required HardDevice HardDevice = 2;
+	optional uint32 Flag = 4;
+}
+
+message UnbindHardDeviceResponse {
+	required BaseResponse BaseResponse = 1;
+	optional uint32 Flag = 4;
+}
+
+message GetBoundHardDevicesRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Version = 2;
+}
+
+message GetBoundHardDevicesResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated ModHardDevice DeviceList = 5;
+	required uint32 Version = 6;
+	required uint32 ContinueFlag = 7;
+}
+
+message SearchHardDeviceRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string HardDeviceQRCode = 2;
+}
+
+message SearchHardDeviceResponse {
+	required BaseResponse BaseResponse = 1;
+	required ModContact Contact = 2;
+	required HardDevice HardDevice = 3;
+	required HardDeviceAttr HardDeviceAttr = 4;
+	optional string BindTicket = 5;
+}
+
+message VoiceTransRes {
+	required uint32 Sequence = 1;
+	required uint32 EndFlag = 2;
+	optional string Result = 3;
+}
+
+message UploadVoiceCtx {
+	required uint32 TotalLen = 1;
+	required uint32 StartPos = 2;
+	required uint32 DataLen = 3;
+}
+
+message QueryResCtx {
+	required uint32 Interval = 1;
+}
+
+message VoiceAttr {
+	required int32 FileType = 1;
+	required int32 EncodeType = 2;
+	required int32 SampleRate = 3;
+	required int32 BitsPerSample = 4;
+}
+
+message CheckVoiceTransRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string VoiceId = 2;
+	required uint32 TotalLen = 3;
+	optional uint32 MsgId = 4;
+	optional VoiceAttr VoiceAttr = 5;
+	optional uint64 NewMsgId = 6;
+}
+
+message CheckVoiceTransResponse {
+	required BaseResponse BaseResponse = 1;
+	required int32 Status = 2;
+	required VoiceTransRes TransRes = 3;
+	required UploadVoiceCtx UploadCtx = 4;
+	required QueryResCtx QueryCtx = 5;
+	required uint32 NotifyId = 6;
+}
+
+message UploadVoiceForTransRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string VoiceId = 2;
+	required VoiceAttr VoiceAttr = 3;
+	required UploadVoiceCtx UploadCtx = 4;
+	required SKBuiltinBuffer_t Data = 5;
+}
+
+message UploadVoiceForTransResponse {
+	required BaseResponse BaseResponse = 1;
+	required UploadVoiceCtx UploadCtx = 2;
+}
+
+message GetVoiceTransResRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string VoiceId = 2;
+}
+
+message GetVoiceTransResResponse {
+	required BaseResponse BaseResponse = 1;
+	required VoiceTransRes TransRes = 2;
+	required QueryResCtx QueryCtx = 3;
+}
+
+message WhatsNewsRequest {
+	required BaseRequest BaseRequest = 1;
+}
+
+message WhatsNewsResponse {
+	required BaseResponse BaseResponse = 1;
+	optional uint32 RegistTime = 2;
+	optional uint32 FstSNSTime = 3;
+	optional uint32 Count = 4;
+	repeated SKBuiltinString_t PicUrlList = 5;
+}
+
+message CommVerifyUserTicket {
+	required uint32 TicketType = 1;
+	required uint32 Source = 2;
+	required uint32 FromUin = 3;
+	required uint32 ToUin = 4;
+	required SKBuiltinString_t ExtInfo = 5;
+	required uint32 TimeStamp = 6;
+	optional uint32 FriendFlag = 7;
+}
+
+message TranslateOrgMsg {
+	required uint32 ClientMsgID = 1;
+	optional string TextMsg = 2;
+	optional string ChatRoomID = 3;
+	optional uint32 Scene = 4;
+}
+
+message TranslatedMsg {
+	required uint32 ClientMsgID = 1;
+	optional string TranslatedText = 2;
+	required int32 Ret = 3;
+	optional string BrandWording = 4;
+}
+
+message GetTransTextRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 MsgCount = 2;
+	repeated TranslateOrgMsg MsgList = 3;
+}
+
+message GetTransTextResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 MsgCount = 2;
+	repeated TranslatedMsg MsgList = 3;
+	optional string ToLang = 4;
+}
+
+message TVTopicCommentItem {
+	optional string UserName = 1;
+	optional string NickName = 2;
+	optional string BigHeadUrl = 3;
+	optional string SmallHeadUrl = 4;
+	required uint32 TimeStamp = 5;
+	optional string Content = 6;
+	required uint32 CommentId = 7;
+}
+
+message GetTVTopicCommentRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string TVTopic = 2;
+	required uint32 LastCommentId = 3;
+}
+
+message GetTVTopicCommentResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated TVTopicCommentItem List = 3;
+	required uint32 LastCommentId = 4;
+	required uint32 TotalCommentCount = 5;
+	required uint32 LeftCommentCount = 6;
+}
+
+message PostTVTopicCommentRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string TVTopic = 2;
+	optional string Content = 3;
+}
+
+message PostTVTopicCommentResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message IBeaconBoardcastRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string BizUsername = 2;
+	optional string Content = 3;
+}
+
+message IBeaconNotification {
+	required int32 Result = 1;
+	optional string Tips = 2;
+	optional string Message = 3;
+}
+
+message IBeaconBoardcastResponse {
+	required BaseResponse BaseResponse = 1;
+	optional IBeaconNotification Notification = 2;
+}
+
+message RealTimeKVReportReq {
+	required BaseRequest BaseRequest = 1;
+	optional string DeviceModel = 2;
+	optional string DeviceBrand = 3;
+	optional string OsName = 4;
+	optional string OsVersion = 5;
+	optional string LanguageVer = 6;
+	required uint32 LogID = 7;
+	optional string Value = 8;
+}
+
+message RealTimeKVReportResp {
+	required BaseResponse BaseResponse = 1;
+}
+

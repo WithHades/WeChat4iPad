@@ -1,0 +1,714 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message GetBrandListRequestBuffer {
+	required uint32 Count = 1;
+	required uint32 HiddenCount = 2;
+}
+
+message GetBrandListRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+	optional SKBuiltinBuffer_t RequestBuffer = 3;
+}
+
+message GetBrandListResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string BrandList = 2;
+	required SKBuiltinBuffer_t RequestBuffer = 3;
+}
+
+message APPItem {
+	optional string UserName = 1;
+}
+
+message SetAPPListRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated APPItem List = 3;
+}
+
+message SetAPPListResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Hash = 2;
+}
+
+message GetAPPListRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Hash = 2;
+}
+
+message GetAPPListResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated APPItem List = 3;
+	required uint32 Hash = 4;
+}
+
+message SearchQRCodeReq {
+	required BaseRequest BaseRequest = 1;
+	optional string QRCode = 2;
+}
+
+message SearchQRCodeResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Type = 2;
+	optional string URL = 3;
+}
+
+message SearchContactRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t UserName = 2;
+	optional uint32 OpCode = 3;
+	optional SKBuiltinBuffer_t ReqBuf = 4;
+	optional uint32 FromScene = 5;
+	optional uint32 SearchScene = 6;
+}
+
+message SearchContactItem {
+	required SKBuiltinString_t UserName = 1;
+	required SKBuiltinString_t NickName = 2;
+	required SKBuiltinString_t PYInitial = 3;
+	required SKBuiltinString_t QuanPin = 4;
+	required int32 Sex = 5;
+	required SKBuiltinBuffer_t ImgBuf = 6;
+	optional string Province = 7;
+	optional string City = 8;
+	optional string Signature = 9;
+	optional uint32 PersonalCard = 10;
+	optional uint32 VerifyFlag = 11;
+	optional string VerifyInfo = 12;
+	optional string Weibo = 13;
+	optional string Alias = 14;
+	optional string WeiboNickname = 15;
+	optional uint32 WeiboFlag = 16;
+	optional int32 AlbumStyle = 17;
+	optional int32 AlbumFlag = 18;
+	optional string AlbumBGImgID = 19;
+	optional SnsUserInfo SnsUserInfo = 20;
+	optional string Country = 21;
+	optional string MyBrandList = 22;
+	optional CustomizedInfo CustomizedInfo = 23;
+	optional string BigHeadImgUrl = 24;
+	optional string SmallHeadImgUrl = 25;
+	optional string AntispamTicket = 26;
+	optional uint32 MatchType = 27;
+}
+
+message SearchContactResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinString_t UserName = 2;
+	required SKBuiltinString_t NickName = 3;
+	required SKBuiltinString_t PYInitial = 4;
+	required SKBuiltinString_t QuanPin = 5;
+	required int32 Sex = 6;
+	required SKBuiltinBuffer_t ImgBuf = 7;
+	optional string Province = 8;
+	optional string City = 9;
+	optional string Signature = 10;
+	optional uint32 PersonalCard = 11;
+	optional uint32 VerifyFlag = 12;
+	optional string VerifyInfo = 13;
+	optional string Weibo = 14;
+	optional string Alias = 15;
+	optional string WeiboNickname = 16;
+	optional uint32 WeiboFlag = 17;
+	optional int32 AlbumStyle = 18;
+	optional int32 AlbumFlag = 19;
+	optional string AlbumBGImgID = 20;
+	optional SnsUserInfo SnsUserInfo = 21;
+	optional string Country = 22;
+	optional string MyBrandList = 23;
+	optional CustomizedInfo CustomizedInfo = 24;
+	optional uint32 ContactCount = 25;
+	repeated SearchContactItem ContactList = 26;
+	optional string BigHeadImgUrl = 27;
+	optional string SmallHeadImgUrl = 28;
+	optional SKBuiltinBuffer_t ResBuf = 29;
+	optional string AntispamTicket = 30;
+	optional string KFWorkerID = 31;
+	optional uint32 MatchType = 32;
+}
+
+message GroupCardReq {
+	optional string GroupCardName = 1;
+}
+
+message RadarMember {
+	optional string MemberName = 1;
+}
+
+message RadarCreateChatRoomParameter {
+	optional string Ticket = 1;
+	optional uint32 RadarMemberCount = 2;
+	repeated RadarMember RadarMemberList = 3;
+}
+
+message CreateChatRoomRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t Topic = 2;
+	required uint32 MemberCount = 3;
+	repeated MemberReq MemberList = 4;
+	optional uint32 Scene = 5;
+	optional SKBuiltinBuffer_t ExtBuffer = 6;
+}
+
+message CreateChatRoomResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinString_t Topic = 2;
+	required SKBuiltinString_t PYInitial = 3;
+	required SKBuiltinString_t QuanPin = 4;
+	required uint32 MemberCount = 5;
+	repeated MemberResp MemberList = 6;
+	required SKBuiltinString_t ChatRoomName = 7;
+	required SKBuiltinBuffer_t ImgBuf = 8;
+	optional string BigHeadImgUrl = 9;
+	optional string SmallHeadImgUrl = 10;
+}
+
+message AddChatRoomMemberRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 MemberCount = 2;
+	repeated MemberReq MemberList = 3;
+	required SKBuiltinString_t ChatRoomName = 4;
+}
+
+message AddChatRoomMemberResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 MemberCount = 2;
+	repeated MemberResp MemberList = 3;
+}
+
+message DelChatRoomMemberRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 MemberCount = 2;
+	repeated DelMemberReq MemberList = 3;
+	optional string ChatRoomName = 4;
+	optional uint32 Scene = 5;
+}
+
+message DelChatRoomMemberResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 MemberCount = 2;
+	repeated DelMemberResp MemberList = 3;
+}
+
+message CollectChatRoomReq {
+	required BaseRequest BaseRequest = 1;
+	required uint32 GroupCardCount = 2;
+	repeated GroupCardReq GroupCardList = 3;
+}
+
+message CollectChatRoomResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message BatchGetHeadImgRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated SKBuiltinString_t UserNameList = 3;
+}
+
+message ImgPair {
+	required SKBuiltinBuffer_t ImgBuf = 1;
+	required SKBuiltinString_t Username = 2;
+}
+
+message BatchGetHeadImgResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated ImgPair ImgPairList = 3;
+}
+
+message SearchFriendRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+}
+
+message FriendInfo {
+	optional string DisplayUserName = 1;
+	optional string DisplayNickName = 2;
+	optional string DisplayRemark = 3;
+	optional string WXUserName = 4;
+	optional string WXNickName = 5;
+	optional string WXRemark = 6;
+	required uint32 Type = 7;
+	required uint32 Status = 8;
+	optional string Source = 9;
+	optional uint32 MatchField = 10;
+	optional string Alias = 11;
+}
+
+message SearchFriendResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 FriendCount = 2;
+	repeated FriendInfo FriendList = 3;
+}
+
+message GetChatRoomUpgradeInfoReq {
+	required BaseRequest BaseRequest = 1;
+	optional string ChatRoomName = 2;
+	optional uint32 Scene = 3;
+}
+
+message GetChatRoomUpgradeInfoResp {
+	required BaseResponse BaseResponse = 1;
+	optional string ChatRoomUpgradeInfo = 2;
+}
+
+message KeyValStr {
+	required uint32 Key = 1;
+	optional string Val = 2;
+}
+
+message GetDonateInfoReq {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Type = 2;
+	required uint32 Scene = 3;
+	optional string ExtInfo = 4;
+}
+
+message GetDonateInfoResp {
+	required BaseResponse BaseResponse = 1;
+	optional string DonateInfo = 3;
+}
+
+message GetPayPurchasePackageReq {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Type = 2;
+	required uint32 Price = 3;
+	optional string PriceType = 4;
+	optional string ExtInfo = 5;
+}
+
+message GetPayPurchasePackageResp {
+	required BaseResponse BaseResponse = 1;
+	optional string Package = 2;
+	optional string ExtInfo = 3;
+}
+
+message VerifyPayTransitionReq {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Type = 2;
+	optional string OutTradeNo = 3;
+	optional string ExtInfo = 4;
+}
+
+message VerifyPayTransitionResp {
+	required BaseResponse BaseResponse = 1;
+	optional string ResultMsg = 2;
+}
+
+message GetChatRoomDonateHistoryReq {
+	required BaseRequest BaseRequest = 1;
+	optional string ChatRoomName = 2;
+}
+
+message Donor {
+	required uint32 Time = 1;
+	optional string UserName = 2;
+	optional string NickName = 3;
+	optional string DonateTitle = 4;
+	optional string DonateUrl = 5;
+}
+
+message GetChatRoomDonateHistoryResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 TotalCount = 2;
+	repeated Donor List = 3;
+}
+
+message GetChatRoomPresentHistoryReq {
+	required BaseRequest BaseRequest = 1;
+	optional string ChatRoomName = 2;
+}
+
+message Presentation {
+	required uint32 Time = 1;
+	optional string UserName = 2;
+	optional string NickName = 3;
+	optional string Title = 4;
+	required uint32 Price = 5;
+	optional string WebUrl = 6;
+	required uint32 Num = 7;
+}
+
+message GetChatRoomPresentHistoryResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 TotalCount = 2;
+	repeated Presentation List = 3;
+	optional string Url = 4;
+	required uint32 DonateStatus = 5;
+}
+
+message GetPersonalDonateHistoryReq {
+	required BaseRequest BaseRequest = 1;
+}
+
+message DonateHistory {
+	required uint32 Time = 1;
+	optional string DonateTitle = 2;
+	optional string DonateUrl = 3;
+	required uint32 Price = 4;
+	optional string DonateThumbUrl = 5;
+}
+
+message GetPersonalDonateHistoryResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 TotalAmount = 2;
+	required uint32 TotalCount = 3;
+	repeated DonateHistory List = 4;
+}
+
+message VerifyPersonalInfoReq {
+	required BaseRequest BaseRequest = 1;
+	optional string UserRealName = 2;
+	required uint32 UserIDCardType = 3;
+	optional string UserIDCardNum = 4;
+}
+
+message VerifyPersonalInfoResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message VerifyChatRoomReq {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	optional string ApplyUserName = 3;
+	optional string ChatRoomName = 4;
+	optional string Ticket = 5;
+}
+
+message VerifyChatRoomResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message QuitChatRoomReq {
+	required BaseRequest BaseRequest = 1;
+	optional string ChatRoomName = 2;
+}
+
+message QuitChatRoomResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GetChatRoomUpgradeStatusReq {
+	required BaseRequest BaseRequest = 1;
+	optional string ChatRoomName = 2;
+}
+
+message GetChatRoomUpgradeStatusResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Status = 2;
+	required uint32 MobileQuota = 3;
+	required uint32 CardQuota = 4;
+	required uint32 DonateQuota = 5;
+	required uint32 MaxCount = 6;
+	optional string ResultMsg = 7;
+	optional uint32 TotalQuota = 8;
+}
+
+message UpgradeChatRoomReq {
+	required BaseRequest BaseRequest = 1;
+	optional string ChatRoomName = 2;
+}
+
+message UpgradeChatRoomResp {
+	required BaseResponse BaseResponse = 1;
+	optional string ChatRoomData = 2;
+	optional string ResultMsg = 3;
+	optional uint32 MaxCount = 4;
+	required uint32 MobileQuota = 5;
+	required uint32 CardQuota = 6;
+	required uint32 DonateQuota = 7;
+	optional uint32 TotalQuota = 8;
+}
+
+message AddChatRoomDonateRecordReq {
+	required BaseRequest BaseRequest = 1;
+	optional string ChatRoomName = 2;
+	optional string TransID = 3;
+	optional string Title = 4;
+	optional string WebUrl = 5;
+}
+
+message AddChatRoomDonateRecordResp {
+	required BaseResponse BaseResponse = 1;
+	required uint32 MaxCount = 2;
+}
+
+message GoogleContactUploadItem {
+	optional string GoogleContactName = 1;
+}
+
+message ListGoogleContactRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated GoogleContactUploadItem List = 3;
+	required uint32 ContinueFlag = 4;
+	required uint32 ClickSource = 5;
+}
+
+message GoogleContactItem {
+	optional string GoogleContactName = 1;
+	optional string UserName = 2;
+	optional string BigHeadUrl = 3;
+	optional string SmallHeadUrl = 4;
+	required int32 Ret = 5;
+	optional string NickName = 6;
+	optional string AntispamTicket = 7;
+}
+
+message ListGoogleContactResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated GoogleContactItem List = 3;
+}
+
+message InviteGoogleContactItem {
+	optional string GoogleContactName = 1;
+}
+
+message InviteGoogleContactRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated InviteGoogleContactItem List = 3;
+}
+
+message InviteGoogleContactResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated int32 Rets = 3[packed=true];
+}
+
+message BBMContactUploadItem {
+	optional string BBPPID = 1;
+	optional string BBPIN = 2;
+	optional string BBMNickName = 3;
+}
+
+message ListBBMContactRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Count = 2;
+	repeated BBMContactUploadItem List = 3;
+	required uint32 ContinueFlag = 4;
+	required uint32 ClickSource = 5;
+	required uint32 Opcode = 6;
+}
+
+message BBMContactItem {
+	optional string BBPPID = 1;
+	optional string UserName = 2;
+	optional string BigHeadUrl = 3;
+	optional string SmallHeadUrl = 4;
+	optional string BBPIN = 5;
+	optional string BBMNickName = 6;
+	required int32 Ret = 7;
+	optional string NickName = 8;
+	optional string AntispamTicket = 9;
+}
+
+message ListBBMContactResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated BBMContactItem List = 3;
+}
+
+message OnlineInfo {
+	required uint32 DeviceType = 1;
+	optional bytes DeviceID = 2;
+	optional string WordingXML = 3;
+	required SKBuiltinBuffer_t ClientKey = 4;
+	required uint32 OnlineStatus = 5;
+	required uint32 DeviceHelperType = 6;
+}
+
+message GetOnlineInfoRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Language = 2;
+}
+
+message GetOnlineInfoResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 OnlineCount = 2;
+	repeated OnlineInfo OnlineList = 3;
+	optional string SummaryXML = 4;
+	optional uint32 Flag = 5;
+	optional uint32 IConType = 6;
+}
+
+message GetChatroomMemberDetailRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ChatroomUserName = 2;
+	required uint32 ClientVersion = 3;
+}
+
+message GetChatroomMemberDetailResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string ChatroomUserName = 2;
+	required uint32 ServerVersion = 3;
+	required ChatRoomMemberData NewChatroomData = 4;
+}
+
+message GetContactRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 UserCount = 2;
+	repeated SKBuiltinString_t UserNameList = 3;
+	optional uint32 AntispamTicketCount = 4;
+	repeated SKBuiltinString_t AntispamTicket = 5;
+	optional uint32 FromChatRoomCount = 6;
+	repeated SKBuiltinString_t FromChatRoom = 7;
+}
+
+message GetContactResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 ContactCount = 2;
+	repeated ModContact ContactList = 3;
+	repeated int32 Ret = 4[packed=true];
+}
+
+message UploadCardImgRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ClientId = 2;
+	required uint32 TotalLen = 3;
+	required uint32 StartPos = 4;
+	required uint32 DataLen = 5;
+	required SKBuiltinBuffer_t Data = 6;
+	optional string ContactUserName = 7;
+}
+
+message UploadCardImgResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 StartPos = 2;
+	required uint32 TotalLen = 3;
+	optional string ClientId = 4;
+	optional string CardImgUrl = 5;
+}
+
+message DeleteCardImgRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ContactUserName = 2;
+}
+
+message DeleteCardImgResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message InviteChatRoomMemberRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 MemberCount = 2;
+	repeated MemberReq MemberList = 3;
+	required SKBuiltinString_t ChatRoomName = 4;
+}
+
+message InviteChatRoomMemberResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message LabelPair {
+	optional string LabelName = 1;
+	required uint32 LabelID = 2;
+}
+
+message AddContactLabelRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 LabelCount = 2;
+	repeated LabelPair LabelPairList = 3;
+}
+
+message AddContactLabelResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 LabelCount = 2;
+	repeated LabelPair LabelPairList = 3;
+}
+
+message DelContactLabelRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string LabelIDList = 2;
+}
+
+message DelContactLabelResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message UpdateContactLabelRequest {
+	required BaseRequest BaseRequest = 1;
+	required LabelPair LabelPair = 2;
+}
+
+message UpdateContactLabelResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GetContactLabelListRequest {
+	required BaseRequest BaseRequest = 1;
+}
+
+message GetContactLabelListResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 LabelCount = 2;
+	repeated LabelPair LabelPairList = 3;
+}
+
+message UserLabelInfo {
+	optional string UserName = 1;
+	optional string LabelIDList = 2;
+}
+
+message ModifyContactLabelListRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 UserCount = 2;
+	repeated UserLabelInfo UserLabelInfoList = 3;
+}
+
+message ModifyContactLabelListResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message TransferChatRoomOwnerRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ChatRoomName = 2;
+	optional string NewOwnerUserName = 3;
+}
+
+message TransferChatRoomOwnerResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GetChatRoomAnnouncementRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ChatRoomName = 2;
+}
+
+message GetChatRoomAnnouncementResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string Announcement = 2;
+}
+
+message SetChatRoomAnnouncementRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ChatRoomName = 2;
+	optional string Announcement = 3;
+	optional uint32 SetAnnouncementFlag = 4;
+}
+
+message SetChatRoomAnnouncementResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GetChatRoomInfoDetailRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string ChatRoomName = 2;
+}
+
+message GetChatRoomInfoDetailResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string Announcement = 2;
+	optional uint32 ChatRoomInfoVersion = 3;
+	optional string AnnouncementEditor = 4;
+	optional uint32 AnnouncementPublishTime = 5;
+}
+

@@ -1,0 +1,391 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+message BuiltinIP {
+	required uint32 type = 1;
+	required uint32 port = 2;
+	optional bytes IP = 3;
+	optional bytes Domain = 4;
+}
+
+message BuiltinIPList {
+	required uint32 LongConnectIPCount = 1;
+	required uint32 ShortConnectIPCount = 2;
+	required uint32 Seq = 5;
+	repeated BuiltinIP LongConnectIPList = 3;
+	repeated BuiltinIP ShortConnectIPList = 4;
+}
+
+message NetworkControl {
+	optional string PortList = 1;
+	optional string TimeoutList = 2;
+	optional uint32 MinNoopInterval = 3;
+	optional uint32 MaxNoopInterval = 4;
+	optional int32 TypingInterval = 5;
+	optional int32 NoopIntervalTime = 7;
+}
+
+message PluginKey {
+	optional string Key = 1;
+	optional uint32 Id = 2;
+}
+
+message PluginKeyList {
+	required uint32 Count = 1;
+	repeated PluginKey List = 2;
+}
+
+message Host {
+	optional string Origin = 1;
+	optional string Substitute = 2;
+	optional int32 Priority = 3;
+}
+
+message HostList {
+	required uint32 Count = 1;
+	repeated Host List = 2;
+}
+
+message PositionInfo {
+	required float Longitude = 1;
+	required float Latitude = 2;
+	required int32 Precision = 3;
+	optional string MacAddr = 4;
+	optional string CellId = 5;
+	required int32 GPSSource = 6;
+}
+
+message SnsUserInfo {
+	required uint32 SnsFlag = 1;
+	optional string SnsBGImgID = 2;
+	optional uint64 SnsBGObjectID = 3;
+	optional uint32 SnsFlagEx = 4;
+}
+
+message CustomizedInfo {
+	required uint32 BrandFlag = 1;
+	optional string ExternalInfo = 2;
+	optional string BrandInfo = 3;
+	optional string BrandIconURL = 4;
+}
+
+message CmdItem {
+	required int32 CmdId = 1;
+	required SKBuiltinBuffer_t CmdBuf = 2;
+}
+
+message CmdList {
+	required uint32 Count = 1;
+	repeated CmdItem List = 2;
+}
+
+message ShakeSyncRequest {
+	required BaseRequest BaseRequest = 1;
+	required float Longitude = 2;
+	required float Latitude = 3;
+	required int32 Precision = 4;
+	optional string MacAddr = 5;
+	optional string CellId = 6;
+	required uint32 ImgId = 7;
+	required uint32 Times = 8;
+}
+
+message ShakeSyncResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t Buffer = 2;
+	required uint32 Ret = 3;
+	required uint32 ImgId = 4;
+	required uint32 ImgTotoalLen = 5;
+}
+
+message BindEmailRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	optional string Email = 3;
+}
+
+message BindEmailResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GetLocationRequest {
+	required BaseRequest BaseRequest = 1;
+	required int32 Longitude = 3;
+	required int32 Latitude = 4;
+	required int32 Precision = 5;
+	optional string MacAddr = 6;
+	optional string CellId = 7;
+	optional int32 GPSSource = 8;
+}
+
+message GetLocationResponse {
+	required BaseResponse BaseResponse = 1;
+	required int32 Longitude = 2;
+	required int32 Latitude = 3;
+}
+
+message RoomInfo {
+	required SKBuiltinString_t UserName = 1;
+	required SKBuiltinString_t NickName = 2;
+}
+
+message CDNDnsInfo {
+	required uint32 Ver = 1;
+	required uint32 Uin = 2;
+	required uint32 ExpireTime = 3;
+	required int32 FrontID = 4;
+	required int32 FrontIPCount = 5;
+	repeated SKBuiltinString_t FrontIPList = 6;
+	optional string ZoneDomain = 7;
+	required SKBuiltinBuffer_t AuthKey = 8;
+	required int32 ZoneID = 9;
+	required int32 ZoneIPCount = 10;
+	repeated SKBuiltinString_t ZoneIPList = 11;
+}
+
+message StyleKeyVal {
+	required uint32 Key = 1;
+	optional string Val = 2;
+}
+
+message ShowStyleKey {
+	required uint32 KeyCount = 1;
+	repeated StyleKeyVal Key = 2;
+}
+
+message SafeDevice {
+	optional string Name = 1;
+	optional string Uuid = 2;
+	optional string DeviceType = 3;
+	required uint32 CreateTime = 4;
+}
+
+message SafeDeviceList {
+	required uint32 Count = 1;
+	repeated SafeDevice List = 2;
+}
+
+message MemberReq {
+	required SKBuiltinString_t MemberName = 1;
+}
+
+message MemberResp {
+	required SKBuiltinString_t MemberName = 1;
+	required uint32 MemberStatus = 2;
+	required SKBuiltinString_t NickName = 3;
+	required SKBuiltinString_t PYInitial = 4;
+	required SKBuiltinString_t QuanPin = 5;
+	required int32 Sex = 6;
+	required SKBuiltinString_t Remark = 9;
+	required SKBuiltinString_t RemarkPYInitial = 10;
+	required SKBuiltinString_t RemarkQuanPin = 11;
+	required uint32 ContactType = 12;
+	optional string Province = 13;
+	optional string City = 14;
+	optional string Signature = 15;
+	optional uint32 PersonalCard = 16;
+	optional uint32 VerifyFlag = 17;
+	optional string VerifyInfo = 18;
+	optional string Country = 19;
+}
+
+message DelMemberReq {
+	required SKBuiltinString_t MemberName = 1;
+}
+
+message DelMemberResp {
+	required SKBuiltinString_t MemberName = 1;
+}
+
+message DisturbTimeSpan {
+	required uint32 BeginTime = 1;
+	required uint32 EndTime = 2;
+}
+
+message DisturbSetting {
+	required uint32 NightSetting = 1;
+	required DisturbTimeSpan NightTime = 2;
+	required uint32 AllDaySetting = 3;
+	required DisturbTimeSpan AllDayTime = 4;
+}
+
+message GmailInfo {
+	optional string GmailAcct = 1;
+	required uint32 GmailSwitch = 2;
+	required uint32 GmailErrCode = 3;
+}
+
+message GmailList {
+	required uint32 Count = 1;
+	repeated GmailInfo List = 2;
+}
+
+message LinkedinContactItem {
+	optional string LinkedinName = 1;
+	optional string LinkedinMemberID = 2;
+	optional string LinkedinPublicUrl = 3;
+}
+
+message AdditionalContactList {
+	optional LinkedinContactItem LinkedinContactItem = 1;
+}
+
+message ChatRoomMemberInfo {
+	optional string UserName = 1;
+	optional string NickName = 2;
+	optional string DisplayName = 3;
+	optional string BigHeadImgUrl = 4;
+	optional string SmallHeadImgUrl = 5;
+	required uint32 ChatroomMemberFlag = 6;
+}
+
+message ChatRoomMemberData {
+	required uint32 MemberCount = 1;
+	repeated ChatRoomMemberInfo ChatRoomMember = 2;
+	optional uint32 InfoMask = 3;
+}
+
+message PatternLockInfo {
+    optional uint32 PatternVersion = 1;
+    optional SKBuiltinBuffer_t Sign = 2;
+    optional uint32 LockStatus = 3;
+}
+
+message ModUserInfo {
+	required uint32 BitFlag = 1;
+	required SKBuiltinString_t UserName = 2;
+	required SKBuiltinString_t NickName = 3;
+	required uint32 BindUin = 4;
+	required SKBuiltinString_t BindEmail = 5;
+	required SKBuiltinString_t BindMobile = 6;
+	required uint32 Status = 7;
+	required uint32 ImgLen = 8;
+	optional bytes ImgBuf = 9;
+	optional int32 Sex = 10;
+	optional string Province = 11;
+	optional string City = 12;
+	optional string Signature = 13;
+	optional uint32 PersonalCard = 14;
+	optional DisturbSetting DisturbSetting = 15;
+	optional uint32 PluginFlag = 16;
+	optional uint32 VerifyFlag = 17;
+	optional string VerifyInfo = 18;
+	optional int32 Point = 19;
+	optional int32 Experience = 20;
+	optional int32 Level = 21;
+	optional int32 LevelLowExp = 22;
+	optional int32 LevelHighExp = 23;
+	optional string Weibo = 24;
+	optional uint32 PluginSwitch = 25;
+	optional GmailList GmailList = 26;
+	optional string Alias = 27;
+	optional string WeiboNickname = 28;
+	optional uint32 WeiboFlag = 29;
+	optional uint32 FaceBookFlag = 30;
+	optional uint64 FBUserID = 31;
+	optional string FBUserName = 32;
+	optional int32 AlbumStyle = 33;
+	optional int32 AlbumFlag = 34;
+	optional string AlbumBGImgID = 35;
+	optional uint32 TXNewsCategory = 36;
+	optional string FBToken = 37;
+	optional string Country = 38;
+}
+
+message UserInfoExt {
+	required SnsUserInfo SnsUserInfo = 1;
+	optional string MyBrandList = 2;
+	optional string MsgPushSound = 3;
+	optional string VoipPushSound = 4;
+	optional uint32 BigChatRoomSize = 5;
+	optional uint32 BigChatRoomQuota = 6;
+	optional uint32 BigChatRoomInvite = 7;
+	optional string SafeMobile = 8;
+	optional string BigHeadImgUrl = 9;
+	optional string SmallHeadImgUrl = 10;
+	optional uint32 MainAcctType = 11;
+	optional SKBuiltinString_t ExtXml = 12;
+	optional SafeDeviceList SafeDeviceList = 13;
+	optional uint32 SafeDevice = 14;
+	optional uint32 GrayscaleFlag = 15;
+	optional string GoogleContactName = 16;
+	optional string IDCardNum = 17;
+	optional string RealName = 18;
+	optional string RegCountry = 19;
+	optional string BBPPID = 20;
+	optional string BBPIN = 21;
+	optional string BBMNickName = 22;
+	optional LinkedinContactItem LinkedinContactItem = 23;
+	optional string KFInfo = 24;
+	optional PatternLockInfo PatternLockInfo = 25;
+	optional string SecurityDeviceId = 26;
+	optional uint32 PayWalletType = 27;
+}
+
+message ModContact {
+	required SKBuiltinString_t UserName = 1;
+	required SKBuiltinString_t NickName = 2;
+	required SKBuiltinString_t PYInitial = 3;
+	required SKBuiltinString_t QuanPin = 4;
+	required int32 Sex = 5;
+	required SKBuiltinBuffer_t ImgBuf = 6;
+	required uint32 BitMask = 7;
+	required uint32 BitVal = 8;
+	required uint32 ImgFlag = 9;
+	optional SKBuiltinString_t Remark = 10;
+	optional SKBuiltinString_t RemarkPYInitial = 11;
+	optional SKBuiltinString_t RemarkQuanPin = 12;
+	optional uint32 ContactType = 13;
+	optional uint32 RoomInfoCount = 14;
+	repeated RoomInfo RoomInfoList = 15;
+	optional SKBuiltinString_t DomainList = 16;
+	optional uint32 ChatRoomNotify = 17;
+	optional uint32 AddContactScene = 18;
+	optional string Province = 19;
+	optional string City = 20;
+	optional string Signature = 21;
+	optional uint32 PersonalCard = 22;
+	optional uint32 HasWeiXinHdHeadImg = 23;
+	optional uint32 VerifyFlag = 24;
+	optional string VerifyInfo = 25;
+	optional int32 Level = 26;
+	optional uint32 Source = 27;
+	optional string Weibo = 28;
+	optional string VerifyContent = 29;
+	optional string Alias = 30;
+	optional string ChatRoomOwner = 31;
+	optional string WeiboNickname = 32;
+	optional uint32 WeiboFlag = 33;
+	optional int32 AlbumStyle = 34;
+	optional int32 AlbumFlag = 35;
+	optional string AlbumBGImgID = 36;
+	optional SnsUserInfo SnsUserInfo = 37;
+	optional string Country = 38;
+	optional string BigHeadImgUrl = 39;
+	optional string SmallHeadImgUrl = 40;
+	optional string MyBrandList = 41;
+	optional CustomizedInfo CustomizedInfo = 42;
+	optional string ChatRoomData = 43;
+	optional string HeadImgMd5 = 44;
+	optional string EncryptUserName = 45;
+	optional string IDCardNum = 46;
+	optional string RealName = 47;
+	optional string MobileHash = 48;
+	optional string MobileFullHash = 49;
+	optional AdditionalContactList AdditionalContactList = 50;
+	optional uint32 ChatroomVersion = 53;
+	optional string ExtInfo = 54;
+	optional uint32 ChatroomMaxCount = 55;
+	optional uint32 ChatroomType = 56;
+	optional ChatRoomMemberData NewChatroomData = 57;
+	optional int32 DeleteFlag = 58;
+	optional string Description = 59;
+	optional string CardImgUrl = 60;
+	optional string LabelIDList = 61;
+}
+
+message HardDevice {
+    optional string DeviceType = 1;
+    optional string DeviceID = 2;
+}

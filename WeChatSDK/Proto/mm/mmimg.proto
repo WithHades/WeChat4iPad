@@ -1,0 +1,39 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message GetUpdateInfoRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 UpdateType = 2;
+	optional uint32 Channel = 3;
+}
+
+message GetUpdateInfoResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 PackVersion = 2;
+	optional string PackMd5 = 3;
+	required uint32 PackSize = 4;
+	optional string PackDescription = 5;
+	optional uint32 UrlCount = 6;
+	repeated SKBuiltinString_t DownLoadUrl = 7;
+	optional string PatchInfo = 8;
+}
+
+message GetUpdatePackRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 UpdateType = 2;
+	required uint32 TotalLen = 3;
+	required uint32 StartPos = 4;
+	optional uint32 Channel = 5;
+}
+
+message GetUpdatePackResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 TotalLen = 2;
+	required uint32 StartPos = 3;
+	required uint32 DataLen = 4;
+	required SKBuiltinBuffer_t Data = 5;
+}
+

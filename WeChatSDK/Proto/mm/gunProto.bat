@@ -1,0 +1,1 @@
+for /r .\mmProto %%i in (*.proto) do @protoc.exe --cpp_out=./ *.proto

@@ -1,0 +1,400 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+
+message TwitterInfo {
+	optional string Oauth_Token = 1;
+	optional string Oauth_Token_Secret = 2;
+}
+
+message SnsBufferUrl {
+	optional string Url = 1;
+	required uint32 Type = 2;
+}
+
+message SnsUploadRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Type = 2;
+	required uint32 StartPos = 3;
+	required uint32 TotalLen = 4;
+	required SKBuiltinBuffer_t Buffer = 5;
+	optional string ClientId = 6;
+	optional uint32 FilterStype = 7;
+	optional uint32 SyncFlag = 8;
+	optional string Description = 9;
+	optional int32 PhotoFrom = 10;
+	optional int32 NetType = 11;
+	optional TwitterInfo TwitterInfo = 12;
+	optional string AppId = 13;
+	optional uint32 ExtFlag = 14;
+	optional string MD5 = 15;
+}
+
+message SnsUploadResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 StartPos = 2;
+	required uint32 TotalLen = 3;
+	optional string ClientId = 4;
+	required SnsBufferUrl BufferUrl = 5;
+	required uint32 ThumbUrlCount = 6;
+	repeated SnsBufferUrl ThumbUrls = 7;
+	required uint64 Id = 8;
+	required uint32 Type = 9;
+}
+
+message SnsDownloadRequest {
+	required BaseRequest BaseRequest = 1;
+	required int32 StartPos = 2;
+	optional int32 TotalLen = 3;
+	optional string BufferId = 4;
+	required uint32 Type = 5;
+	required uint32 DownBufLen = 6;
+}
+
+message SnsDownloadResponse {
+	required BaseResponse BaseResponse = 1;
+	required int32 StartPos = 2;
+	required int32 TotalLen = 3;
+	required SKBuiltinBuffer_t Buffer = 4;
+	optional string BufferId = 5;
+	required uint32 Type = 6;
+}
+
+message SnsCommentInfo {
+	optional string Username = 1;
+	optional string Nickname = 2;
+	required uint32 Source = 3;
+	required uint32 Type = 4;
+	optional string Content = 5;
+	required uint32 CreateTime = 6;
+	optional int32 CommentId = 7;
+	optional int32 ReplyCommentId = 8;
+	optional string ReplyUsername = 9;
+	optional uint32 IsNotRichText = 10;
+	optional uint64 ReplyCommentId2 = 11;
+	optional uint64 CommentId2 = 12;
+	optional uint32 DeleteFlag = 13;
+}
+
+message SnsGroup {
+	required uint64 GroupId = 1;
+}
+
+message SnsObject {
+	required uint64 Id = 1;
+	optional string Username = 2;
+	optional string Nickname = 3;
+	required uint32 CreateTime = 4;
+	required SKBuiltinBuffer_t ObjectDesc = 5;
+	required uint32 LikeFlag = 6;
+	required uint32 LikeCount = 7;
+	required uint32 LikeUserListCount = 8;
+	repeated SnsCommentInfo LikeUserList = 9;
+	required uint32 CommentCount = 10;
+	required uint32 CommentUserListCount = 11;
+	repeated SnsCommentInfo CommentUserList = 12;
+	required uint32 WithUserCount = 13;
+	required uint32 WithUserListCount = 14;
+	repeated SnsCommentInfo WithUserList = 15;
+	optional uint32 ExtFlag = 16;
+	optional uint32 NoChange = 17;
+	optional uint32 GroupCount = 18;
+	repeated SnsGroup GroupList = 19;
+	optional uint32 IsNotRichText = 20;
+	optional string ReferUsername = 21;
+	optional uint64 ReferId = 22;
+	optional uint32 BlackListCount = 23;
+	repeated SKBuiltinString_t BlackList = 24;
+	optional uint32 DeleteFlag = 25;
+	optional uint32 GroupUserCount = 26;
+	repeated SKBuiltinString_t GroupUser = 27;
+}
+
+message SnsADObject {
+	required SnsObject SnsObject = 1;
+	optional SKBuiltinString_t ADXML = 2;
+}
+
+message AdvertiseObject {
+	required SnsADObject SnsADObject = 1;
+	optional SKBuiltinString_t ADInfo = 2;
+}
+
+message SnsPostCtocUploadInfo {
+	required uint32 Flag = 1;
+	required uint32 PhotoCount = 2;
+}
+
+message SnsPostRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinBuffer_t ObjectDesc = 2;
+	optional uint32 WithUserListCount = 3;
+	repeated SKBuiltinString_t WithUserList = 4;
+	optional uint32 Privacy = 5;
+	optional uint32 SyncFlag = 6;
+	optional string ClientId = 7;
+	optional uint32 PostBGImgType = 8;
+	optional uint32 GroupCount = 9;
+	repeated SnsGroup GroupIds = 10;
+	optional uint32 ObjectSource = 11;
+	optional uint64 ReferId = 12;
+	optional uint32 BlackListCount = 13;
+	repeated SKBuiltinString_t BlackList = 14;
+	optional TwitterInfo TwitterInfo = 15;
+	optional uint32 GroupUserCount = 16;
+	repeated SKBuiltinString_t GroupUser = 17;
+	optional SnsPostCtocUploadInfo CtocUploadInfo = 18;
+}
+
+message SnsPostResponse {
+	required BaseResponse BaseResponse = 1;
+	required SnsObject SnsObject = 2;
+}
+
+message SnsObjectDetailRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint64 Id = 2;
+	optional uint32 GroupDetail = 3;
+}
+
+message SnsObjectDetailResponse {
+	required BaseResponse BaseResponse = 1;
+	required SnsObject Object = 2;
+}
+
+message SnsADObjectDetailRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint64 Id = 2;
+	optional uint32 Scene = 3;
+	optional SKBuiltinBuffer_t Session = 4;
+}
+
+message SnsADObjectDetailResponse {
+	required BaseResponse BaseResponse = 1;
+	required SnsADObject Object = 2;
+	optional SKBuiltinBuffer_t Session = 3;
+}
+
+message SnsServerConfig {
+	optional int32 PostMentionLimit = 1;
+	optional int32 CopyAndPasteWordLimit = 2;
+}
+
+message SnsTimeLineRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string FirstPageMd5 = 2;
+	required uint64 MaxId = 3;
+	optional uint64 MinFilterId = 4;
+	optional uint32 LastRequestTime = 5;
+	optional uint64 ClientLatestId = 6;
+	optional SKBuiltinBuffer_t Session = 7;
+}
+
+message SnsTimeLineResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string FirstPageMd5 = 2;
+	required uint32 ObjectCount = 3;
+	repeated SnsObject ObjectList = 4;
+	optional uint32 NewRequestTime = 5;
+	optional uint32 ObjectCountForSameMd5 = 6;
+	optional uint32 ControlFlag = 7;
+	optional SnsServerConfig ServerConfig = 8;
+	optional uint32 AdvertiseCount = 9;
+	repeated AdvertiseObject AdvertiseList = 10;
+	optional SKBuiltinBuffer_t Session = 11;
+}
+
+message SnsTimeLineWithTypeRequest {
+	required BaseRequest BaseRequest = 1;
+	optional uint64 SelectType = 2;
+}
+
+message SnsTimeLineWithTypeResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 ObjectCount = 2;
+	repeated SnsObject ObjectList = 3;
+}
+
+message SnsUserPageRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string FirstPageMd5 = 2;
+	optional string Username = 3;
+	required uint64 MaxId = 4;
+	optional uint32 Source = 5;
+	optional uint64 MinFilterId = 6;
+	optional uint32 LastRequestTime = 7;
+}
+
+message SnsUserPageResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string FirstPageMd5 = 2;
+	required uint32 ObjectCount = 3;
+	repeated SnsObject ObjectList = 4;
+	required uint32 ObjectTotalCount = 5;
+	optional SnsUserInfo SnsUserInfo = 6;
+	optional uint32 NewRequestTime = 7;
+	optional uint32 ObjectCountForSameMd5 = 8;
+	optional SnsServerConfig ServerConfig = 9;
+}
+
+message SnsAction {
+	optional string FromUsername = 1;
+	optional string ToUsername = 2;
+	optional string FromNickname = 3;
+	optional string ToNickname = 4;
+	required uint32 Type = 5;
+	required uint32 Source = 6;
+	optional uint32 CreateTime = 7;
+	optional string Content = 8;
+	optional int32 ReplyCommentId = 9;
+	optional int32 CommentId = 10;
+	optional uint32 IsNotRichText = 11;
+	optional uint64 ReplyCommentId2 = 12;
+	optional uint64 CommentId2 = 13;
+}
+
+message SnsActionGroup {
+	required uint64 Id = 1;
+	optional uint64 ParentId = 2;
+	required SnsAction CurrentAction = 3;
+	optional SnsAction ReferAction = 4;
+	optional string ClientId = 5;
+}
+
+message SnsCommentRequest {
+	required BaseRequest BaseRequest = 1;
+	required SnsActionGroup Action = 2;
+	optional string ClientId = 3;
+}
+
+message SnsCommentResponse {
+	required BaseResponse BaseResponse = 1;
+	required SnsObject SnsObject = 2;
+}
+
+message SnsADCommentRequest {
+	required BaseRequest BaseRequest = 1;
+	required SnsActionGroup Action = 2;
+	optional string ClientId = 3;
+}
+
+message SnsADCommentResponse {
+	required BaseResponse BaseResponse = 1;
+	required SnsADObject SnsADObject = 2;
+}
+
+message SnsSyncRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Selector = 2;
+	required SKBuiltinBuffer_t KeyBuf = 3;
+}
+
+message SnsSyncResponse {
+	required BaseResponse BaseResponse = 1;
+	required CmdList CmdList = 2;
+	required uint32 ContinueFlag = 3;
+	required SKBuiltinBuffer_t KeyBuf = 4;
+}
+
+message SnsObjectOp {
+	required uint64 Id = 1;
+	required uint32 OpType = 2;
+	optional SKBuiltinBuffer_t Ext = 3;
+}
+
+message SnsObjectOpDeleteComment {
+	required int32 CommentId = 1;
+}
+
+message SnsADObjectOpDeleteComment {
+	required uint64 CommentId = 1;
+}
+
+message SnsObjectOpRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCount = 2;
+	repeated SnsObjectOp OpList = 3;
+}
+
+message SnsObjectOpResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 OpCount = 2;
+	repeated int32 OpRetList = 3[packed=true];
+}
+
+message SnsLbsRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	required float Longitude = 3;
+	required float Latitude = 4;
+	required int32 Precision = 5;
+	optional string MacAddr = 6;
+	optional string CellId = 7;
+	required int32 GPSSource = 8;
+	required uint32 SBTime = 9;
+}
+
+message SnsLbsContactInfo {
+	optional string UserName = 1;
+}
+
+message SnsLbsResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 ContactCount = 2;
+	repeated SnsLbsContactInfo ContactList = 3;
+}
+
+message SnsGetCityRequest {
+	required BaseRequest BaseRequest = 1;
+	required int32 Longitude = 3;
+	required int32 Latitude = 4;
+	required int32 Precision = 5;
+	optional string MacAddr = 6;
+	optional string CellId = 7;
+	required int32 GPSSource = 8;
+}
+
+message SnsGetCityResponse {
+	required BaseResponse BaseResponse = 1;
+	required int32 Longitude = 2;
+	required int32 Latitude = 3;
+	optional string Country = 4;
+	optional string City = 5;
+}
+
+message SnsClassifyTimeLineRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string FirstPageMd5 = 2;
+	required uint64 MaxId = 3;
+	optional string ClassifyId = 4;
+	required uint32 ClassifyType = 5;
+}
+
+message SnsClassifyTimeLineResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string FirstPageMd5 = 2;
+	required uint32 ObjectCount = 3;
+	repeated SnsObject ObjectList = 4;
+	required uint32 ObjectCountForSameMd5 = 5;
+	optional string Description = 6;
+	required uint32 ControlFlag = 7;
+	required SnsServerConfig ServerConfig = 8;
+}
+
+message Whatsnew61 {
+	optional uint32 like = 1;
+	optional uint32 liked = 2;
+}
+
+message SnsWhatsnewRequest {
+	required BaseRequest BaseRequest = 1;
+}
+
+message SnsWhatsnewResponse {
+	required BaseResponse BaseResponse = 1;
+	optional Whatsnew61 Whatsnew61 = 2;
+}
+

@@ -1,0 +1,167 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message TalkRoomMember {
+	required int32 MemberID = 1;
+	optional string UserName = 2;
+}
+
+message TalkRelayAddr {
+	required uint32 Ip = 1;
+	required uint32 Port = 2;
+}
+
+message EnterTalkRoomReq {
+	required BaseRequest BaseRequest = 1;
+	optional string ToUsername = 2;
+	optional uint32 Scene = 3;
+}
+
+message EnterTalkRoomResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	required int32 MicSeq = 4;
+	required int32 MemberNum = 5;
+	repeated TalkRoomMember MemberList = 6;
+	required int32 MyRoomMemberId = 7;
+	optional int32 AddrCount = 8;
+	repeated TalkRelayAddr AddrList = 9;
+}
+
+message ExitTalkRoomReq {
+	required BaseRequest BaseRequest = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	optional string ToUsername = 4;
+	optional uint32 Scene = 5;
+}
+
+message ExitTalkRoomResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message TalkMicActionReq {
+	required BaseRequest BaseRequest = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	required uint32 ActionType = 4;
+	optional uint32 UpdateTime = 5;
+	optional uint32 Scene = 6;
+}
+
+message TalkMicActionResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 MicSeq = 2;
+	optional uint32 ChannelId = 3;
+}
+
+message TalkNoopReq {
+	required BaseRequest BaseRequest = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	optional uint32 UpdateTime = 4;
+	optional uint32 Scene = 5;
+}
+
+message TalkNoopResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GetTalkRoomMemberReq {
+	required BaseRequest BaseRequest = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	optional uint32 Scene = 4;
+}
+
+message GetTalkRoomMemberResp {
+	required BaseResponse BaseResponse = 1;
+	required int32 MicSeq = 2;
+	required int32 MemberNum = 3;
+	repeated TalkRoomMember MemberList = 4;
+}
+
+message TalkInviteReq {
+	required BaseRequest BaseRequest = 1;
+	required int32 RoomId = 2;
+	required int64 RoomKey = 3;
+	optional uint32 Scene = 4;
+}
+
+message TalkInviteResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message TalkStatReportData {
+	required int32 LogID = 1;
+	required SKBuiltinString_t StatReport = 2;
+}
+
+message TalkStatReportReq {
+	required BaseRequest BaseRequest = 1;
+	required int32 DataNum = 2;
+	repeated TalkStatReportData ReportData = 3;
+	optional uint32 Scene = 4;
+}
+
+message TalkStatReportResp {
+	required BaseResponse BaseResponse = 1;
+}
+
+message CreateTalkRoomRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t Topic = 2;
+	required uint32 MemberCount = 3;
+	repeated MemberReq MemberList = 4;
+	optional uint32 Scene = 5;
+}
+
+message CreateTalkRoomResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinString_t Topic = 2;
+	required SKBuiltinString_t PYInitial = 3;
+	required SKBuiltinString_t QuanPin = 4;
+	required uint32 MemberCount = 5;
+	repeated MemberResp MemberList = 6;
+	required SKBuiltinString_t TalkRoomName = 7;
+	required SKBuiltinBuffer_t ImgBuf = 8;
+	optional string BigHeadImgUrl = 9;
+	optional string SmallHeadImgUrl = 10;
+	required int32 RoomId = 11;
+	required int64 RoomKey = 12;
+	required int32 MicSeq = 13;
+	required int32 MyRoomMemberId = 14;
+}
+
+message AddTalkRoomMemberRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 MemberCount = 2;
+	repeated MemberReq MemberList = 3;
+	required SKBuiltinString_t TalkRoomName = 4;
+	optional uint32 Scene = 5;
+}
+
+message AddTalkRoomMemberResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 MemberCount = 2;
+	repeated MemberResp MemberList = 3;
+}
+
+message DelTalkRoomMemberRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 MemberCount = 2;
+	repeated DelMemberReq MemberList = 3;
+	optional string TalkRoomName = 4;
+	optional uint32 Scene = 5;
+}
+
+message DelTalkRoomMemberResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 MemberCount = 2;
+	repeated DelMemberResp MemberList = 3;
+}
+

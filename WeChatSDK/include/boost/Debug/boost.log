@@ -1,0 +1,34 @@
+﻿  tss_pe.cpp
+  tss_dll.cpp
+  thread.cpp
+  future.cpp
+  error_code.cpp
+  sp_debug_hooks.cpp
+  sp_collector.cpp
+  mapped_file.cpp
+i:\qq\973212\filerecv\mobilefile\demo2018\wechat\mars\boost\libs\iostreams\src\mapped_file.cpp(130): warning C4244: “return”: 从“const mars_boost::iostreams::stream_offset”转换到“std::size_t”，可能丢失数据
+i:\qq\973212\filerecv\mobilefile\demo2018\wechat\mars\boost\libs\iostreams\src\mapped_file.cpp(435): warning C4244: “参数”: 从“mars_boost::iostreams::stream_offset”转换到“SIZE_T”，可能丢失数据
+  file_descriptor.cpp
+i:\qq\973212\filerecv\mobilefile\demo2018\wechat\mars\boost\libs\iostreams\src\file_descriptor.cpp(241): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+i:\qq\973212\filerecv\mobilefile\demo2018\wechat\mars\boost\libs\iostreams\src\file_descriptor.cpp(265): warning C4244: “参数”: 从“std::streamsize”转换到“DWORD”，可能丢失数据
+i:\qq\973212\filerecv\mobilefile\demo2018\wechat\mars\boost\libs\iostreams\src\file_descriptor.cpp(289): warning C4244: “参数”: 从“std::streamsize”转换到“DWORD”，可能丢失数据
+  windows_file_codecvt.cpp
+  utf8_codecvt_facet.cpp
+  unique_path.cpp
+  portability.cpp
+  path_traits.cpp
+  path.cpp
+  operations.cpp
+  codecvt_error_category.cpp
+  clone_current_exception_non_intrusive.cpp
+  posix_time_types.cpp
+  greg_weekday.cpp
+  正在生成代码...
+i:\qq\973212\filerecv\mobilefile\demo2018\wechat\mars\boost\libs\iostreams\src\file_descriptor.cpp(344): warning C4715: “mars_boost::iostreams::detail::file_descriptor_impl::seek”: 不是所有的控件路径都返回值
+  正在编译...
+  greg_month.cpp
+  gregorian_types.cpp
+  date_generators.cpp
+  lockpool.cpp
+  正在生成代码...
+  boost.vcxproj -> I:\QQ\973212\FileRecv\MobileFile\demo2018\weChat\Debug\lib\boost.lib

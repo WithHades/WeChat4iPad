@@ -1,0 +1,1051 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+
+
+
+
+
+
+message ECDHKey {
+	required int32 Nid = 1;
+	required SKBuiltinBuffer_t Key = 2;
+}
+
+message NewRegRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+	optional string Pwd = 3;
+	optional string NickName = 4;
+	optional uint32 BindUin = 5;
+	optional string BindEmail = 6;
+	optional string BindMobile = 7;
+	optional string Ticket = 8;
+	optional uint32 BuiltinIPSeq = 12;
+	optional uint32 DLSrc = 13;
+	optional uint32 RegMode = 14;
+	optional string TimeZone = 15;
+	optional string Language = 16;
+	optional uint32 ForceReg = 17;
+	optional string RealCountry = 18;
+	optional SKBuiltinBuffer_t RandomEncryKey = 19;
+	optional string Alias = 20;
+	optional string VerifySignature = 21;
+	optional string VerifyContent = 22;
+	optional uint32 HasHeadImg = 23;
+	optional uint32 SuggestRet = 24;
+	optional string ClientSeqID = 31;
+	optional string AdSource = 32;
+	optional string AndroidID = 33;
+	optional string MacAddr = 34;
+	optional string AndroidInstallRef = 35;
+	optional string ClientFingerprint = 36;
+	optional ECDHKey CliPubECDHKey = 37;
+	optional string GoogleAid = 38;
+	optional string BundleID = 39;
+}
+
+message SecAuthRegKeySect {
+	required SKBuiltinBuffer_t AutoAuthKey = 1;
+	required ECDHKey SvrPubECDHKey = 2;
+	required SKBuiltinBuffer_t SessionKey = 3;
+	required uint32 AuthResultFlag = 4;
+}
+
+message NewRegResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Uin = 2;
+	optional string SessionKey = 3;
+	optional string OfficialUserName = 4;
+	optional string OfficialNickName = 5;
+	optional string QQMicroBlogUserName = 6;
+	optional string BindEmail = 7;
+	required uint32 PushMailStatus = 8;
+	optional uint32 SendCardBitFlag = 9;
+	optional string PushMailSettingTicket = 10;
+	optional BuiltinIPList BuiltinIPList = 14;
+	optional string FSURL = 15;
+	optional string UserName = 16;
+	optional uint32 Status = 17;
+	optional NetworkControl NetworkControl = 18;
+	optional uint32 ReturnFlag = 19;
+	optional uint32 RegType = 20;
+	optional string AuthKey = 21;
+	optional PluginKeyList PluginKeyList = 22;
+	optional string Password = 23;
+	optional uint32 ProfileFlag = 24;
+	optional HostList NewHostList = 25;
+	optional string AutoAuthTicket = 26;
+	optional CDNDnsInfo DnsInfo = 27;
+	optional string StepTicket = 28;
+	optional string VerifySignature = 29;
+	optional SKBuiltinBuffer_t VerifyBuff = 30;
+	optional ShowStyleKey ShowStyle = 31;
+	optional CDNDnsInfo SnsDnsInfo = 32;
+	optional CDNDnsInfo AppDnsInfo = 33;
+	optional SecAuthRegKeySect SecAuthRegKeySect = 34;
+}
+
+message GetSuggestAliasRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinBuffer_t RandomEncryKey = 2;
+	optional string RegBindName = 3;
+	optional string RegTicket = 4;
+	optional string NickName = 5;
+	optional string InputAlias = 6;
+	optional string VerifySignature = 7;
+	optional string VerifyContent = 8;
+	required uint32 RegMode = 9;
+	optional string Language = 10;
+	optional string ClientSeqID = 11;
+}
+
+message GetSuggestAliasResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated SKBuiltinString_t List = 3;
+	optional string VerifySignature = 4;
+	optional SKBuiltinBuffer_t VerifyBuff = 5;
+	optional int32 UserNameRet = 6;
+}
+
+message BindOpMobileRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+	optional string Mobile = 3;
+	required int32 Opcode = 4;
+	optional string Verifycode = 5;
+	optional int32 DialFlag = 6;
+	optional string DialLang = 7;
+	optional string AuthTicket = 8;
+	optional uint32 ForceReg = 9;
+	optional string SafeDeviceName = 10;
+	optional string SafeDeviceType = 11;
+	optional SKBuiltinBuffer_t RandomEncryKey = 12;
+	optional string Language = 13;
+	optional uint32 InputMobileRetrys = 14;
+	optional uint32 AdjustRet = 15;
+	optional string ClientSeqID = 16;
+}
+
+message BindOpMobileResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string ticket = 2;
+	optional string SmsNo = 3;
+	optional uint32 NeedSetPwd = 4;
+	optional string Pwd = 5;
+	optional string Username = 6;
+	optional HostList NewHostList = 7;
+	optional BuiltinIPList BuiltinIPList = 8;
+	optional NetworkControl NetworkControl = 9;
+	optional string AuthTicket = 10;
+	optional uint32 SafeDevice = 11;
+	optional string CC = 12;
+	optional uint32 ObsoleteItem1 = 13;
+	optional SafeDeviceList SafeDeviceList = 14;
+	optional string PureMobile = 15;
+	optional string FormatedMobile = 16;
+	optional ShowStyleKey ShowStyle = 17;
+}
+
+message EmailRegRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinBuffer_t RandomEncryKey = 2;
+	required uint32 Opcode = 3;
+	optional string Email = 4;
+	optional string Language = 5;
+	optional string Pwd = 6;
+	optional string VerifyCode = 7;
+	optional string ClientSeqID = 8;
+	optional string RealCountry = 9;
+	optional uint32 VerifyScene = 10;
+}
+
+message EmailRegResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string Ticket = 2;
+	optional BuiltinIPList BuiltinIPList = 3;
+	optional HostList NewHostList = 4;
+	optional ShowStyleKey ShowStyle = 5;
+	optional NetworkControl NetworkControl = 6;
+}
+
+message SetEmailPwdRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Pwd = 2;
+	optional string Ticket = 3;
+}
+
+message SetEmailPwdResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message UpdateSafeDeviceRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Uuid = 2;
+	optional string Name = 3;
+	optional string DeviceType = 4;
+}
+
+message UpdateSafeDeviceResponse {
+	required BaseResponse BaseResponse = 1;
+	optional uint32 SafeDevice = 2;
+}
+
+message DelSafeDeviceRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Uuid = 2;
+}
+
+message DelSafeDeviceResponse {
+	required BaseResponse BaseResponse = 1;
+	optional uint32 SafeDevice = 2;
+}
+
+message BindSafeMobileRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Mobile = 2;
+	required int32 Opcode = 3;
+}
+
+message BindSafeMobileResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message BindQQRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 QQ = 2;
+	optional string Pwd = 3;
+	optional string Pwd2 = 4;
+	optional string ImgSid = 5;
+	optional string ImgCode = 6;
+	required uint32 OPCode = 7;
+	optional SKBuiltinString_t ImgEncryptKey = 8;
+	optional SKBuiltinBuffer_t KSid = 9;
+	optional uint32 SetAsMainAcct = 10;
+	optional string SafeDeviceName = 11;
+	optional string SafeDeviceType = 12;
+	optional SKBuiltinBuffer_t WTLoginReqBuff = 13;
+}
+
+message BindQQResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string ImgSid = 2;
+	required SKBuiltinBuffer_t ImgBuf = 3;
+	optional uint32 PushMailStatus = 4;
+	optional uint32 PrivateMsgStatus = 5;
+	optional string MicroBlogName = 6;
+	optional uint32 Status = 7;
+	optional string QQMailSkey = 8;
+	optional SKBuiltinString_t ImgEncryptKey = 9;
+	optional SKBuiltinBuffer_t A2Key = 10;
+	optional SKBuiltinBuffer_t KSid = 11;
+	optional SafeDeviceList SafeDeviceList = 12;
+	optional uint32 SafeDevice = 13;
+	optional SKBuiltinBuffer_t WTLoginRspBuff = 14;
+}
+
+message ResetPwdRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	optional string Pwd = 3;
+}
+
+message ResetPwdResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string Url = 2;
+}
+
+message UnBindQQRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Ticket = 2;
+}
+
+message UnBindQQResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message CheckUnBindRequest {
+	required BaseRequest BaseRequest = 1;
+	required int32 BindType = 2;
+}
+
+message CheckUnBindResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string RandomPasswd = 2;
+	optional string CanUnbindNotice = 3;
+}
+
+message FaceBookAuthRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpType = 2;
+	optional string AccessToken = 3;
+	optional string RandomEncryKey = 4;
+}
+
+message FaceBookAuthResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint64 FBUserID = 2;
+	optional string FBUserName = 3;
+}
+
+message RegEquipmentRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Type = 2;
+	optional string SerialNumber = 3;
+	optional string IMEI = 4;
+	optional string MAC = 5;
+	optional string NickName = 6;
+	required uint32 BuiltinIPSeq = 7;
+	required uint32 DLSrc = 8;
+	required uint32 RegMode = 9;
+	optional string TimeZone = 10;
+	optional string Language = 11;
+	required uint32 ForceReg = 12;
+	optional string RealCountry = 13;
+	required SKBuiltinBuffer_t RandomEncryKey = 14;
+}
+
+message RegEquipmentResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Uin = 2;
+	optional string SessionKey = 3;
+	optional string OfficialUserName = 4;
+	optional string OfficialNickName = 5;
+	optional string QQMicroBlogUserName = 6;
+	optional string BindEmail = 7;
+	required uint32 PushMailStatus = 8;
+	required uint32 SendCardBitFlag = 9;
+	optional string PushMailSettingTicket = 10;
+	required BuiltinIPList BuiltinIPList = 14;
+	optional string FSURL = 15;
+	optional string UserName = 16;
+	required uint32 Status = 17;
+	required NetworkControl NetworkControl = 18;
+	required uint32 ReturnFlag = 19;
+	required uint32 RegType = 20;
+	optional string AuthKey = 21;
+	required PluginKeyList PluginKeyList = 22;
+	optional string Password = 23;
+	required uint32 ProfileFlag = 24;
+	required HostList NewHostList = 25;
+}
+
+message ResetEquipmentRequest {
+	required BaseRequest BaseRequest = 1;
+}
+
+message ResetEquipmentResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message SetPwdRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Password = 2;
+	optional string Ticket = 3;
+	optional SKBuiltinBuffer_t AutoAuthKey = 4;
+}
+
+message SetPwdResponse {
+	required BaseResponse BaseResponse = 1;
+	optional SKBuiltinBuffer_t AutoAuthKey = 2;
+}
+
+message QueryHasPswdRequest {
+	required BaseRequest BaseRequest = 1;
+	required int32 Scene = 2;
+}
+
+message QueryHasPswdResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message VerifyPswdRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OpCode = 2;
+	optional string Pwd1 = 3;
+	optional string Pwd2 = 4;
+	optional SKBuiltinString_t ImgSid = 5;
+	optional SKBuiltinString_t ImgCode = 6;
+	optional SKBuiltinString_t ImgEncryptKey = 7;
+	optional SKBuiltinBuffer_t KSid = 8;
+	optional uint32 Scence = 9;
+	optional SKBuiltinBuffer_t WTLoginReqBuff = 10;
+}
+
+message VerifyPswdResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinString_t ImgSid = 2;
+	required SKBuiltinBuffer_t ImgBuf = 3;
+	optional string Ticket = 4;
+	optional SKBuiltinString_t ImgEncryptKey = 5;
+	optional SKBuiltinBuffer_t A2Key = 6;
+	optional SKBuiltinBuffer_t KSid = 7;
+	optional string AuthKey = 8;
+	optional SKBuiltinBuffer_t WTLoginRspBuff = 9;
+}
+
+message ResetPawInfo {
+	required uint32 CreateTime = 1;
+	required uint32 IsReset = 2;
+	required uint32 ID = 3;
+}
+
+message ApplyResetPawRequest {
+	required BaseRequest BaseRequest = 1;
+	required int32 Type = 2;
+	optional string ResetInfo = 3;
+	optional uint32 GetMethod = 4;
+	optional SKBuiltinBuffer_t RandomEncryKey = 5;
+}
+
+message ApplyResetPawResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GetWeiBoURLReq {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinBuffer_t A2Key = 2;
+	optional string UserName = 3;
+	optional uint32 Scene = 4;
+	optional string BlogUserName = 5;
+	optional SKBuiltinBuffer_t A2KeyNew = 6;
+}
+
+message GetWeiBoURLResp {
+	required BaseResponse BaseResponse = 1;
+	optional string URL = 2;
+}
+
+message GetUserNameRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 BindUin = 2;
+	optional string NickName = 3;
+	optional string Ticket = 4;
+	optional string Pwd = 5;
+	optional string Mobile = 6;
+	optional uint32 OpCode = 7;
+}
+
+message GetUserNameResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string UserName = 2;
+	optional string Ticket = 3;
+}
+
+message IphoneRegRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Token = 2;
+	optional string Sound = 3;
+	optional uint32 Status = 4;
+	optional string VoipSound = 5;
+	optional uint32 TokenCert = 6;
+	optional uint32 TokenEnv = 7;
+	optional uint32 TokenScene = 8;
+}
+
+message IphoneRegResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message IphoneUnRegRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Token = 2;
+}
+
+message IphoneUnRegResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message WinphoneRegRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Uri = 2;
+}
+
+message WinphoneRegResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message WinphoneUnRegRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Uri = 2;
+}
+
+message WinphoneUnRegResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message AshaRegRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Nid = 2;
+}
+
+message AshaRegResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message AshaUnRegRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Nid = 2;
+}
+
+message AshaUnRegResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message BlackBerryRegRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Pin = 2;
+	required uint32 Port = 3;
+}
+
+message BlackBerryRegResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message BlackBerryUnRegRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Pin = 2;
+}
+
+message BlackBerryUnRegResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message AndroidGCMRegRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Token = 2;
+}
+
+message AndroidGCMRegResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message AndroidGCMUnRegRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Token = 2;
+}
+
+message AndroidGCMUnRegResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message RSACert {
+	optional string KeyN = 1;
+	optional string KeyE = 2;
+}
+
+message GetCertRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinBuffer_t RandomEncryKey = 2;
+	required uint32 CurrentCertVersion = 3;
+}
+
+message GetCertResponse {
+	required BaseResponse BaseResponse = 1;
+	required RSACert CertValue = 2;
+	required uint32 CertVersion = 3;
+}
+
+message NewAuthRsaReqData {
+	required SKBuiltinBuffer_t RandomEncryKey = 1;
+}
+
+message NewAuthRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t UserName = 2;
+	required SKBuiltinString_t Pwd = 3;
+	required SKBuiltinString_t ImgSid = 4;
+	required SKBuiltinString_t ImgCode = 5;
+	optional string Pwd2 = 6;
+	optional uint32 BuiltinIPSeq = 7;
+	optional string extPwd = 8;
+	optional string extPwd2 = 9;
+	optional string TimeZone = 10;
+	optional string Language = 11;
+	optional string IMEI = 12;
+	optional int32 Channel = 13;
+	optional string IPhoneVer = 14;
+	optional SKBuiltinString_t ImgEncryptKey = 15;
+	optional SKBuiltinBuffer_t KSid = 16;
+	optional uint32 TimeStamp = 17;
+	optional string DeviceBrand = 18;
+	optional string DeviceModel = 19;
+	optional string OSType = 20;
+	optional string DeviceType = 21;
+	optional string SoftType = 22;
+	optional string AuthTicket = 23;
+	optional string RealCountry = 24;
+	optional string Signature = 25;
+	required SKBuiltinBuffer_t RandomEncryKey = 26;
+	optional string AutoAuthTicket = 27;
+	optional string DeviceName = 28;
+	optional SKBuiltinBuffer_t WTLoginReqBuff = 29;
+	optional uint32 InputType = 30;
+	optional string ClientSeqID = 31;
+	optional string BundleID = 32;
+	optional string AdSource = 33;
+	optional SKBuiltinBuffer_t CliDBEncryptKey = 34;
+	optional SKBuiltinBuffer_t CliDBEncryptInfo = 35;
+	optional string VerifySignature = 36;
+	optional string VerifyContent = 37;
+	optional uint32 SessionMode = 38;
+}
+
+message NewAuthResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Uin = 2;
+	required SKBuiltinString_t UserName = 3;
+	required SKBuiltinString_t NickName = 4;
+	required uint32 BindUin = 5;
+	required SKBuiltinString_t BindEmail = 6;
+	required SKBuiltinString_t BindMobile = 7;
+	required uint32 Status = 8;
+	optional bytes SessionKey = 9;
+	required SKBuiltinString_t ImgSid = 10;
+	required SKBuiltinBuffer_t ImgBuf = 11;
+	required SKBuiltinString_t OfficialUserName = 12;
+	required SKBuiltinString_t OfficialNickName = 13;
+	optional SKBuiltinString_t QQMicroBlogUserName = 14;
+	optional uint32 QQMicroBlogStatus = 15;
+	optional uint32 NewVersion = 16;
+	optional string Ticket = 17;
+	optional uint32 PushMailStatus = 18;
+	optional uint32 SendCardBitFlag = 19;
+	optional string PushMailSettingTicket = 20;
+	optional BuiltinIPList BuiltinIPList = 21;
+	optional string FSURL = 22;
+	optional NetworkControl NetworkControl = 23;
+	optional uint32 PluginFlag = 24;
+	optional string Alias = 25;
+	optional uint32 RegType = 26;
+	optional string AuthKey = 27;
+	optional string Sid = 28;
+	optional PluginKeyList PluginKeyList = 29;
+	optional SKBuiltinString_t ImgEncryptKey = 30;
+	optional SKBuiltinBuffer_t A2Key = 31;
+	optional SKBuiltinBuffer_t KSid = 32;
+	optional uint32 ProfileFlag = 33;
+	optional string Password = 34;
+	optional uint32 TimeStamp = 35;
+	optional uint32 IsAutoReg = 36;
+	optional string KickResponse = 37;
+	optional string ApplyBetaUrl = 38;
+	optional string DeviceInfoXml = 39;
+	optional string SoftConfigXml = 40;
+	optional HostList NewHostList = 41;
+	optional string AuthTicket = 42;
+	optional uint32 SafeDevice = 43;
+	optional uint32 ObsoleteItem1 = 44;
+	optional uint32 NeedSetEmailPwd = 45;
+	optional string HintMsg = 46;
+	optional string AutoAuthTicket = 47;
+	optional CDNDnsInfo DnsInfo = 48;
+	optional uint32 NextAuthType = 49;
+	optional SKBuiltinBuffer_t WTLoginRspBuff = 50;
+	optional ShowStyleKey ShowStyle = 51;
+	optional SKBuiltinBuffer_t CliDBEncryptKey = 52;
+	optional SKBuiltinBuffer_t CliDBEncryptInfo = 53;
+	optional uint32 Flag = 54;
+	optional CDNDnsInfo SnsDnsInfo = 55;
+	optional CDNDnsInfo AppDnsInfo = 56;
+	optional string VerifySignature = 57;
+	optional SKBuiltinBuffer_t VerifyBuff = 58;
+}
+
+message BindGoogleContactRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Opcode = 2;
+	optional string GoogleContactName = 3;
+	required uint32 Force = 4;
+}
+
+message BindGoogleContactResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message BindLinkedinContactRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Opcode = 2;
+	required uint32 Visible = 3;
+	optional string LinkedinMemberID = 4;
+	optional string LinkedinName = 5;
+	optional string LinkedinPublicUrl = 6;
+	optional string Timestamp = 7;
+	optional string Nounce = 8;
+	optional string LinkedinSignature = 9;
+	optional string LinkedinReturnSignature = 10;
+}
+
+message BindLinkedinContactResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message UnBindLinkedinContactRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Opcode = 2;
+}
+
+message UnBindLinkedinContactResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message LoginQRCodeNotify {
+	optional string UUID = 1;
+	required uint32 Status = 2;
+	optional string UserName = 3;
+	optional string Pwd = 4;
+	optional string HeadImgURL = 5;
+	optional uint32 PushLoginURLExpiredTime = 6;
+	optional string NickName = 7;
+	optional uint32 ExpiredTime = 8;
+	optional string PairWaitTip = 9;
+    optional uint32 AuthorClientVersion = 10;
+    optional string AuthorDeviceType = 11;
+}
+
+message LoginQRCodeNotifyPkg {
+	required SKBuiltinBuffer_t NotifyData = 1;
+	required uint32 OPCode = 2;
+}
+
+message GetLoginQRCodeRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinBuffer_t RandomEncryKey = 2;
+	optional uint32 OPCode = 3;
+	optional string DeviceName = 4;
+	optional string UserName = 5;
+	optional uint32 ExtDevLoginType = 6;
+}
+
+message GetLoginQRCodeResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t QRCode = 2;
+	optional string UUID = 3;
+	required uint32 CheckTime = 4;
+	required SKBuiltinBuffer_t NotifyKey = 5;
+	optional uint32 ExpiredTime = 6;
+	optional string BlueToothBroadCastUUID = 7;
+	optional SKBuiltinBuffer_t BlueToothBroadCastContent = 8;
+}
+
+message CheckLoginQRCodeRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinBuffer_t RandomEncryKey = 2;
+	optional string UUID = 3;
+	required uint32 TimeStamp = 4;
+	optional uint32 OPCode = 5;
+}
+
+message CheckLoginQRCodeResponse {
+	required BaseResponse BaseResponse = 1;
+	optional LoginQRCodeNotifyPkg NotifyPkg = 3;
+}
+
+message GetLoginURLRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UUID = 2;
+	optional bytes FromDeviceID = 3;
+}
+
+message GetLoginURLResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string URL = 2;
+}
+
+message PushLoginURLRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+	optional string AutoAuthTicket = 3;
+	optional string ClientID = 4;
+	required SKBuiltinBuffer_t RandomEncryKey = 5;
+	required uint32 OPCode = 6;
+	optional string DeviceName = 7;
+	optional SKBuiltinBuffer_t AutoAuthKey = 8;
+}
+
+message PushLoginURLResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string UUID = 2;
+	required SKBuiltinBuffer_t NotifyKey = 3;
+	required uint32 CheckTime = 4;
+	required uint32 ExpiredTime = 5;
+	optional string BlueToothBroadCastUUID = 6;
+	optional SKBuiltinBuffer_t BlueToothBroadCastContent = 7;
+}
+
+message BlueToothBindLoginRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string URL = 2;
+	required uint32 OPCode = 3;
+}
+
+message BlueToothBindLoginResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string DeviceName = 2;
+	required uint32 ExpiredTime = 3;
+	optional string UUID = 4;
+	optional string BlueToothBroadCastUUID = 5;
+}
+
+message BlueToothAutoLoginRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+	optional string UUID = 3;
+	optional string AutoAuthTicket = 4;
+	required SKBuiltinBuffer_t LoginInfoData = 5;
+	required SKBuiltinBuffer_t RandomEncryKey = 6;
+	optional string BlueToothBroadCastUUID = 7;
+}
+
+message BlueToothAutoLoginResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string UserName = 2;
+	optional string Password = 3;
+}
+
+message BlueToothAutoLoginInfoPkg {
+	required SKBuiltinBuffer_t Salt = 1;
+	required SKBuiltinBuffer_t Data = 2;
+}
+
+message BlueToothAutoLoginInfo {
+	required uint32 Uin = 1;
+	optional string DeviceType = 2;
+	required uint32 ClientVersion = 3;
+	optional bytes DeviceID = 4;
+}
+
+message BindBlackberryPPIDRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Opcode = 2;
+	optional string BBPPID = 3;
+	optional string BBPIN = 4;
+	optional string BBMNickName = 5;
+	required uint32 Force = 6;
+}
+
+message BindBlackberryPPIDResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message LockWebDeviceRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 OPCode = 2;
+	optional string BlueToothBroadCastUUID = 3;
+	required SKBuiltinBuffer_t BlueToothBroadCastContent = 4;
+}
+
+message LockWebDeviceResponse {
+	required BaseResponse BaseResponse = 1;
+}
+
+message GetIosExtensionKeyRequest {
+	required BaseRequest BaseRequest = 1;
+	optional uint32 ExtensionSessionType = 2;
+	optional bytes ExtensionDeviceId = 3;
+}
+
+message ExtSession {
+	required uint32 SessionType = 1;
+	required SKBuiltinBuffer_t SessionKey = 2;
+	required SKBuiltinBuffer_t ServerId = 3;
+}
+
+message GetIosExtensionKeyResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t Key = 2;
+	optional ExtSession ExtensionSession = 3;
+}
+
+message PatternLockBuffer {
+	optional uint32 uin = 1;
+	optional uint32 version = 2;
+	optional SKBuiltinBuffer_t svrpatternhash = 3;
+	optional uint32 lockstatus = 4;
+	optional SKBuiltinBuffer_t sign = 5;
+}
+
+message RegisterNewPatternLockRequest {
+	required BaseRequest BaseRequest = 1;
+	optional SKBuiltinBuffer_t paytoken = 2;
+	optional SKBuiltinBuffer_t patternhash = 3;
+	optional uint32 cmd = 4;
+}
+
+message RegisterNewPatternLockResponse {
+	required BaseResponse BaseResponse = 1;
+	optional PatternLockBuffer patternlockbuf = 2;
+}
+
+message OpPatternLockRequest {
+	required BaseRequest BaseRequest = 1;
+	optional uint32 cmd = 2;
+	optional SKBuiltinBuffer_t nowpatternhash = 3;
+	optional SKBuiltinBuffer_t newpatternhash = 4;
+}
+
+message OpPatternLockResponse {
+	required BaseResponse BaseResponse = 1;
+	optional PatternLockBuffer patternlockbuf = 2;
+}
+
+message WTLoginImgReqInfo {
+	optional string ImgSid = 1;
+	optional string ImgCode = 2;
+	optional string ImgEncryptKey = 3;
+	required SKBuiltinBuffer_t KSid = 4;
+}
+
+message WTLoginImgRespInfo {
+	optional string ImgEncryptKey = 1;
+	required SKBuiltinBuffer_t KSid = 2;
+	optional string ImgSid = 3;
+	required SKBuiltinBuffer_t ImgBuf = 4;
+}
+
+message WxVerifyCodeReqInfo {
+	optional string VerifySignature = 1;
+	optional string VerifyContent = 2;
+}
+
+message WxVerifyCodeRespInfo {
+	optional string VerifySignature = 1;
+	required SKBuiltinBuffer_t VerifyBuff = 2;
+}
+
+message BaseAuthReqInfo {
+	optional SKBuiltinBuffer_t WTLoginReqBuff = 1;
+	optional WTLoginImgReqInfo WTLoginImgReqInfo = 2;
+	optional WxVerifyCodeReqInfo WxVerifyCodeReqInfo = 3;
+	optional SKBuiltinBuffer_t CliDBEncryptKey = 4;
+	optional SKBuiltinBuffer_t CliDBEncryptInfo = 5;
+	optional uint32 AuthReqFlag = 6;
+	optional string AuthTicket = 7;
+}
+
+message ManualAuthRsaReqData {
+	required SKBuiltinBuffer_t RandomEncryKey = 1;
+	required ECDHKey CliPubECDHKey = 2;
+	optional string UserName = 3;
+	optional string Pwd = 4;
+	optional string Pwd2 = 5;
+}
+
+message ManualAuthAesReqData {
+	required BaseRequest BaseRequest = 1;
+	optional BaseAuthReqInfo BaseReqInfo = 2;
+	optional string IMEI = 3;
+	optional string SoftType = 4;
+	required uint32 BuiltinIPSeq = 5;
+	optional string ClientSeqID = 6;
+	optional string Signature = 7;//无
+	optional string DeviceName = 8;
+	optional string DeviceType = 9;
+	optional string Language = 10;
+	optional string TimeZone = 11;
+	optional int32 Channel = 13;
+	optional uint32 TimeStamp = 14;
+	optional string DeviceBrand = 15;//Apple
+	optional string DeviceModel = 16;
+	optional string OSType = 17;
+	optional string RealCountry = 18;
+	optional string BundleID = 19;		//包名
+	optional string AdSource = 20;
+	optional string IPhoneVer = 21;//iPad4.4
+	required uint32 InputType = 22;
+	optional SKBuiltinBuffer_t Clientcheckdat =23;
+}
+
+message ManualAuthRequest {
+	required ManualAuthRsaReqData RsaReqData = 1;
+	required ManualAuthAesReqData AesReqData = 2;
+}
+
+message AutoAuthRsaReqData {
+	required SKBuiltinBuffer_t AesEncryptKey = 2;
+	optional ECDHKey CliPubECDHKey = 3;
+}
+
+message AutoAuthKey {
+	required SKBuiltinBuffer_t EncryptKey = 1;
+	required SKBuiltinBuffer_t Key = 2;
+}
+
+message AutoAuthAesReqData {
+	required BaseRequest BaseRequest = 1;
+	optional BaseAuthReqInfo BaseReqInfo = 2;
+	required SKBuiltinBuffer_t AutoAuthKey = 3;
+	optional string IMEI = 4;
+	optional string SoftType = 5;
+	required uint32 BuiltinIPSeq = 6;
+	optional string ClientSeqID = 7;
+	optional string Signature = 8;
+	optional string DeviceName = 9;
+	optional string DeviceType = 10;
+	optional string Language = 11;
+	optional string TimeZone = 12;
+}
+
+message AutoAuthRequest {
+	required AutoAuthRsaReqData RsaReqData = 1;
+	required AutoAuthAesReqData AesReqData = 2;
+}
+
+message NetworkSectResp {
+	optional HostList NewHostList = 1;
+	optional NetworkControl NetworkControl = 2;
+	optional BuiltinIPList BuiltinIPList = 3;
+}
+
+message AuthSectResp {
+	required uint32 Uin = 1;
+	required ECDHKey SvrPubECDHKey = 2;
+	required SKBuiltinBuffer_t SessionKey = 3;
+	required SKBuiltinBuffer_t AutoAuthKey = 4;
+	required uint32 WTLoginRspBuffFlag = 5;
+	optional SKBuiltinBuffer_t WTLoginRspBuff = 6;
+	optional WTLoginImgRespInfo WTLoginImgRespInfo = 7;
+	optional WxVerifyCodeRespInfo WxVerifyCodeRespInfo = 8;
+	optional SKBuiltinBuffer_t CliDBEncryptKey = 9;
+	optional SKBuiltinBuffer_t CliDBEncryptInfo = 10;
+	optional string AuthKey = 11;
+	optional SKBuiltinBuffer_t A2Key = 12;
+	optional string ApplyBetaUrl = 14;
+	optional ShowStyleKey ShowStyle = 15;
+	optional string AuthTicket = 16;
+	optional uint32 NewVersion = 17;
+	optional uint32 UpdateFlag = 18;
+	optional uint32 AuthResultFlag = 19;
+	optional string FSURL = 20;
+}
+
+message AcctSectResp {
+	optional string UserName = 1;
+	optional string NickName = 2;
+	required uint32 BindUin = 3;
+	optional string BindEmail = 4;
+	optional string BindMobile = 5;
+	optional string Alias = 6;
+	required uint32 Status = 8;
+	optional uint32 PluginFlag = 9;
+	optional uint32 RegType = 10;
+	optional string DeviceInfoXml = 11;
+	optional uint32 SafeDevice = 12;
+	optional string OfficialUserName = 13;
+	optional string OfficialNickName = 14;
+	optional uint32 PushMailStatus = 15;
+	optional string FSURL = 16;
+}
+
+message UnifyAuthResponse {
+	required BaseResponse BaseResponse = 1;
+	optional uint32 UnifyAuthSectFlag = 2;
+	optional AuthSectResp AuthSectResp = 3;
+	optional AcctSectResp AcctSectResp = 4;
+	optional NetworkSectResp NetworkSectResp = 5;
+}
+

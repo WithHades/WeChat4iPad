@@ -1,0 +1,202 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message CardUserItem {
+    optional string CardId = 1;
+    optional uint64 UpdateSequence = 2;
+    optional uint32 StateFlag = 3;
+    optional uint32 UpdateTime = 4;
+    optional uint32 Status = 5;
+}
+message BatchDelCardItemRequest {
+	required BaseRequest BaseRequest = 1;
+	repeated string card_ids = 2;
+}
+
+message BatchDelCardItemResponse {
+	required BaseResponse BaseResponse = 1;
+	repeated string succ_card_ids = 2;
+}
+
+message BatchGetCardItemRequest {
+	required BaseRequest BaseRequest = 1;
+	repeated string card_ids = 2;
+}
+
+message BatchGetCardItemResponse {
+	required BaseResponse BaseResponse = 1;
+    optional string json_ret = 2;
+}
+
+message CardSyncRequest {
+	required BaseRequest BaseRequest = 1;
+	required uint32 Selector = 2;
+	required SKBuiltinBuffer_t KeyBuf = 3;
+}
+
+message CardSyncResponse {
+	required BaseResponse BaseResponse = 1;
+	required CmdList CmdList = 2;
+	required SKBuiltinBuffer_t KeyBuf = 3;
+	required uint32 ContinueFlag = 4;
+}
+
+message CardShopLBSRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string card_tp_id = 2;
+	required float longitude = 3;
+	required float latitude = 4;
+}
+
+message CardShopLBSResponse {
+	required BaseResponse BaseResponse = 1;
+    optional string json_ret = 2;
+}
+
+message GetCardSerialRequest {
+	required BaseRequest BaseRequest = 1;
+	required string card_id = 2;
+}
+
+message GetCardSerialResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string serial_number = 2;
+}
+message GetCardItemInfoRequest {
+	required BaseRequest BaseRequest = 1;
+	required string card_id = 2;
+    required uint32 from_scene = 3;
+    optional string from_username = 4;
+    optional string card_ext = 5;
+    optional string js_checkinfo_url = 6;
+    optional string js_checkinfo_session_username = 7;
+}
+
+message GetCardItemInfoResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string json_ret = 2;
+}
+
+message GiftCardItemRequest {
+	required BaseRequest BaseRequest = 1;
+	required string card_id = 2;
+    required string to_username = 3;
+}
+message GiftCardItemResponse {
+	required BaseResponse BaseResponse = 1;
+    optional string card_ext = 2;
+    optional int32 ret_code = 3;
+    optional string ret_msg = 4;
+}
+message AcceptCardItemRequest{
+	required BaseRequest BaseRequest = 1;
+    optional string from_username = 2;
+    required uint32 from_scene = 3;
+    required string card_id = 4;
+    optional string card_ext = 5;
+}
+message AcceptCardItemResponse{
+	required BaseResponse BaseResponse = 1;
+	optional string json_ret = 2;
+    optional int32 ret_code = 3;
+    optional string ret_msg = 4;
+}
+message GetCardCountRequest{
+	required BaseRequest BaseRequest = 1;
+}
+message GetCardCountResponse{
+	required BaseResponse BaseResponse = 1;
+    optional uint32 count = 2;
+}
+message GetAvailableCardRequest{
+	required BaseRequest BaseRequest = 1;
+    optional string app_id = 2;
+    optional uint32 shop_id = 3;
+    optional string sign_type = 4;
+    optional string card_sign = 5;
+    optional uint32 time_stamp = 6;
+    optional string nonce_str = 7;
+    optional string card_tp_id = 8;
+    optional string card_type = 9;
+}
+message GetAvailableCardResponse{
+	required BaseResponse BaseResponse = 1;
+	optional string json_ret = 2;
+}
+
+message CardListItem {
+    optional string card_tp_id = 1;
+    optional string card_ext = 2;
+    optional int32 is_succ = 3;
+}
+message CardListItems {
+    repeated CardListItem card_list = 1;
+}
+
+message GetCardListFromAppRequest{
+	required BaseRequest BaseRequest = 1;
+    repeated CardListItem card_list = 2;
+    optional uint32 from_scene = 3;
+    optional string bundle_id = 4;
+    optional string package_name = 5;
+    optional string sign = 6;
+}
+
+message GetCardListFromAppResponse{
+	required BaseResponse BaseResponse = 1;
+	optional string json_ret = 2;
+}
+
+
+message AcceptCardListFromAppRequest{
+	required BaseRequest BaseRequest = 1;
+    repeated CardListItem card_list = 2;
+    optional uint32 from_scene = 3;
+}
+
+message AcceptCardListFromAppResponse{
+	required BaseResponse BaseResponse = 1;
+    optional string json_ret = 2;
+    optional int32 ret_code = 3;
+    optional string ret_msg = 4;
+}
+
+message GetCardConfigInfoRequest{
+	required BaseRequest BaseRequest = 1;
+}
+
+message GetCardConfigInfoResponse{
+	required BaseResponse BaseResponse = 1;
+    optional string json_ret = 2;
+}
+
+message CardDataInfo {
+    optional string card_id = 1;
+}
+
+message BatchGetCardItem{
+    optional string card_id = 1;
+    optional CardDataInfo card_data_info = 2;
+}
+
+message BatchGetCardArray{
+    repeated BatchGetCardItem card_array = 1;
+}
+
+message CardTpInfoItem {
+    optional string card_tp_id = 1;
+    optional string code = 2;
+}
+
+message BatchGetCardItemByTpInfoRequest {
+	required BaseRequest BaseRequest = 1;
+    repeated CardTpInfoItem items = 2;
+}
+
+message BatchGetCardItemByTpInfoResponse {
+	required BaseResponse BaseResponse = 1;
+    optional string json_ret = 2;
+}

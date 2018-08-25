@@ -1,0 +1,65 @@
+package micromsg;
+ 
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message PositionItem {
+	required double Latitude = 1;
+	required double Longitude = 2;
+	required double Heading = 3;
+}
+
+message TrackPOIItem {
+	required double Latitude = 1;
+	required double Longitude = 2;
+	optional string Name = 3;
+	optional string Addr = 4;
+}
+
+message UserPositionItem {
+	optional string Username = 1;
+	required PositionItem Position = 2;
+}
+
+message RefreshTrackRoomRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string TrackRoomID = 2;
+	required int32 Type = 3;
+	required UserPositionItem UserPosition = 4;
+	optional uint32 TimeStamp = 5;
+	optional TrackPOIItem UserPoi = 6;
+}
+
+message RefreshTrackRoomResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 Count = 2;
+	repeated UserPositionItem Positions = 3;
+	optional string RetMsg = 4;
+	optional uint32 RefreshTime = 5;
+	optional TrackPOIItem RoomPoi = 6;
+}
+
+message JoinTrackRoomRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string Chatname = 2;
+	optional uint32 Scene = 3;
+}
+
+message JoinTrackRoomResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string TrackRoomID = 2;
+	optional string RetMsg = 3;
+}
+
+message ExitTrackRoomRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string TrackRoomID = 2;
+	optional uint32 Scene = 3;
+}
+
+message ExitTrackRoomResponse {
+	required BaseResponse BaseResponse = 1;
+	optional string RetMsg = 2;
+}
+

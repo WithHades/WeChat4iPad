@@ -1,0 +1,357 @@
+package micromsg;
+
+import "mmbuiltintype.proto";
+
+import "mmbase.proto";
+
+message InitBuffer {
+	required uint32 MaxSyncKey = 1;
+}
+
+message InitRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t UserName = 2;
+	required uint32 SyncKey = 3;
+	required SKBuiltinString_t Buffer = 4;
+	optional string Language = 5;
+}
+
+message InitResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 NewSyncKey = 2;
+	required int32 ContinueFlag = 3;
+	required uint32 CmdCount = 4;
+	repeated CmdItem CmdList = 5;
+	required SKBuiltinString_t Buffer = 6;
+	required uint32 Ratio = 7;
+}
+
+message KeyBuffer {
+	required SKBuiltinString_t synckey = 1;
+}
+
+message NewInitRequest {
+	required BaseRequest BaseRequest = 1;
+	optional string UserName = 2;
+	required SKBuiltinBuffer_t CurrentSynckey = 3;
+	required SKBuiltinBuffer_t MaxSynckey = 4;
+	optional string Language = 5;
+}
+
+message NewInitResponse {
+	required BaseResponse BaseResponse = 1;
+	required SKBuiltinBuffer_t CurrentSynckey = 2;
+	required SKBuiltinBuffer_t MaxSynckey = 3;
+	required uint32 ContinueFlag = 4;
+	required uint32 SelectBitmap = 5;
+	required uint32 CmdCount = 6;
+	repeated CmdItem CmdList = 7;
+	required uint32 Ratio = 8;
+}
+
+message SyncRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t UserName = 2;
+	required uint32 SyncKey = 3;
+	required int32 Scene = 4;
+	required int32 Option = 5;
+	required CmdList Oplog = 6;
+	optional string KeyBuf = 7;
+}
+
+message SyncResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 NewSyncKey = 2;
+	required int32 ContinueFlag = 3;
+	required uint32 CmdCount = 4;
+	repeated CmdItem CmdList = 5;
+	required uint32 OOBCount = 6;
+	repeated CmdItem OOBList = 7;
+	optional string KeyBuf = 8;
+}
+
+message KeyVal {
+	required uint32 Key = 1;
+	required uint32 Val = 2;
+}
+
+message SyncKey {
+	required uint32 KeyCount = 1;
+	repeated KeyVal Key = 2;
+}
+
+message NewSyncRequest {
+	required CmdList Oplog = 1;
+	required uint32 Selector = 2;
+	required SKBuiltinBuffer_t KeyBuf = 3;
+	optional uint32 Scene = 4;
+	optional string DeviceType = 5;
+}
+
+message NewSyncResponse {
+	required int32 Ret = 1;
+	required CmdList CmdList = 2;
+	required uint32 ContinueFlag = 3;
+	required SKBuiltinBuffer_t KeyBuf = 4;
+	optional uint32 Status = 5;
+	optional uint32 OnlineVersion = 6;
+}
+
+message SyncFriendRequest {
+	required BaseRequest BaseRequest = 1;
+	required SKBuiltinString_t UserName = 2;
+	required uint32 SyncKey = 3;
+	required int32 Scene = 4;
+}
+
+message SyncFriendResponse {
+	required BaseResponse BaseResponse = 1;
+	required uint32 NewSyncKey = 2;
+	required int32 ContinueFlag = 3;
+	required uint32 CmdCount = 4;
+	repeated CmdItem CmdList = 5;
+}
+
+message OpenQQMicroBlog {
+	required SKBuiltinString_t MicroBlogUserName = 1;
+}
+
+message ModChatRoomNotify {
+	required SKBuiltinString_t ChatRoomName = 1;
+	required uint32 Status = 2;
+}
+
+message CloseMicroBlog {
+	required SKBuiltinString_t MicroBlogUserName = 1;
+}
+
+message ModChatRoomMember {
+	required SKBuiltinString_t UserName = 1;
+	required SKBuiltinString_t NickName = 2;
+	required SKBuiltinString_t PYInitial = 3;
+	required SKBuiltinString_t QuanPin = 4;
+	required int32 Sex = 5;
+	required SKBuiltinBuffer_t ImgBuf = 6;
+	required uint32 ImgFlag = 7;
+	required SKBuiltinString_t Remark = 8;
+	required SKBuiltinString_t RemarkPYInitial = 9;
+	required SKBuiltinString_t RemarkQuanPin = 10;
+	required uint32 ContactType = 11;
+	optional string Province = 12;
+	optional string City = 13;
+	optional string Signature = 14;
+	optional uint32 PersonalCard = 15;
+	optional uint32 VerifyFlag = 16;
+	optional string VerifyInfo = 17;
+	optional string Weibo = 18;
+	optional string VerifyContent = 19;
+	optional string WeiboNickname = 20;
+	optional uint32 WeiboFlag = 21;
+	optional int32 AlbumStyle = 22;
+	optional int32 AlbumFlag = 23;
+	optional string AlbumBGImgID = 24;
+	optional string Alias = 25;
+	optional SnsUserInfo SnsUserInfo = 26;
+	optional string Country = 27;
+	optional string BigHeadImgUrl = 28;
+	optional string SmallHeadImgUrl = 29;
+	optional string MyBrandList = 30;
+	optional CustomizedInfo CustomizedInfo = 31;
+}
+
+message QuitChatRoom {
+	required SKBuiltinString_t ChatRoomName = 1;
+	required SKBuiltinString_t UserName = 2;
+}
+
+message ModChatRoomTopic {
+	required SKBuiltinString_t ChatRoomName = 1;
+	required SKBuiltinString_t ChatRoomTopic = 2;
+}
+
+message ModChatRoomMemberDisplayName {
+	optional string ChatRoomName = 1;
+	optional string UserName = 2;
+	optional string DisplayName = 3;
+}
+
+message ModChatRoomMemberFlag {
+	optional string ChatRoomName = 1;
+	optional string UserName = 2;
+	required uint32 FlagSwitch = 3;
+	required uint32 Value = 4;
+}
+
+message AddMsg {
+	required int32 MsgId = 1;
+	required SKBuiltinString_t FromUserName = 2;
+	required SKBuiltinString_t ToUserName = 3;
+	required int32 MsgType = 4;
+	required SKBuiltinString_t Content = 5;
+	required uint32 Status = 6;
+	required uint32 ImgStatus = 7;
+	required SKBuiltinBuffer_t ImgBuf = 8;
+	required uint32 CreateTime = 9;
+	optional string MsgSource = 10;
+	optional string PushContent = 11;
+	optional int64 NewMsgId = 12;
+}
+
+message ModMsgStatus {
+	required int32 MsgId = 1;
+	required SKBuiltinString_t FromUserName = 2;
+	required SKBuiltinString_t ToUserName = 3;
+	required uint32 Status = 4;
+	optional int64 NewMsgId = 5;
+}
+
+message DelContact {
+	required SKBuiltinString_t UserName = 1;
+}
+
+message DelChatContact {
+	required SKBuiltinString_t UserName = 1;
+}
+
+message DelContactMsg {
+	required SKBuiltinString_t UserName = 1;
+	required int32 MaxMsgId = 2;
+	optional int64 NewMsgId = 3;
+}
+
+message DelMsg {
+	required SKBuiltinString_t UserName = 1;
+	required uint32 Count = 2;
+	repeated int32 MsgIdList = 3[packed=true];
+}
+
+message NewDelMsg {
+	optional string FromUserName = 1;
+	optional string ToUserName = 2;
+	required int32 MsgId = 3;
+	required uint32 MsgType = 4;
+	optional int64 NewMsgId = 5;
+}
+
+message FacebookInfo {
+	required uint64 Uid = 1;
+	optional string Name = 2;
+	optional string Token = 3;
+}
+
+message ModUserImg {
+	required uint32 ImgType = 1;
+	required uint32 ImgLen = 2;
+	optional bytes ImgBuf = 3;
+	optional string ImgMd5 = 4;
+	optional string BigHeadImgUrl = 5;
+	optional string SmallHeadImgUrl = 6;
+}
+
+message ModDisturbSetting {
+	required DisturbSetting DisturbSetting = 1;
+}
+
+message ModNotifyStatus {
+	required SKBuiltinString_t UserName = 1;
+	required uint32 Status = 2;
+}
+
+message ModMicroBlogInfo {
+	required SKBuiltinString_t UserName = 1;
+	required uint32 MicroBlogType = 2;
+	required uint32 NotifyStatus = 3;
+	required uint32 DeleteFlag = 4;
+}
+
+message Report {
+	optional string Log = 1;
+}
+
+message InviteFriendOpen {
+	optional string UserName = 1;
+	required uint32 FriendType = 2;
+}
+
+message ModUserDomainEmail {
+	required uint32 Status = 1;
+	required SKBuiltinString_t Email = 2;
+}
+
+message DelUserDomainEmail {
+	required SKBuiltinString_t UserName = 1;
+	required SKBuiltinString_t Email = 2;
+}
+
+message FunctionSwitch {
+	required uint32 FunctionId = 1;
+	required uint32 SwitchValue = 2;
+}
+
+message WebWxFunctionSwitch {
+	required uint32 FunctionId = 1;
+	required uint32 SwitchValue = 2;
+}
+
+message PluginInstall {
+	required uint32 PluginFlag = 1;
+	required uint32 IsUnInstall = 2;
+}
+
+message ModTXNewsCategory {
+	required uint32 TXNewsCategory = 1;
+}
+
+message MediaNoteOpLog {
+	required uint32 WriteCount = 1;
+	required int32 NoteType = 2;
+}
+
+message GmailSwitchOplog {
+	optional string GmailAcct = 1;
+	required uint32 GmailSwitch = 2;
+}
+
+message UpdateStatOpLog {
+	required uint32 OpCode = 1;
+}
+
+message KVStatItem {
+	required uint32 Key = 1;
+	optional string Value = 2;
+}
+
+message KVStatOpLog {
+	required uint32 Count = 1;
+	repeated KVStatItem List = 2;
+}
+
+message KVCmd {
+	required uint32 Key = 1;
+	required SKBuiltinBuffer_t Value = 2;
+}
+
+message ThemeOpLog {
+	required uint32 Key = 1;
+	optional string Value = 2;
+}
+
+message ModDescription {
+	optional string ContactUsername = 1;
+	optional string Desc = 2;
+}
+
+message OplogRet {
+	required uint32 Count = 1;
+	repeated int32 Ret = 2[packed=true];
+}
+
+message OplogRequest {
+	required CmdList Oplog = 1;
+}
+
+message OplogResponse {
+	required int32 Ret = 1;
+	required OplogRet OplogRet = 2;
+}
+
